@@ -1,0 +1,113 @@
+<div class="container mt-5">
+    <div class="jumbotron text-center">
+        <?php if (has_post_thumbnail($post->ID)): ?>
+            <div class="profile-image mb-3">
+                <?php echo get_the_post_thumbnail($post->ID, 'full', ['class' => 'img-fluid rounded-circle']); ?>
+            </div>
+        <?php endif; ?>
+        <h1 class="display-4"><?php echo esc_html(get_post_meta($post->ID, 'wpcf-name', true)); ?></h1>
+        <p class="lead"><?php echo esc_html(get_post_meta($post->ID, 'wpcf-career', true)); ?></p>
+        <hr class="my-4">
+        <p><?php echo esc_html(get_post_meta($post->ID, 'wpcf-location', true)); ?></p>
+        <p><a href="mailto:<?php echo esc_attr(get_post_meta($post->ID, 'wpcf-email', true)); ?>" class="btn btn-primary"><?php echo esc_html(get_post_meta($post->ID, 'wpcf-email', true)); ?></a></p>
+    </div>
+
+    <div class="text-center mb-4">
+        <label for="select-lang" class="form-label"><?php _e('Select Language:', 'text_domain'); ?></label>
+        <select class="form-select" id="select-lang">
+            <option value="en"><?php _e('English', 'text_domain'); ?></option>
+            <option value="es"><?php _e('Spanish', 'text_domain'); ?></option>
+        </select>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card mb-4 lang-es d-none">
+                <div class="card-body">
+                    <h5 class="card-title"><?php _e('Bio (ES)', 'text_domain'); ?></h5>
+                    <p class="card-text"><?php echo nl2br(esc_html(get_post_meta($post->ID, 'wpcf-bio_es', true))); ?></p>
+                </div>
+            </div>
+            <div class="card mb-4 lang-en">
+                <div class="card-body">
+                    <h5 class="card-title"><?php _e('Bio (EN)', 'text_domain'); ?></h5>
+                    <p class="card-text"><?php echo nl2br(esc_html(get_post_meta($post->ID, 'wpcf-bio_en', true))); ?></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card mb-4 lang-es d-none">
+                <div class="card-body">
+                    <h5 class="card-title"><?php _e('CV (ES)', 'text_domain'); ?></h5>
+                    <?php if ($cv_es = get_post_meta($post->ID, 'wpcf-cv_es', true)): ?>
+                        <a href="<?php echo esc_url($cv_es); ?>" target="_blank" class="btn btn-primary"><?php _e('Download CV (ES)', 'text_domain'); ?></a>
+                    <?php endif; ?>
+                </div>
+            </div>
+            <div class="card mb-4 lang-en">
+                <div class="card-body">
+                    <h5 class="card-title"><?php _e('CV (EN)', 'text_domain'); ?></h5>
+                    <?php if ($cv_en = get_post_meta($post->ID, 'wpcf-cv_en', true)): ?>
+                        <a href="<?php echo esc_url($cv_en); ?>" target="_blank" class="btn btn-primary"><?php _e('Download CV (EN)', 'text_domain'); ?></a>
+                    <?php endif; ?>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-md-4">
+            <div class="card mb-4">
+                <div class="card-body text-center">
+                    <h5 class="card-title"><?php _e('GitHub', 'text_domain'); ?></h5>
+                    <a href="<?php echo esc_url(get_post_meta($post->ID, 'wpcf-git_url', true)); ?>" target="_blank" class="btn btn-outline-dark">
+                        <i class="fab fa-github"></i> GitHub
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card mb-4">
+                <div class="card-body text-center">
+                    <h5 class="card-title"><?php _e('LinkedIn', 'text_domain'); ?></h5>
+                    <a href="<?php echo esc_url(get_post_meta($post->ID, 'wpcf-linkedin_url', true)); ?>" target="_blank" class="btn btn-outline-primary">
+                        <i class="fab fa-linkedin"></i> LinkedIn
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card mb-4">
+                <div class="card-body text-center">
+                    <h5 class="card-title"><?php _e('Stack Overflow', 'text_domain'); ?></h5>
+                    <a href="<?php echo esc_url(get_post_meta($post->ID, 'wpcf-stackoverflow_url', true)); ?>" target="_blank" class="btn btn-outline-warning">
+                        <i class="fab fa-stack-overflow"></i> Stack Overflow
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+document.getElementById('select-lang').addEventListener('change', function() {
+    var lang = this.value;
+    var esElements = document.querySelectorAll('.lang-es');
+    var enElements = document.querySelectorAll('.lang-en');
+    if (lang === 'es') {
+        esElements.forEach(function(el) {
+            el.classList.remove('d-none');
+        });
+        enElements.forEach(function(el) {
+            el.classList.add('d-none');
+        });
+    } else {
+        esElements.forEach(function(el) {
+            el.classList.add('d-none');
+        });
+        enElements.forEach(function(el) {
+            el.classList.remove('d-none');
+        });
+    }
+});
+</script>
