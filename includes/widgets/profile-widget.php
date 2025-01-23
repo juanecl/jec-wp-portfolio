@@ -16,7 +16,7 @@ class Profile_Widget extends WP_Widget {
             $post = get_post($post_id);
             if ($post && $post->post_type === 'profile') {
                 echo $args['before_widget'];
-                include get_template_directory() . '/portfolio/front/profile-display.php';
+                include plugin_dir_path(__FILE__) . 'profile-display.php';
                 echo $args['after_widget'];
             }
         }

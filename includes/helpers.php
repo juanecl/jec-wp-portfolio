@@ -38,7 +38,7 @@ add_filter('use_block_editor_for_post_type', 'disable_gutenberg_for_custom_post_
 
 function load_partial($partial_name, $variables = []) {
     extract($variables);
-    $template_path = plugin_dir_path(__FILE__) . "partials/{$partial_name}.php";
+    $template_path = plugin_dir_path(__FILE__) . "partials/meta-boxes/{$partial_name}.php";
     if ($template_path && file_exists($template_path)) {
         include $template_path;
     } else {

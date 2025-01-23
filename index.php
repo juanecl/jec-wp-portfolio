@@ -2,11 +2,13 @@
 /*
 Plugin Name: Portfolio Plugin
 Plugin URI: https://www.juane.cl
-Description: Un plugin para gestionar el portafolio.
+Description: A plugin to manage portfolios.
 Version: 1.0
 Author: Juan Enrique Chomon Del Campo
 Author URI: https://www.juane.cl
 License: GPL2
+Text Domain: portfolio-plugin
+Domain Path: /languages
 */
 
 if (!defined('ABSPATH')) {
@@ -35,11 +37,8 @@ class PortfolioPlugin {
 
     private function includes() {
         require_once plugin_dir_path(__FILE__) . 'includes/helpers.php';
-        require_once plugin_dir_path(__FILE__) . 'includes/post_types/company.php';
-        require_once plugin_dir_path(__FILE__) . 'includes/post_types/position.php';
-        require_once plugin_dir_path(__FILE__) . 'includes/post_types/profile.php';
-        require_once plugin_dir_path(__FILE__) . 'includes/post_types/project.php';
-        require_once plugin_dir_path(__FILE__) . 'includes/front/profile-widget.php';
+        require_once plugin_dir_path(__FILE__) . 'includes/post-types/index.php';
+        require_once plugin_dir_path(__FILE__) . 'includes/widgets/profile-widget.php';
     }
 
     private function init_hooks() {
