@@ -1,24 +1,24 @@
 # Portfolio Plugin
 
-## Descripción
+## Description
 
-El Portfolio Plugin es un plugin de WordPress diseñado para gestionar el portafolio. Permite crear y administrar diferentes tipos de contenido relacionados con el portafolio, como posiciones, proyectos, perfiles y empresas.
+The Portfolio Plugin is a WordPress plugin designed to manage portfolios. It allows you to create and manage different types of content related to portfolios, such as positions, projects, profiles, and companies.
 
-## Instalación
+## Installation
 
-1. Descarga el plugin y descomprímelo en tu directorio de plugins de WordPress (`/wp-content/plugins/`).
-2. Activa el plugin desde el menú de plugins de WordPress.
+1. Download the plugin and unzip it into your WordPress plugins directory (`/wp-content/plugins/`).
+2. Activate the plugin from the WordPress plugins menu.
 
-## Uso
+## Usage
 
-El plugin registra varios tipos de contenido personalizados y taxonomías para gestionar el portafolio. Puedes acceder a estos tipos de contenido desde el panel de administración de WordPress.
+The plugin registers several custom post types and taxonomies to manage the portfolio. You can access these post types from the WordPress admin panel.
 
-## Funciones
+## Functions
 
-- **portfolio_plugin_activate**: Función que se ejecuta durante la activación del plugin.
-- **portfolio_plugin_deactivate**: Función que se ejecuta durante la desactivación del plugin.
+- **portfolio_plugin_activate**: Function that runs during the plugin activation.
+- **portfolio_plugin_deactivate**: Function that runs during the plugin deactivation.
 
-## Estructura del Plugin
+## Plugin Structure
 
 ├── assets
 │   └── js
@@ -46,12 +46,11 @@ El plugin registra varios tipos de contenido personalizados y taxonomías para g
 │       └── project.php
 └── index.php
 
-
-## Autor
+## Author
 
 **Juan Enrique Chomon Del Campo**  
 [https://www.juane.cl](https://www.juane.cl)
 
-## Licencia
+## License
 
-Este plugin está licenciado bajo la GPL2.
+This plugin is licensed under the GPL2.
