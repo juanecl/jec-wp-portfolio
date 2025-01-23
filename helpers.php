@@ -1,7 +1,7 @@
 <?php
 
 function enqueue_admin_scripts() {
-    wp_enqueue_script('admin-js', get_template_directory_uri() . '/portfolio/assets/js/admin.js', ['jquery'], null, true);
+    wp_enqueue_script('admin-js', plugin_dir_url(__FILE__) . '../assets/js/admin.js', ['jquery'], null, true);
 }
 add_action('admin_enqueue_scripts', 'enqueue_admin_scripts');
 
@@ -38,7 +38,7 @@ add_filter('use_block_editor_for_post_type', 'disable_gutenberg_for_custom_post_
 
 function load_partial($partial_name, $variables = []) {
     extract($variables);
-    $template_path = get_template_directory() . "/portfolio/partials/{$partial_name}.php";
+    $template_path = plugin_dir_path(__FILE__) . "partials/{$partial_name}.php";
     if ($template_path && file_exists($template_path)) {
         include $template_path;
     } else {

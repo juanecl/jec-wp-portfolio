@@ -1,6 +1,6 @@
 <?php
 
-require_once get_template_directory() . '/portfolio/partials/abstract-meta-box.php';
+require_once plugin_dir_path(__FILE__) . '../partials/abstract-meta-box.php';
 
 class ProjectPostType extends AbstractMetaBox {
     private static $instance = null;
@@ -81,14 +81,8 @@ class ProjectPostType extends AbstractMetaBox {
     }
 
     public function add_meta_boxes() {
-        // add_meta_box('project_name', __('Project Name', 'text_domain'), [$this, 'render_name_meta_box'], 'project', 'normal', 'high');
         add_meta_box('project_description', __('Description', 'text_domain'), [$this, 'render_description_meta_box'], 'project', 'normal', 'high');
         add_meta_box('project_dates', __('Dates', 'text_domain'), [$this, 'render_dates_meta_box'], 'project', 'side', 'default');
-    }
-
-    public function render_name_meta_box($post) {
-        wp_nonce_field('save_project_fields_nonce', 'project_fields_nonce');
-        $this->render_text_meta_box($post, 'name', __('Project Name', 'text_domain'), __('Enter the name of the project.', 'text_domain'));
     }
 
     public function render_description_meta_box($post) {
@@ -126,13 +120,13 @@ class ProjectPostType extends AbstractMetaBox {
         } else {
             error_log('Post detected.');
             if (!current_user_can('edit_post', $post_id)) {
-                error_log( 'User cannot edit post.');
+                error_log('User cannot edit post.');
                 return;
             }
         }
 
         // Guardar campos personalizados
-        $fields = ['name', 'description', 'active', 'start-date', 'end-date'];
+        $fields = ['description', 'active', 'start-date', 'end-date'];
         foreach ($fields as $field) {
             $field_id = 'wpcf-' . $field;
             error_log('Saving field: ' . $field_id);

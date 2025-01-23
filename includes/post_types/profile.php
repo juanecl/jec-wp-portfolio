@@ -1,6 +1,6 @@
 <?php
 
-require_once get_template_directory() . '/portfolio/partials/abstract-meta-box.php';
+require_once plugin_dir_path(__FILE__) . '../partials/abstract-meta-box.php';
 
 class ProfilePostType extends AbstractMetaBox {
     private static $instance = null;
