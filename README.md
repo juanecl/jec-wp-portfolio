@@ -19,7 +19,7 @@ The plugin registers several custom post types and taxonomies to manage the port
 - **portfolio_plugin_deactivate**: Function that runs during the plugin deactivation.
 
 ## Plugin Structure
-
+```
 ├── assets
 │   └── js
 │       └── admin.js
@@ -45,6 +45,7 @@ The plugin registers several custom post types and taxonomies to manage the port
 │       ├── profile.php
 │       └── project.php
 └── index.php
+```
 
 ## Author
 
