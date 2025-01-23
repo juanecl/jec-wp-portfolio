@@ -28,9 +28,6 @@ class PositionPostType extends AbstractMetaBoxRenderer {
     }
 
     public function register_post_type() {
-        $options = get_option('position_settings');
-
-        error_log('Registering post type position with options: ' . print_r($options, true));
         $labels = [
             'name' => _x('Positions', 'Post Type General Name', 'portfolio-plugin'),
             'singular_name' => _x('Position', 'Post Type Singular Name', 'portfolio-plugin'),

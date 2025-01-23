@@ -38,7 +38,6 @@ class PortfolioPlugin {
     private function includes() {
         require_once plugin_dir_path(__FILE__) . 'includes/helpers.php';
         require_once plugin_dir_path(__FILE__) . 'includes/post-types/index.php';
-        require_once plugin_dir_path(__FILE__) . 'includes/settings.php';
         require_once plugin_dir_path(__FILE__) . 'includes/widgets/profile-widget.php';
     }
 
