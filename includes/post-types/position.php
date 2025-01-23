@@ -135,19 +135,52 @@ class PositionPostType extends AbstractMetaBoxRenderer {
                 return;
             }
         }
-        error_log('Saving custom fields' . print_r($_POST, true));
         // Save custom fields
         $fields = ['description', 'company_id', 'location', 'project_ids'];
         foreach ($fields as $field) {
             $field_id = 'wpcf-' . $field;
-            if (isset($_POST[$field_id])) {
-                error_log('Saving field: ' . $field_id);
-                $value = sanitize_text_field($_POST[$field_id]);
-                update_post_meta($post_id, $field_id, $value);
-            } else {
-                delete_post_meta($post_id, $field_id);
+            try {
+                if (isset($_POST[$field_id])) {
+                    error_log('Saving field: ' . $field_id);
+                    $value = $_POST[$field_id];
+                    if (is_array($value)) {
+                        $value = array_map('sanitize_text_field', $value);
+                    } else {
+                        $value = sanitize_text_field($value);
+                    }
+        
+                    // Verificar si el valor es válido
+                    if (empty($value)) {
+                        throw new Exception('The value for field ' . $field_id . ' is empty or invalid.');
+                    }
+        
+                    // Verificar si el meta campo ya existe
+                    $current_value = get_post_meta($post_id, $field_id, true);
+                    if ($current_value === $value) {
+                        error_log('The value for field ' . $field_id . ' is already up to date.');
+                    } else {
+                        if (!update_post_meta($post_id, $field_id, $value)) {
+                            throw new Exception('Failed to update post meta for field: ' . $field_id);
+                        }
+                    }
+                } else {
+                    if (!delete_post_meta($post_id, $field_id)) {
+                        throw new Exception('Failed to delete post meta for field: ' . $field_id);
+                    }
+                }
+            } catch (Exception $e) {
+                error_log('Error: ' . $e->getMessage());
+                add_settings_error(
+                    'position_meta_box_errors',
+                    esc_attr('settings_updated'),
+                    $e->getMessage(),
+                    'error'
+                );
             }
         }
+        
+        // Mostrar errores en la pantalla de administración
+        settings_errors('position_meta_box_errors');
     }
 }
 
