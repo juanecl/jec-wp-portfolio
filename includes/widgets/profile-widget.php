@@ -5,8 +5,8 @@ class Profile_Widget extends WP_Widget {
     public function __construct() {
         parent::__construct(
             'profile_widget', // Base ID
-            __('Profile Widget', 'text_domain'), // Name
-            ['description' => __('A widget to display profile information', 'text_domain'),] // Args
+            __('Profile Widget', 'jec-portfolio'), // Name
+            ['description' => __('A widget to display profile information', 'jec-portfolio'),] // Args
         );
     }
 
@@ -28,9 +28,9 @@ class Profile_Widget extends WP_Widget {
 
         ?>
         <p>
-            <label for="<?php echo esc_attr($this->get_field_id('profile_id')); ?>"><?php _e('Select Profile:', 'text_domain'); ?></label>
+            <label for="<?php echo esc_attr($this->get_field_id('profile_id')); ?>"><?php _e('Select Profile:', 'jec-portfolio'); ?></label>
             <select class="widefat" id="<?php echo esc_attr($this->get_field_id('profile_id')); ?>" name="<?php echo esc_attr($this->get_field_name('profile_id')); ?>">
-                <option value=""><?php _e('Select a profile', 'text_domain'); ?></option>
+                <option value=""><?php _e('Select a profile', 'jec-portfolio'); ?></option>
                 <?php foreach ($profiles as $profile): ?>
                     <option value="<?php echo esc_attr($profile->ID); ?>" <?php selected($profile_id, $profile->ID); ?>><?php echo esc_html($profile->post_title); ?></option>
                 <?php endforeach; ?>

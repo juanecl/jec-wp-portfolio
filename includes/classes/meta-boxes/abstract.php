@@ -17,7 +17,7 @@ abstract class AbstractMetaBox {
      */
     protected function validate_params($field, $title, $description) {
         if (empty($field) || empty($title) || empty($description)) {
-            throw new InvalidArgumentException(__('All parameters are required.', 'portfolio-plugin'));
+            throw new InvalidArgumentException(__('All parameters are required.', 'jec-portfolio'));
         }
     }
 

@@ -29,38 +29,38 @@ class PositionPostType extends AbstractMetaBoxRenderer {
 
     public function register_post_type() {
         $labels = [
-            'name' => _x('Positions', 'Post Type General Name', 'portfolio-plugin'),
-            'singular_name' => _x('Position', 'Post Type Singular Name', 'portfolio-plugin'),
-            'menu_name' => __('Positions', 'portfolio-plugin'),
-            'name_admin_bar' => __('Position', 'portfolio-plugin'),
-            'archives' => __('Position Archives', 'portfolio-plugin'),
-            'attributes' => __('Position Attributes', 'portfolio-plugin'),
-            'parent_item_colon' => __('Parent Position:', 'portfolio-plugin'),
-            'all_items' => __('All Positions', 'portfolio-plugin'),
-            'add_new_item' => __('Add New Position', 'portfolio-plugin'),
-            'add_new' => __('Add New', 'portfolio-plugin'),
-            'new_item' => __('New Position', 'portfolio-plugin'),
-            'edit_item' => __('Edit Position', 'portfolio-plugin'),
-            'update_item' => __('Update Position', 'portfolio-plugin'),
-            'view_item' => __('View Position', 'portfolio-plugin'),
-            'view_items' => __('View Positions', 'portfolio-plugin'),
-            'search_items' => __('Search Position', 'portfolio-plugin'),
-            'not_found' => __('Not found', 'portfolio-plugin'),
-            'not_found_in_trash' => __('Not found in Trash', 'portfolio-plugin'),
-            'featured_image' => __('Featured Image', 'portfolio-plugin'),
-            'set_featured_image' => __('Set featured image', 'portfolio-plugin'),
-            'remove_featured_image' => __('Remove featured image', 'portfolio-plugin'),
-            'use_featured_image' => __('Use as featured image', 'portfolio-plugin'),
-            'insert_into_item' => __('Insert into position', 'portfolio-plugin'),
-            'uploaded_to_this_item' => __('Uploaded to this position', 'portfolio-plugin'),
-            'items_list' => __('Positions list', 'portfolio-plugin'),
-            'items_list_navigation' => __('Positions list navigation', 'portfolio-plugin'),
-            'filter_items_list' => __('Filter positions list', 'portfolio-plugin'),
+            'name' => _x('Positions', 'Post Type General Name', 'jec-portfolio'),
+            'singular_name' => _x('Position', 'Post Type Singular Name', 'jec-portfolio'),
+            'menu_name' => __('Positions', 'jec-portfolio'),
+            'name_admin_bar' => __('Position', 'jec-portfolio'),
+            'archives' => __('Position Archives', 'jec-portfolio'),
+            'attributes' => __('Position Attributes', 'jec-portfolio'),
+            'parent_item_colon' => __('Parent Position:', 'jec-portfolio'),
+            'all_items' => __('All Positions', 'jec-portfolio'),
+            'add_new_item' => __('Add New Position', 'jec-portfolio'),
+            'add_new' => __('Add New', 'jec-portfolio'),
+            'new_item' => __('New Position', 'jec-portfolio'),
+            'edit_item' => __('Edit Position', 'jec-portfolio'),
+            'update_item' => __('Update Position', 'jec-portfolio'),
+            'view_item' => __('View Position', 'jec-portfolio'),
+            'view_items' => __('View Positions', 'jec-portfolio'),
+            'search_items' => __('Search Position', 'jec-portfolio'),
+            'not_found' => __('Not found', 'jec-portfolio'),
+            'not_found_in_trash' => __('Not found in Trash', 'jec-portfolio'),
+            'featured_image' => __('Featured Image', 'jec-portfolio'),
+            'set_featured_image' => __('Set featured image', 'jec-portfolio'),
+            'remove_featured_image' => __('Remove featured image', 'jec-portfolio'),
+            'use_featured_image' => __('Use as featured image', 'jec-portfolio'),
+            'insert_into_item' => __('Insert into position', 'jec-portfolio'),
+            'uploaded_to_this_item' => __('Uploaded to this position', 'jec-portfolio'),
+            'items_list' => __('Positions list', 'jec-portfolio'),
+            'items_list_navigation' => __('Positions list navigation', 'jec-portfolio'),
+            'filter_items_list' => __('Filter positions list', 'jec-portfolio'),
         ];
 
         $args = [
-            'label' => __('Position', 'portfolio-plugin'),
-            'description' => __('Description of the Position post type', 'portfolio-plugin'),
+            'label' => __('Position', 'jec-portfolio'),
+            'description' => __('Description of the Position post type', 'jec-portfolio'),
             'labels' => $labels,
             'supports' => ['title', 'thumbnail'],
             'hierarchical' => false,
@@ -82,56 +82,50 @@ class PositionPostType extends AbstractMetaBoxRenderer {
     }
 
     public function add_meta_boxes() {
-        add_meta_box('position_description', __('Description', 'text_domain'), [$this, 'render_description_meta_box'], 'position', 'normal', 'high');
-        add_meta_box('position_company', __('Company', 'portfolio-plugin'), [$this, 'render_company_meta_box'], 'position', 'normal', 'high');
-        add_meta_box('position_location', __('Location', 'portfolio-plugin'), [$this, 'render_location_meta_box'], 'position', 'normal', 'high');
-        add_meta_box('position_projects', __('Projects', 'portfolio-plugin'), [$this, 'render_projects_meta_box'], 'position', 'side', 'default');
+        add_meta_box('position_description', __('Description', 'jec-portfolio'), [$this, 'render_description_meta_box'], 'position', 'normal', 'high');
+        add_meta_box('position_company', __('Company', 'jec-portfolio'), [$this, 'render_company_meta_box'], 'position', 'normal', 'high');
+        add_meta_box('position_location', __('Location', 'jec-portfolio'), [$this, 'render_location_meta_box'], 'position', 'normal', 'high');
+        add_meta_box('position_projects', __('Projects', 'jec-portfolio'), [$this, 'render_projects_meta_box'], 'position', 'side', 'default');
     }
 
     public function render_projects_meta_box($post) {
         wp_nonce_field('save_position_fields_nonce', 'position_fields_nonce');
-        error_log(print_r($post, true));
-
-        $this->render_meta_box('multiselect', $post, 'project_ids', __('Select Projects', 'portfolio-plugin'), __('Select the projects associated with this position.', 'portfolio-plugin'), ['post_type' => 'project']);
+        $this->render_meta_box('multiselect', $post, 'project_ids', __('Select Projects', 'jec-portfolio'), __('Select the projects associated with this position.', 'jec-portfolio'), ['post_type' => 'project']);
     }
 
     public function render_description_meta_box($post) {
         wp_nonce_field('save_position_fields_nonce', 'position_fields_nonce');
-        $this->render_meta_box('textarea', $post, 'description', __('Description', 'text_domain'), __('Enter the description of the position.', 'text_domain'));
+        $this->render_meta_box('textarea', $post, 'description', __('Description', 'jec-portfolio'), __('Enter the description of the position.', 'jec-portfolio'));
     }
 
     public function render_company_meta_box($post) {
         wp_nonce_field('save_position_fields_nonce', 'position_fields_nonce');
-        $this->render_meta_box('select', $post, 'company_id', __('Select Company', 'portfolio-plugin'), __('Select the company associated with this position.', 'portfolio-plugin'), ['post_type' => 'company']);
+        $this->render_meta_box('select', $post, 'company_id', __('Select Company', 'jec-portfolio'), __('Select the company associated with this position.', 'jec-portfolio'), ['post_type' => 'company']);
     }
 
     public function render_location_meta_box($post) {
         wp_nonce_field('save_position_fields_nonce', 'position_fields_nonce');
-        $this->render_meta_box('text', $post, 'location', __('Location', 'portfolio-plugin'), __('Enter the location for this position.', 'portfolio-plugin'));
+        $this->render_meta_box('text', $post, 'location', __('Location', 'jec-portfolio'), __('Enter the location for this position.', 'jec-portfolio'));
     }
 
     public function save_custom_fields($post_id) {
         // Verify nonce.
         if (!isset($_POST['position_fields_nonce']) || !wp_verify_nonce($_POST['position_fields_nonce'], 'save_position_fields_nonce')) {
-            error_log('Nonce verification failed');
             return;
         }
 
         // Verify autosave.
         if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
-            error_log('Autosave verification failed');
             return;
         }
 
         // Verify user permissions.
         if (isset($_POST['post_type']) && 'page' == $_POST['post_type']) {
             if (!current_user_can('edit_page', $post_id)) {
-                error_log('User permissions verification failed');
                 return;
             }
         } else {
             if (!current_user_can('edit_post', $post_id)) {
-                error_log('User permissions verification failed');
                 return;
             }
         }
@@ -141,7 +135,6 @@ class PositionPostType extends AbstractMetaBoxRenderer {
             $field_id = 'wpcf-' . $field;
             try {
                 if (isset($_POST[$field_id])) {
-                    error_log('Saving field: ' . $field_id);
                     $value = $_POST[$field_id];
                     if (is_array($value)) {
                         $value = array_map('sanitize_text_field', $value);

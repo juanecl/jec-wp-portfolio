@@ -5,23 +5,6 @@ function enqueue_admin_scripts() {
 }
 add_action('admin_enqueue_scripts', 'enqueue_admin_scripts');
 
-function hide_editor_for_position() {
-    global $pagenow;
-    if ($pagenow !== 'post.php' && $pagenow !== 'post-new.php') {
-        return;
-    }
-
-    $post_type = get_post_type();
-    if ($post_type === 'position') {
-        echo '<style type="text/css">
-            #postdivrich {
-                display: none;
-            }
-        </style>';
-    }
-}
-add_action('admin_head', 'hide_editor_for_position');
-
 /**
  * Disable Gutenberg for specific post types.
  */

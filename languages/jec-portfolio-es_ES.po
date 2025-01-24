@@ -1,0 +1,464 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: jec-portfolio 1.0.0\n"
+"POT-Creation-Date: 2025-01-24 15:11+0000\n"
+"PO-Revision-Date: 2025-01-24 15:12+0000\n"
+"Last-Translator: \n"
+"Language-Team: Español\n"
+"Language: es_ES\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"Report-Msgid-Bugs-To: \n"
+"X-Loco-Version: 2.6.14; wp-6.7.1"
+
+#. Description of the plugin
+msgid "A plugin to manage portfolios."
+msgstr "Un complemento para administrar portafolios."
+
+#: includes/widgets/profile-widget.php:9
+msgid "A widget to display profile information"
+msgstr "Un widget para mostrar información del perfil"
+
+#: includes/post-types/position.php:41 includes/post-types/profile.php:33
+#: includes/partials/meta-boxes/select.php:17
+msgid "Add New"
+msgstr "Agregar nuevo"
+
+#: includes/post-types/position.php:40
+msgid "Add New Position"
+msgstr "Agregar nuevo cargo"
+
+#: includes/post-types/profile.php:32
+msgid "Add New Profile"
+msgstr "Agregar nuevo perfil"
+
+#: includes/classes/meta-boxes/abstract.php:20
+msgid "All parameters are required."
+msgstr "Todos los parámetros son obligatorios."
+
+#: includes/post-types/position.php:39
+msgid "All Positions"
+msgstr "Todas los cargos"
+
+#: includes/post-types/profile.php:31
+msgid "All Profiles"
+msgstr "Todos los perfiles"
+
+#: includes/post-types/profile.php:77
+msgid "Basic Information"
+msgstr "Información básica"
+
+#: includes/widgets/profile-display.php:28
+msgid "Bio"
+msgstr "Acerca"
+
+#: includes/post-types/profile.php:79
+msgid "Bio (EN)"
+msgstr "Acerca"
+
+#: includes/post-types/profile.php:78
+msgid "Bio (ES)"
+msgstr "Acerca"
+
+#: includes/post-types/profile.php:102
+msgid "Bio EN"
+msgstr "Acerca"
+
+#: includes/post-types/profile.php:96
+msgid "Bio ES"
+msgstr "Acerca"
+
+#: includes/post-types/profile.php:86
+msgid "Birthdate"
+msgstr "Fecha de nacimiento"
+
+#: includes/post-types/profile.php:90
+msgid "Career"
+msgstr "Carrera"
+
+#: includes/post-types/position.php:86
+msgid "Company"
+msgstr "Compañía"
+
+#: includes/widgets/profile-display.php:42
+msgid "CV"
+msgstr "Currículum"
+
+#: includes/post-types/profile.php:101
+msgid "CV EN"
+msgstr "Currículum"
+
+#: includes/post-types/profile.php:95
+msgid "CV ES"
+msgstr "Currículum"
+
+#: includes/post-types/position.php:85 includes/post-types/position.php:98
+msgid "Description"
+msgstr "Descripción"
+
+#: includes/post-types/position.php:63
+msgid "Description of the Position post type"
+msgstr "Descripción del tipo de entrada 'Cargo'"
+
+#: includes/post-types/profile.php:55
+msgid "Description of the Profile post type"
+msgstr "Descripción del tipo de entrada 'Perfil'"
+
+#: includes/widgets/profile-display.php:44
+msgid "Download CV"
+msgstr "Descargar currículum"
+
+#: includes/widgets/profile-display.php:52
+msgid "Download resume"
+msgstr "Descargar curriculum"
+
+#: includes/post-types/position.php:43
+msgid "Edit Position"
+msgstr "Editar cargo"
+
+#: includes/post-types/profile.php:35
+msgid "Edit Profile"
+msgstr "Editar perfil"
+
+#: includes/post-types/profile.php:89
+msgid "Email"
+msgstr "Correo electrónico"
+
+#: includes/widgets/profile-display.php:19
+msgid "English"
+msgstr "Inglés"
+
+#: includes/post-types/profile.php:102
+msgid "Enter the bio in English."
+msgstr "Introduzca la biografía en inglés."
+
+#: includes/post-types/profile.php:96
+msgid "Enter the bio in Spanish."
+msgstr "Ingresa la biografía en español."
+
+#: includes/post-types/profile.php:86
+msgid "Enter the birthdate."
+msgstr "Introduzca la fecha de nacimiento."
+
+#: includes/post-types/profile.php:90
+msgid "Enter the career."
+msgstr "Ingresa el título universitario."
+
+#: includes/post-types/position.php:98
+msgid "Enter the description of the position."
+msgstr "Ingrese la descripción del cargo."
+
+#: includes/post-types/profile.php:89
+msgid "Enter the email address."
+msgstr "Introduzca la dirección de correo electrónico."
+
+#: includes/post-types/profile.php:107
+msgid "Enter the Git URL."
+msgstr "Introduzca la URL de Git."
+
+#: includes/post-types/profile.php:108
+msgid "Enter the LinkedIn URL."
+msgstr "Introduzca la URL de LinkedIn."
+
+#: includes/post-types/position.php:108
+msgid "Enter the location for this position."
+msgstr "Introduzca la ubicación para este cargo."
+
+#: includes/post-types/profile.php:88
+msgid "Enter the location."
+msgstr "Introduzca la ubicación."
+
+#: includes/post-types/profile.php:85
+msgid "Enter the name."
+msgstr "Introduzca el nombre."
+
+#: includes/post-types/profile.php:87
+msgid "Enter the phone number."
+msgstr "Introduzca el número de teléfono."
+
+#: includes/post-types/profile.php:109
+msgid "Enter the StackOverflow URL."
+msgstr "Ingrese la URL de StackOverflow."
+
+#: includes/post-types/position.php:50 includes/post-types/profile.php:42
+msgid "Featured Image"
+msgstr "Imagen destacada"
+
+#: includes/post-types/position.php:58
+msgid "Filter positions list"
+msgstr "Filtrar listado de cargos"
+
+#: includes/post-types/profile.php:50
+msgid "Filter profiles list"
+msgstr "Filtrar listado de perfiles"
+
+#: includes/post-types/profile.php:107
+msgid "Git URL"
+msgstr "URL de Git"
+
+#: includes/widgets/profile-display.php:63
+msgid "GitHub"
+msgstr "GitHub"
+
+#. URI of the plugin
+#. Author URI of the plugin
+msgid "https://www.juane.cl"
+msgstr "https://www.juane.cl"
+
+#: includes/post-types/position.php:54
+msgid "Insert into position"
+msgstr "Insertar en cargo"
+
+#: includes/post-types/profile.php:46
+msgid "Insert into profile"
+msgstr "Insertar en el perfil"
+
+#. Author of the plugin
+msgid "Juan Enrique Chomon Del Campo"
+msgstr "Juan Enrique Chomon Del Campo"
+
+#: includes/widgets/profile-display.php:73
+msgid "LinkedIn"
+msgstr "LinkedIn"
+
+#: includes/post-types/profile.php:108
+msgid "LinkedIn URL"
+msgstr "URL de LinkedIn"
+
+#: includes/post-types/position.php:87 includes/post-types/position.php:108
+#: includes/post-types/profile.php:88
+msgid "Location"
+msgstr "Ubicación"
+
+#: includes/post-types/profile.php:85
+msgid "Name"
+msgstr "Nombre"
+
+#: includes/post-types/position.php:42
+msgid "New Position"
+msgstr "Nuevo cargo"
+
+#: includes/post-types/profile.php:34
+msgid "New Profile"
+msgstr "Nuevo perfil"
+
+#: includes/post-types/position.php:48 includes/post-types/profile.php:40
+msgid "Not found"
+msgstr "No encontrado"
+
+#: includes/post-types/position.php:49 includes/post-types/profile.php:41
+msgid "Not found in Trash"
+msgstr "No se encontró en la papelera"
+
+#: includes/post-types/position.php:38
+msgid "Parent Position:"
+msgstr "Cargo anterior:"
+
+#: includes/post-types/profile.php:30
+msgid "Parent Profile:"
+msgstr "Perfil anterior:"
+
+#: includes/post-types/profile.php:87
+msgid "Phone"
+msgstr "Teléfono"
+
+#. Name of the plugin
+msgid "Portfolio Plugin"
+msgstr "Portafolio"
+
+#: includes/post-types/position.php:35 includes/post-types/position.php:62
+msgid "Position"
+msgstr "Cargo"
+
+#: includes/post-types/position.php:36
+msgid "Position Archives"
+msgstr "Archivos de cargos"
+
+#: includes/post-types/position.php:37
+msgid "Position Attributes"
+msgstr "Atributos de la cargo"
+
+#: includes/post-types/position.php:34
+msgid "Positions"
+msgstr "Cargos"
+
+#: includes/post-types/position.php:56
+msgid "Positions list"
+msgstr "Lista de cargos"
+
+#: includes/post-types/position.php:57
+msgid "Positions list navigation"
+msgstr "Navegación por la lista de cargos"
+
+#: includes/post-types/position.php:32
+
+msgctxt "Post Type General Name"
+msgid "Positions"
+msgstr "Cargos"
+
+#: includes/post-types/profile.php:24
+
+msgctxt "Post Type General Name"
+msgid "Profiles"
+msgstr "Perfiles"
+
+#: includes/post-types/position.php:33
+
+msgctxt "Post Type Singular Name"
+msgid "Position"
+msgstr "Cargo"
+
+#: includes/post-types/profile.php:25
+
+msgctxt "Post Type Singular Name"
+msgid "Profile"
+msgstr "Perfil"
+
+#: includes/post-types/profile.php:27 includes/post-types/profile.php:54
+msgid "Profile"
+msgstr "Perfil"
+
+#: includes/post-types/profile.php:28
+msgid "Profile Archives"
+msgstr "Archivos de perfil"
+
+#: includes/post-types/profile.php:29
+msgid "Profile Attributes"
+msgstr "Atributos del perfil"
+
+#. Base ID
+#: index.php:58 includes/widgets/profile-widget.php:8
+msgid "Profile Widget"
+msgstr "Widget de perfil"
+
+#: includes/post-types/profile.php:26
+msgid "Profiles"
+msgstr "Perfiles"
+
+#: includes/post-types/profile.php:48
+msgid "Profiles list"
+msgstr "Lista de perfiles"
+
+#: includes/post-types/profile.php:49
+msgid "Profiles list navigation"
+msgstr "Navegación por la lista de perfiles"
+
+#: includes/post-types/position.php:88
+msgid "Projects"
+msgstr "Proyectos"
+
+#: includes/post-types/position.php:52 includes/post-types/profile.php:44
+msgid "Remove featured image"
+msgstr "Eliminar imagen destacada"
+
+#: includes/widgets/profile-display.php:50
+msgid "Resume"
+msgstr "Currículum"
+
+#: includes/post-types/position.php:47
+msgid "Search Position"
+msgstr "Buscar Cargo"
+
+#: includes/post-types/profile.php:39
+msgid "Search Profile"
+msgstr "Buscar Perfil"
+
+#: includes/widgets/profile-widget.php:33
+msgid "Select a profile"
+msgstr "Seleccione un perfil"
+
+#: includes/post-types/position.php:103
+msgid "Select Company"
+msgstr "Seleccionar empresa"
+
+#: includes/widgets/profile-display.php:17
+msgid "Select Language:"
+msgstr "Seleccione idioma:"
+
+#: includes/widgets/profile-widget.php:31
+msgid "Select Profile:"
+msgstr "Seleccionar perfil:"
+
+#: includes/post-types/position.php:93
+msgid "Select Projects"
+msgstr "Seleccionar Proyectos"
+
+#: includes/post-types/position.php:103
+msgid "Select the company associated with this position."
+msgstr "Seleccione la empresa asociada a este cargo."
+
+#: includes/post-types/position.php:93
+msgid "Select the projects associated with this position."
+msgstr "Seleccione los proyectos asociados a este cargo."
+
+#: includes/post-types/position.php:51 includes/post-types/profile.php:43
+msgid "Set featured image"
+msgstr "Establecer imagen destacada"
+
+#: includes/post-types/profile.php:80
+msgid "Social URLs"
+msgstr "URL sociales"
+
+#: includes/widgets/profile-display.php:20
+msgid "Spanish"
+msgstr "Español"
+
+#: includes/widgets/profile-display.php:83
+msgid "Stack Overflow"
+msgstr "Stack Overflow"
+
+#: includes/post-types/profile.php:109
+msgid "StackOverflow URL"
+msgstr "URL de StackOverflow"
+
+#: includes/widgets/profile-display.php:34
+msgid "Summary"
+msgstr "Acerca"
+
+#: includes/post-types/position.php:44
+msgid "Update Position"
+msgstr "Actualizar cargo"
+
+#: includes/post-types/profile.php:36
+msgid "Update Profile"
+msgstr "Actualizar perfil"
+
+#: includes/post-types/profile.php:101
+msgid "Upload the CV in English."
+msgstr "Subir el currículum en inglés."
+
+#: includes/post-types/profile.php:95
+msgid "Upload the CV in Spanish."
+msgstr "Subir el currículum en español."
+
+#: includes/post-types/position.php:55
+msgid "Uploaded to this position"
+msgstr "Subido a este cargo"
+
+#: includes/post-types/profile.php:47
+msgid "Uploaded to this profile"
+msgstr "Subido a este perfil"
+
+#: includes/post-types/position.php:53 includes/post-types/profile.php:45
+msgid "Use as featured image"
+msgstr "Usar como imagen destacada"
+
+#: includes/post-types/position.php:45
+msgid "View Position"
+msgstr "Ver cargo"
+
+#: includes/post-types/position.php:46
+msgid "View Positions"
+msgstr "Ver cargos"
+
+#: includes/post-types/profile.php:37
+msgid "View Profile"
+msgstr "Ver perfil"
+
+#: includes/post-types/profile.php:38
+msgid "View Profiles"
+msgstr "Ver perfiles"

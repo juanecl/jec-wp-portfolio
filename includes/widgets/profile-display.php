@@ -1,5 +1,6 @@
 <div class="container mt-5">
     <div class="jumbotron text-center">
+        <!-- show wp language settings -->
         <?php if (has_post_thumbnail($post->ID)): ?>
             <div class="profile-image mb-3">
                 <?php echo get_the_post_thumbnail($post->ID, 'full', ['class' => 'img-fluid rounded-circle']); ?>
@@ -13,10 +14,10 @@
     </div>
 
     <div class="text-center mb-4">
-        <label for="select-lang" class="form-label"><?php _e('Select Language:', 'text_domain'); ?></label>
+        <label for="select-lang" class="form-label"><?php _e('Select Language:', 'jec-portfolio'); ?></label>
         <select class="form-select" id="select-lang">
-            <option value="en"><?php _e('English', 'text_domain'); ?></option>
-            <option value="es"><?php _e('Spanish', 'text_domain'); ?></option>
+            <option value="en"><?php _e('English', 'jec-portfolio'); ?></option>
+            <option value="es"><?php _e('Spanish', 'jec-portfolio'); ?></option>
         </select>
     </div>
 
@@ -24,13 +25,13 @@
         <div class="col-md-6">
             <div class="card mb-4 lang-es d-none">
                 <div class="card-body">
-                    <h5 class="card-title"><?php _e('Bio (ES)', 'text_domain'); ?></h5>
+                    <h5 class="card-title"><?php _e('Bio', 'jec-portfolio'); ?></h5>
                     <p class="card-text"><?php echo nl2br(esc_html(get_post_meta($post->ID, 'wpcf-bio_es', true))); ?></p>
                 </div>
             </div>
             <div class="card mb-4 lang-en">
                 <div class="card-body">
-                    <h5 class="card-title"><?php _e('Bio (EN)', 'text_domain'); ?></h5>
+                    <h5 class="card-title"><?php _e('Summary', 'jec-portfolio'); ?></h5>
                     <p class="card-text"><?php echo nl2br(esc_html(get_post_meta($post->ID, 'wpcf-bio_en', true))); ?></p>
                 </div>
             </div>
@@ -38,17 +39,17 @@
         <div class="col-md-6">
             <div class="card mb-4 lang-es d-none">
                 <div class="card-body">
-                    <h5 class="card-title"><?php _e('CV (ES)', 'text_domain'); ?></h5>
+                    <h5 class="card-title"><?php _e('CV', 'jec-portfolio'); ?></h5>
                     <?php if ($cv_es = get_post_meta($post->ID, 'wpcf-cv_es', true)): ?>
-                        <a href="<?php echo esc_url($cv_es); ?>" target="_blank" class="btn btn-primary"><?php _e('Download CV (ES)', 'text_domain'); ?></a>
+                        <a href="<?php echo esc_url($cv_es); ?>" target="_blank" class="btn btn-primary"><?php _e('Download CV', 'jec-portfolio'); ?></a>
                     <?php endif; ?>
                 </div>
             </div>
             <div class="card mb-4 lang-en">
                 <div class="card-body">
-                    <h5 class="card-title"><?php _e('CV (EN)', 'text_domain'); ?></h5>
+                    <h5 class="card-title"><?php _e('Resume', 'jec-portfolio'); ?></h5>
                     <?php if ($cv_en = get_post_meta($post->ID, 'wpcf-cv_en', true)): ?>
-                        <a href="<?php echo esc_url($cv_en); ?>" target="_blank" class="btn btn-primary"><?php _e('Download CV (EN)', 'text_domain'); ?></a>
+                        <a href="<?php echo esc_url($cv_en); ?>" target="_blank" class="btn btn-primary"><?php _e('Download resume', 'jec-portfolio'); ?></a>
                     <?php endif; ?>
                 </div>
             </div>
@@ -59,7 +60,7 @@
         <div class="col-md-4">
             <div class="card mb-4">
                 <div class="card-body text-center">
-                    <h5 class="card-title"><?php _e('GitHub', 'text_domain'); ?></h5>
+                    <h5 class="card-title"><?php _e('GitHub', 'jec-portfolio'); ?></h5>
                     <a href="<?php echo esc_url(get_post_meta($post->ID, 'wpcf-git_url', true)); ?>" target="_blank" class="btn btn-outline-dark">
                         <i class="fab fa-github"></i> GitHub
                     </a>
@@ -69,7 +70,7 @@
         <div class="col-md-4">
             <div class="card mb-4">
                 <div class="card-body text-center">
-                    <h5 class="card-title"><?php _e('LinkedIn', 'text_domain'); ?></h5>
+                    <h5 class="card-title"><?php _e('LinkedIn', 'jec-portfolio'); ?></h5>
                     <a href="<?php echo esc_url(get_post_meta($post->ID, 'wpcf-linkedin_url', true)); ?>" target="_blank" class="btn btn-outline-primary">
                         <i class="fab fa-linkedin"></i> LinkedIn
                     </a>
@@ -79,7 +80,7 @@
         <div class="col-md-4">
             <div class="card mb-4">
                 <div class="card-body text-center">
-                    <h5 class="card-title"><?php _e('Stack Overflow', 'text_domain'); ?></h5>
+                    <h5 class="card-title"><?php _e('Stack Overflow', 'jec-portfolio'); ?></h5>
                     <a href="<?php echo esc_url(get_post_meta($post->ID, 'wpcf-stackoverflow_url', true)); ?>" target="_blank" class="btn btn-outline-warning">
                         <i class="fab fa-stack-overflow"></i> Stack Overflow
                     </a>

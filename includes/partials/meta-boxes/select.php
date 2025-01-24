@@ -14,5 +14,5 @@ $new_item_url = admin_url('post-new.php?post_type=' . $post_type);
             </option>
         <?php endforeach; ?>
     </select>
-    <p><a href="<?php echo esc_url($new_item_url); ?>" target="_blank" class="button"><?php _e('Add New', 'text_domain'); ?></a></p>
+    <p><a href="<?php echo esc_url($new_item_url); ?>" target="_blank" class="button"><?php _e('Add New', 'jec-portfolio'); ?></a></p>
 </div>

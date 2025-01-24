@@ -21,38 +21,38 @@ class ProfilePostType extends AbstractMetaBoxRenderer {
 
     public function register_post_type() {
         $labels = [
-            'name' => _x('Profiles', 'Post Type General Name', 'portfolio-plugin'),
-            'singular_name' => _x('Profile', 'Post Type Singular Name', 'portfolio-plugin'),
-            'menu_name' => __('Profiles', 'portfolio-plugin'),
-            'name_admin_bar' => __('Profile', 'portfolio-plugin'),
-            'archives' => __('Profile Archives', 'portfolio-plugin'),
-            'attributes' => __('Profile Attributes', 'portfolio-plugin'),
-            'parent_item_colon' => __('Parent Profile:', 'portfolio-plugin'),
-            'all_items' => __('All Profiles', 'portfolio-plugin'),
-            'add_new_item' => __('Add New Profile', 'portfolio-plugin'),
-            'add_new' => __('Add New', 'portfolio-plugin'),
-            'new_item' => __('New Profile', 'portfolio-plugin'),
-            'edit_item' => __('Edit Profile', 'portfolio-plugin'),
-            'update_item' => __('Update Profile', 'portfolio-plugin'),
-            'view_item' => __('View Profile', 'portfolio-plugin'),
-            'view_items' => __('View Profiles', 'portfolio-plugin'),
-            'search_items' => __('Search Profile', 'portfolio-plugin'),
-            'not_found' => __('Not found', 'portfolio-plugin'),
-            'not_found_in_trash' => __('Not found in Trash', 'portfolio-plugin'),
-            'featured_image' => __('Featured Image', 'portfolio-plugin'),
-            'set_featured_image' => __('Set featured image', 'portfolio-plugin'),
-            'remove_featured_image' => __('Remove featured image', 'portfolio-plugin'),
-            'use_featured_image' => __('Use as featured image', 'portfolio-plugin'),
-            'insert_into_item' => __('Insert into profile', 'portfolio-plugin'),
-            'uploaded_to_this_item' => __('Uploaded to this profile', 'portfolio-plugin'),
-            'items_list' => __('Profiles list', 'portfolio-plugin'),
-            'items_list_navigation' => __('Profiles list navigation', 'portfolio-plugin'),
-            'filter_items_list' => __('Filter profiles list', 'portfolio-plugin'),
+            'name' => _x('Profiles', 'Post Type General Name', 'jec-portfolio'),
+            'singular_name' => _x('Profile', 'Post Type Singular Name', 'jec-portfolio'),
+            'menu_name' => __('Profiles', 'jec-portfolio'),
+            'name_admin_bar' => __('Profile', 'jec-portfolio'),
+            'archives' => __('Profile Archives', 'jec-portfolio'),
+            'attributes' => __('Profile Attributes', 'jec-portfolio'),
+            'parent_item_colon' => __('Parent Profile:', 'jec-portfolio'),
+            'all_items' => __('All Profiles', 'jec-portfolio'),
+            'add_new_item' => __('Add New Profile', 'jec-portfolio'),
+            'add_new' => __('Add New', 'jec-portfolio'),
+            'new_item' => __('New Profile', 'jec-portfolio'),
+            'edit_item' => __('Edit Profile', 'jec-portfolio'),
+            'update_item' => __('Update Profile', 'jec-portfolio'),
+            'view_item' => __('View Profile', 'jec-portfolio'),
+            'view_items' => __('View Profiles', 'jec-portfolio'),
+            'search_items' => __('Search Profile', 'jec-portfolio'),
+            'not_found' => __('Not found', 'jec-portfolio'),
+            'not_found_in_trash' => __('Not found in Trash', 'jec-portfolio'),
+            'featured_image' => __('Featured Image', 'jec-portfolio'),
+            'set_featured_image' => __('Set featured image', 'jec-portfolio'),
+            'remove_featured_image' => __('Remove featured image', 'jec-portfolio'),
+            'use_featured_image' => __('Use as featured image', 'jec-portfolio'),
+            'insert_into_item' => __('Insert into profile', 'jec-portfolio'),
+            'uploaded_to_this_item' => __('Uploaded to this profile', 'jec-portfolio'),
+            'items_list' => __('Profiles list', 'jec-portfolio'),
+            'items_list_navigation' => __('Profiles list navigation', 'jec-portfolio'),
+            'filter_items_list' => __('Filter profiles list', 'jec-portfolio'),
         ];
 
         $args = [
-            'label' => __('Profile', 'portfolio-plugin'),
-            'description' => __('Description of the Profile post type', 'portfolio-plugin'),
+            'label' => __('Profile', 'jec-portfolio'),
+            'description' => __('Description of the Profile post type', 'jec-portfolio'),
             'labels' => $labels,
             'supports' => ['title', 'thumbnail'],
             'hierarchical' => false,
@@ -74,39 +74,39 @@ class ProfilePostType extends AbstractMetaBoxRenderer {
     }
 
     public function add_meta_boxes() {
-        add_meta_box('profile_basic_info', __('Basic Information', 'portfolio-plugin'), [$this, 'render_basic_info_meta_box'], 'profile', 'normal', 'high');
-        add_meta_box('profile_cv_bio_es', __('Bio (ES)', 'portfolio-plugin'), [$this, 'render_cv_bio_es_meta_box'], 'profile', 'normal', 'high');
-        add_meta_box('profile_cv_bio_en', __('Bio (EN)', 'portfolio-plugin'), [$this, 'render_cv_bio_en_meta_box'], 'profile', 'normal', 'high');
-        add_meta_box('profile_social_urls', __('Social URLs', 'portfolio-plugin'), [$this, 'render_social_urls_meta_box'], 'profile', 'normal', 'high');
+        add_meta_box('profile_basic_info', __('Basic Information', 'jec-portfolio'), [$this, 'render_basic_info_meta_box'], 'profile', 'normal', 'high');
+        add_meta_box('profile_cv_bio_es', __('Bio (ES)', 'jec-portfolio'), [$this, 'render_cv_bio_es_meta_box'], 'profile', 'normal', 'high');
+        add_meta_box('profile_cv_bio_en', __('Bio (EN)', 'jec-portfolio'), [$this, 'render_cv_bio_en_meta_box'], 'profile', 'normal', 'high');
+        add_meta_box('profile_social_urls', __('Social URLs', 'jec-portfolio'), [$this, 'render_social_urls_meta_box'], 'profile', 'normal', 'high');
     }
 
     public function render_basic_info_meta_box($post) {
         wp_nonce_field('save_profile_fields_nonce', 'profile_fields_nonce');
-        $this->render_meta_box('text', $post, 'name', __('Name', 'portfolio-plugin'), __('Enter the name.', 'portfolio-plugin'));
-        $this->render_meta_box('date', $post, 'birthdate', __('Birthdate', 'portfolio-plugin'), __('Enter the birthdate.', 'portfolio-plugin'));
-        $this->render_meta_box('text', $post, 'phone', __('Phone', 'portfolio-plugin'), __('Enter the phone number.', 'portfolio-plugin'));
-        $this->render_meta_box('text', $post, 'location', __('Location', 'portfolio-plugin'), __('Enter the location.', 'portfolio-plugin'));
-        $this->render_meta_box('text', $post, 'email', __('Email', 'portfolio-plugin'), __('Enter the email address.', 'portfolio-plugin'));
-        $this->render_meta_box('text', $post, 'career', __('Career', 'portfolio-plugin'), __('Enter the career.', 'portfolio-plugin'));
+        $this->render_meta_box('text', $post, 'name', __('Name', 'jec-portfolio'), __('Enter the name.', 'jec-portfolio'));
+        $this->render_meta_box('date', $post, 'birthdate', __('Birthdate', 'jec-portfolio'), __('Enter the birthdate.', 'jec-portfolio'));
+        $this->render_meta_box('text', $post, 'phone', __('Phone', 'jec-portfolio'), __('Enter the phone number.', 'jec-portfolio'));
+        $this->render_meta_box('text', $post, 'location', __('Location', 'jec-portfolio'), __('Enter the location.', 'jec-portfolio'));
+        $this->render_meta_box('text', $post, 'email', __('Email', 'jec-portfolio'), __('Enter the email address.', 'jec-portfolio'));
+        $this->render_meta_box('text', $post, 'career', __('Career', 'jec-portfolio'), __('Enter the career.', 'jec-portfolio'));
     }
 
     public function render_cv_bio_es_meta_box($post) {
         wp_nonce_field('save_profile_fields_nonce', 'profile_fields_nonce');
-        $this->render_meta_box('file', $post, 'cv_es', __('CV ES', 'portfolio-plugin'), __('Upload the CV in Spanish.', 'portfolio-plugin'));
-        $this->render_meta_box('textarea', $post, 'bio_es', __('Bio ES', 'portfolio-plugin'), __('Enter the bio in Spanish.', 'portfolio-plugin'));
+        $this->render_meta_box('file', $post, 'cv_es', __('CV ES', 'jec-portfolio'), __('Upload the CV in Spanish.', 'jec-portfolio'));
+        $this->render_meta_box('textarea', $post, 'bio_es', __('Bio ES', 'jec-portfolio'), __('Enter the bio in Spanish.', 'jec-portfolio'));
     }
 
     public function render_cv_bio_en_meta_box($post) {
         wp_nonce_field('save_profile_fields_nonce', 'profile_fields_nonce');
-        $this->render_meta_box('file', $post, 'cv_en', __('CV EN', 'portfolio-plugin'), __('Upload the CV in English.', 'portfolio-plugin'));
-        $this->render_meta_box('textarea', $post, 'bio_en', __('Bio EN', 'portfolio-plugin'), __('Enter the bio in English.', 'portfolio-plugin'));
+        $this->render_meta_box('file', $post, 'cv_en', __('CV EN', 'jec-portfolio'), __('Upload the CV in English.', 'jec-portfolio'));
+        $this->render_meta_box('textarea', $post, 'bio_en', __('Bio EN', 'jec-portfolio'), __('Enter the bio in English.', 'jec-portfolio'));
     }
 
     public function render_social_urls_meta_box($post) {
         wp_nonce_field('save_profile_fields_nonce', 'profile_fields_nonce');
-        $this->render_meta_box('url', $post, 'git_url', __('Git URL', 'portfolio-plugin'), __('Enter the Git URL.', 'portfolio-plugin'));
-        $this->render_meta_box('url', $post, 'linkedin_url', __('LinkedIn URL', 'portfolio-plugin'), __('Enter the LinkedIn URL.', 'portfolio-plugin'));
-        $this->render_meta_box('url', $post, 'stackoverflow_url', __('StackOverflow URL', 'portfolio-plugin'), __('Enter the StackOverflow URL.', 'portfolio-plugin'));
+        $this->render_meta_box('url', $post, 'git_url', __('Git URL', 'jec-portfolio'), __('Enter the Git URL.', 'jec-portfolio'));
+        $this->render_meta_box('url', $post, 'linkedin_url', __('LinkedIn URL', 'jec-portfolio'), __('Enter the LinkedIn URL.', 'jec-portfolio'));
+        $this->render_meta_box('url', $post, 'stackoverflow_url', __('StackOverflow URL', 'jec-portfolio'), __('Enter the StackOverflow URL.', 'jec-portfolio'));
     }
 
     public function save_custom_fields($post_id) {
