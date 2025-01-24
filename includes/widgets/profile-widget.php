@@ -1,7 +1,15 @@
 <?php
 
+/**
+ * Class Profile_Widget
+ *
+ * This class defines a custom widget to display profile information.
+ */
 class Profile_Widget extends WP_Widget {
 
+    /**
+     * Register widget with WordPress.
+     */
     public function __construct() {
         parent::__construct(
             'profile_widget', // Base ID
@@ -10,6 +18,12 @@ class Profile_Widget extends WP_Widget {
         );
     }
 
+    /**
+     * Front-end display of widget.
+     *
+     * @param array $args Widget arguments.
+     * @param array $instance Saved values from database.
+     */
     public function widget($args, $instance) {
         if (!empty($instance['profile_id'])) {
             $post_id = $instance['profile_id'];
@@ -22,6 +36,11 @@ class Profile_Widget extends WP_Widget {
         }
     }
 
+    /**
+     * Back-end widget form.
+     *
+     * @param array $instance Previously saved values from database.
+     */
     public function form($instance) {
         $profile_id = !empty($instance['profile_id']) ? $instance['profile_id'] : '';
         $profiles = get_posts(['post_type' => 'profile', 'numberposts' => -1]);
@@ -39,6 +58,14 @@ class Profile_Widget extends WP_Widget {
         <?php
     }
 
+    /**
+     * Sanitize widget form values as they are saved.
+     *
+     * @param array $new_instance Values just sent to be saved.
+     * @param array $old_instance Previously saved values from database.
+     *
+     * @return array Updated safe values to be saved.
+     */
     public function update($new_instance, $old_instance) {
         $instance = [];
         $instance['profile_id'] = (!empty($new_instance['profile_id'])) ? strip_tags($new_instance['profile_id']) : '';
@@ -46,6 +73,9 @@ class Profile_Widget extends WP_Widget {
     }
 }
 
+/**
+ * Register Profile_Widget widget.
+ */
 function register_profile_widget() {
     register_widget('Profile_Widget');
 }

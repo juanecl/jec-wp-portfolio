@@ -1,14 +1,5 @@
 <?php
-
-require_once plugin_dir_path(__FILE__) . 'meta-boxes/text.php';
-require_once plugin_dir_path(__FILE__) . 'meta-boxes/textarea.php';
-require_once plugin_dir_path(__FILE__) . 'meta-boxes/checkbox.php';
-require_once plugin_dir_path(__FILE__) . 'meta-boxes/date.php';
-require_once plugin_dir_path(__FILE__) . 'meta-boxes/select.php';
-require_once plugin_dir_path(__FILE__) . 'meta-boxes/multiselect.php';
-require_once plugin_dir_path(__FILE__) . 'meta-boxes/file.php';
-require_once plugin_dir_path(__FILE__) . 'meta-boxes/url.php';
-
+require_once plugin_dir_path(__FILE__) . 'meta-boxes/index.php';
 /**
  * Abstract class for managing meta boxes.
  * 
@@ -55,7 +46,7 @@ abstract class AbstractMetaBoxRenderer {
         if (isset($this->meta_boxes[$type])) {
             $this->meta_boxes[$type]->render($post, $field, $title, $description, $additional_params);
         } else {
-            throw new Exception(sprintf(__('Meta box type not found: %s', 'portfolio-plugin'), $type));
+            throw new Exception(sprintf(__('Meta box type not found: %s', 'jec-portfolio'), $type));
         }
     }
 }

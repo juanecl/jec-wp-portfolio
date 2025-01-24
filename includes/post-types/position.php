@@ -2,9 +2,17 @@
 
 require_once plugin_dir_path(__FILE__) . '../classes/meta-box-renderer.php';
 
+/**
+ * Class PositionPostType
+ *
+ * This class defines the custom post type "Position" and handles its meta boxes and custom fields.
+ */
 class PositionPostType extends AbstractMetaBoxRenderer {
     private static $instance = null;
 
+    /**
+     * Private constructor to ensure singleton pattern.
+     */
     private function __construct() {
         parent::__construct();
         add_action('init', [$this, 'register_post_type']);
@@ -13,6 +21,11 @@ class PositionPostType extends AbstractMetaBoxRenderer {
         add_filter('use_block_editor_for_post_type', [$this, 'disable_block_editor'], 10, 2);
     }
 
+    /**
+     * Get the singleton instance of the class.
+     *
+     * @return PositionPostType The singleton instance.
+     */
     public static function get_instance() {
         if (self::$instance == null) {
             self::$instance = new PositionPostType();
@@ -20,6 +33,13 @@ class PositionPostType extends AbstractMetaBoxRenderer {
         return self::$instance;
     }
 
+    /**
+     * Disable the block editor for the "position" post type.
+     *
+     * @param bool $use_block_editor Whether to use the block editor.
+     * @param string $post_type The post type.
+     * @return bool Whether to use the block editor.
+     */
     public function disable_block_editor($use_block_editor, $post_type) {
         if ($post_type === 'position') {
             return false;
@@ -27,6 +47,9 @@ class PositionPostType extends AbstractMetaBoxRenderer {
         return $use_block_editor;
     }
 
+    /**
+     * Register the custom post type "Position".
+     */
     public function register_post_type() {
         $labels = [
             'name' => _x('Positions', 'Post Type General Name', 'jec-portfolio'),
@@ -81,6 +104,9 @@ class PositionPostType extends AbstractMetaBoxRenderer {
         register_post_type('position', $args);
     }
 
+    /**
+     * Add meta boxes for the "position" post type.
+     */
     public function add_meta_boxes() {
         add_meta_box('position_description', __('Description', 'jec-portfolio'), [$this, 'render_description_meta_box'], 'position', 'normal', 'high');
         add_meta_box('position_company', __('Company', 'jec-portfolio'), [$this, 'render_company_meta_box'], 'position', 'normal', 'high');
@@ -88,26 +114,51 @@ class PositionPostType extends AbstractMetaBoxRenderer {
         add_meta_box('position_projects', __('Projects', 'jec-portfolio'), [$this, 'render_projects_meta_box'], 'position', 'side', 'default');
     }
 
+    /**
+     * Render the projects meta box.
+     *
+     * @param WP_Post $post The current post object.
+     */
     public function render_projects_meta_box($post) {
         wp_nonce_field('save_position_fields_nonce', 'position_fields_nonce');
         $this->render_meta_box('multiselect', $post, 'project_ids', __('Select Projects', 'jec-portfolio'), __('Select the projects associated with this position.', 'jec-portfolio'), ['post_type' => 'project']);
     }
 
+    /**
+     * Render the description meta box.
+     *
+     * @param WP_Post $post The current post object.
+     */
     public function render_description_meta_box($post) {
         wp_nonce_field('save_position_fields_nonce', 'position_fields_nonce');
         $this->render_meta_box('textarea', $post, 'description', __('Description', 'jec-portfolio'), __('Enter the description of the position.', 'jec-portfolio'));
     }
 
+    /**
+     * Render the company meta box.
+     *
+     * @param WP_Post $post The current post object.
+     */
     public function render_company_meta_box($post) {
         wp_nonce_field('save_position_fields_nonce', 'position_fields_nonce');
         $this->render_meta_box('select', $post, 'company_id', __('Select Company', 'jec-portfolio'), __('Select the company associated with this position.', 'jec-portfolio'), ['post_type' => 'company']);
     }
 
+    /**
+     * Render the location meta box.
+     *
+     * @param WP_Post $post The current post object.
+     */
     public function render_location_meta_box($post) {
         wp_nonce_field('save_position_fields_nonce', 'position_fields_nonce');
         $this->render_meta_box('text', $post, 'location', __('Location', 'jec-portfolio'), __('Enter the location for this position.', 'jec-portfolio'));
     }
 
+    /**
+     * Save custom fields for the "position" post type.
+     *
+     * @param int $post_id The ID of the current post.
+     */
     public function save_custom_fields($post_id) {
         // Verify nonce.
         if (!isset($_POST['position_fields_nonce']) || !wp_verify_nonce($_POST['position_fields_nonce'], 'save_position_fields_nonce')) {
@@ -129,6 +180,7 @@ class PositionPostType extends AbstractMetaBoxRenderer {
                 return;
             }
         }
+
         // Save custom fields
         $fields = ['description', 'company_id', 'location', 'project_ids'];
         foreach ($fields as $field) {
@@ -141,13 +193,13 @@ class PositionPostType extends AbstractMetaBoxRenderer {
                     } else {
                         $value = sanitize_text_field($value);
                     }
-        
-                    // Verificar si el valor es válido
+
+                    // Verify if the value is valid
                     if (empty($value)) {
                         throw new Exception('The value for field ' . $field_id . ' is empty or invalid.');
                     }
-        
-                    // Verificar si el meta campo ya existe
+
+                    // Verify if the meta field already exists
                     $current_value = get_post_meta($post_id, $field_id, true);
                     if ($current_value === $value) {
                         error_log('The value for field ' . $field_id . ' is already up to date.');
@@ -171,8 +223,8 @@ class PositionPostType extends AbstractMetaBoxRenderer {
                 );
             }
         }
-        
-        // Mostrar errores en la pantalla de administración
+
+        // Display errors on the admin screen
         settings_errors('position_meta_box_errors');
     }
 }

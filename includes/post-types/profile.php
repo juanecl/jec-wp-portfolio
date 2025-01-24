@@ -2,9 +2,17 @@
 
 require_once plugin_dir_path(__FILE__) . '../classes/meta-box-renderer.php';
 
+/**
+ * Class ProfilePostType
+ *
+ * This class defines the custom post type "Profile" and handles its meta boxes and custom fields.
+ */
 class ProfilePostType extends AbstractMetaBoxRenderer {
     private static $instance = null;
 
+    /**
+     * Private constructor to ensure singleton pattern.
+     */
     private function __construct() {
         parent::__construct();
         add_action('init', [$this, 'register_post_type']);
@@ -12,6 +20,11 @@ class ProfilePostType extends AbstractMetaBoxRenderer {
         add_action('save_post', [$this, 'save_custom_fields']);
     }
 
+    /**
+     * Get the singleton instance of the class.
+     *
+     * @return ProfilePostType The singleton instance.
+     */
     public static function get_instance() {
         if (self::$instance == null) {
             self::$instance = new ProfilePostType();
@@ -19,6 +32,9 @@ class ProfilePostType extends AbstractMetaBoxRenderer {
         return self::$instance;
     }
 
+    /**
+     * Register the custom post type "Profile".
+     */
     public function register_post_type() {
         $labels = [
             'name' => _x('Profiles', 'Post Type General Name', 'jec-portfolio'),
@@ -39,15 +55,6 @@ class ProfilePostType extends AbstractMetaBoxRenderer {
             'search_items' => __('Search Profile', 'jec-portfolio'),
             'not_found' => __('Not found', 'jec-portfolio'),
             'not_found_in_trash' => __('Not found in Trash', 'jec-portfolio'),
-            'featured_image' => __('Featured Image', 'jec-portfolio'),
-            'set_featured_image' => __('Set featured image', 'jec-portfolio'),
-            'remove_featured_image' => __('Remove featured image', 'jec-portfolio'),
-            'use_featured_image' => __('Use as featured image', 'jec-portfolio'),
-            'insert_into_item' => __('Insert into profile', 'jec-portfolio'),
-            'uploaded_to_this_item' => __('Uploaded to this profile', 'jec-portfolio'),
-            'items_list' => __('Profiles list', 'jec-portfolio'),
-            'items_list_navigation' => __('Profiles list navigation', 'jec-portfolio'),
-            'filter_items_list' => __('Filter profiles list', 'jec-portfolio'),
         ];
 
         $args = [
@@ -73,42 +80,61 @@ class ProfilePostType extends AbstractMetaBoxRenderer {
         register_post_type('profile', $args);
     }
 
+    /**
+     * Add meta boxes for the "profile" post type.
+     */
     public function add_meta_boxes() {
-        add_meta_box('profile_basic_info', __('Basic Information', 'jec-portfolio'), [$this, 'render_basic_info_meta_box'], 'profile', 'normal', 'high');
-        add_meta_box('profile_cv_bio_es', __('Bio (ES)', 'jec-portfolio'), [$this, 'render_cv_bio_es_meta_box'], 'profile', 'normal', 'high');
-        add_meta_box('profile_cv_bio_en', __('Bio (EN)', 'jec-portfolio'), [$this, 'render_cv_bio_en_meta_box'], 'profile', 'normal', 'high');
-        add_meta_box('profile_social_urls', __('Social URLs', 'jec-portfolio'), [$this, 'render_social_urls_meta_box'], 'profile', 'normal', 'high');
+        add_meta_box('profile_description', __('Description', 'jec-portfolio'), [$this, 'render_description_meta_box'], 'profile', 'normal', 'high');
+        add_meta_box('profile_company', __('Company', 'jec-portfolio'), [$this, 'render_company_meta_box'], 'profile', 'normal', 'high');
+        add_meta_box('profile_location', __('Location', 'jec-portfolio'), [$this, 'render_location_meta_box'], 'profile', 'normal', 'high');
+        add_meta_box('profile_projects', __('Projects', 'jec-portfolio'), [$this, 'render_projects_meta_box'], 'profile', 'side', 'default');
     }
 
-    public function render_basic_info_meta_box($post) {
+    /**
+     * Render the projects meta box.
+     *
+     * @param WP_Post $post The current post object.
+     */
+    public function render_projects_meta_box($post) {
         wp_nonce_field('save_profile_fields_nonce', 'profile_fields_nonce');
-        $this->render_meta_box('text', $post, 'name', __('Name', 'jec-portfolio'), __('Enter the name.', 'jec-portfolio'));
-        $this->render_meta_box('date', $post, 'birthdate', __('Birthdate', 'jec-portfolio'), __('Enter the birthdate.', 'jec-portfolio'));
-        $this->render_meta_box('text', $post, 'phone', __('Phone', 'jec-portfolio'), __('Enter the phone number.', 'jec-portfolio'));
-        $this->render_meta_box('text', $post, 'location', __('Location', 'jec-portfolio'), __('Enter the location.', 'jec-portfolio'));
-        $this->render_meta_box('text', $post, 'email', __('Email', 'jec-portfolio'), __('Enter the email address.', 'jec-portfolio'));
-        $this->render_meta_box('text', $post, 'career', __('Career', 'jec-portfolio'), __('Enter the career.', 'jec-portfolio'));
+        $this->render_meta_box('multiselect', $post, 'project_ids', __('Select Projects', 'jec-portfolio'), __('Select the projects associated with this profile.', 'jec-portfolio'), ['post_type' => 'project']);
     }
 
-    public function render_cv_bio_es_meta_box($post) {
+    /**
+     * Render the description meta box.
+     *
+     * @param WP_Post $post The current post object.
+     */
+    public function render_description_meta_box($post) {
         wp_nonce_field('save_profile_fields_nonce', 'profile_fields_nonce');
-        $this->render_meta_box('file', $post, 'cv_es', __('CV ES', 'jec-portfolio'), __('Upload the CV in Spanish.', 'jec-portfolio'));
-        $this->render_meta_box('textarea', $post, 'bio_es', __('Bio ES', 'jec-portfolio'), __('Enter the bio in Spanish.', 'jec-portfolio'));
+        $this->render_meta_box('textarea', $post, 'description', __('Description', 'jec-portfolio'), __('Enter the description of the profile.', 'jec-portfolio'));
     }
 
-    public function render_cv_bio_en_meta_box($post) {
+    /**
+     * Render the company meta box.
+     *
+     * @param WP_Post $post The current post object.
+     */
+    public function render_company_meta_box($post) {
         wp_nonce_field('save_profile_fields_nonce', 'profile_fields_nonce');
-        $this->render_meta_box('file', $post, 'cv_en', __('CV EN', 'jec-portfolio'), __('Upload the CV in English.', 'jec-portfolio'));
-        $this->render_meta_box('textarea', $post, 'bio_en', __('Bio EN', 'jec-portfolio'), __('Enter the bio in English.', 'jec-portfolio'));
+        $this->render_meta_box('select', $post, 'company_id', __('Select Company', 'jec-portfolio'), __('Select the company associated with this profile.', 'jec-portfolio'), ['post_type' => 'company']);
     }
 
-    public function render_social_urls_meta_box($post) {
+    /**
+     * Render the location meta box.
+     *
+     * @param WP_Post $post The current post object.
+     */
+    public function render_location_meta_box($post) {
         wp_nonce_field('save_profile_fields_nonce', 'profile_fields_nonce');
-        $this->render_meta_box('url', $post, 'git_url', __('Git URL', 'jec-portfolio'), __('Enter the Git URL.', 'jec-portfolio'));
-        $this->render_meta_box('url', $post, 'linkedin_url', __('LinkedIn URL', 'jec-portfolio'), __('Enter the LinkedIn URL.', 'jec-portfolio'));
-        $this->render_meta_box('url', $post, 'stackoverflow_url', __('StackOverflow URL', 'jec-portfolio'), __('Enter the StackOverflow URL.', 'jec-portfolio'));
+        $this->render_meta_box('text', $post, 'location', __('Location', 'jec-portfolio'), __('Enter the location for this profile.', 'jec-portfolio'));
     }
 
+    /**
+     * Save custom fields for the "profile" post type.
+     *
+     * @param int $post_id The ID of the current post.
+     */
     public function save_custom_fields($post_id) {
         // Verify nonce.
         if (!isset($_POST['profile_fields_nonce']) || !wp_verify_nonce($_POST['profile_fields_nonce'], 'save_profile_fields_nonce')) {
@@ -132,11 +158,16 @@ class ProfilePostType extends AbstractMetaBoxRenderer {
         }
 
         // Save custom fields
-        $fields = ['name', 'birthdate', 'phone', 'location', 'email', 'career', 'cv_es', 'bio_es', 'cv_en', 'bio_en', 'git_url', 'linkedin_url', 'stackoverflow_url'];
+        $fields = ['description', 'company_id', 'location', 'project_ids'];
         foreach ($fields as $field) {
             $field_id = 'wpcf-' . $field;
             if (isset($_POST[$field_id])) {
-                $value = sanitize_text_field($_POST[$field_id]);
+                $value = $_POST[$field_id];
+                if (is_array($value)) {
+                    $value = array_map('sanitize_text_field', $value);
+                } else {
+                    $value = sanitize_text_field($value);
+                }
                 update_post_meta($post_id, $field_id, $value);
             } else {
                 delete_post_meta($post_id, $field_id);

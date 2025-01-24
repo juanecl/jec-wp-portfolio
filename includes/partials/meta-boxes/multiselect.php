@@ -30,9 +30,15 @@ if (!is_array($selected_items)) {
 // Generate the URL for creating a new item of the specified post type
 $new_item_url = admin_url('post-new.php?post_type=' . $post_type);
 ?>
+
 <div class="inside">
+    <!-- Display the label -->
     <label for="<?php echo esc_attr($meta_key); ?>"><?php echo esc_html($title); ?></label>
+    
+    <!-- Display the description -->
     <p><?php echo esc_html($description); ?></p>
+    
+    <!-- Render the multi-select input field -->
     <select name="<?php echo esc_attr($meta_key); ?>[]" id="<?php echo esc_attr($meta_key); ?>" multiple>
         <?php foreach ($items as $item) : ?>
             <option value="<?php echo esc_attr($item->ID); ?>" <?php selected(in_array($item->ID, $selected_items)); ?>>
@@ -40,5 +46,7 @@ $new_item_url = admin_url('post-new.php?post_type=' . $post_type);
             </option>
         <?php endforeach; ?>
     </select>
-    <p><a href="<?php echo esc_url($new_item_url); ?>" target="_blank" class="button"><?php esc_html_e('Add New', 'text_domain'); ?></a></p>
+    
+    <!-- Display a link to add a new item -->
+    <p><a href="<?php echo esc_url($new_item_url); ?>" target="_blank" class="button"><?php esc_html_e('Add New', 'jec-portfolio'); ?></a></p>
 </div>

@@ -21,7 +21,7 @@ class SelectMetaBox extends AbstractMetaBox implements MetaBoxInterface {
         $this->validate_params($field, $title, $description);
 
         if (!isset($additional_params['post_type'])) {
-            throw new InvalidArgumentException(__('The post_type parameter is required.', 'portfolio-plugin'));
+            throw new InvalidArgumentException(__('The post_type parameter is required.', 'jec-portfolio'));
         }
 
         $items = $this->get_posts($additional_params['post_type']);

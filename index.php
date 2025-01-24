@@ -19,11 +19,9 @@ class JecPortfolio {
     private static $instance = null;
 
     private function __construct() {
-        error_log('jec-portfolio: Constructor llamado en ' . current_filter() . ' en ' . debug_backtrace()[1]['file'] . ' línea ' . debug_backtrace()[1]['line']);
         add_action('init', [$this, 'load_textdomain']);
         $this->includes();
         $this->init_hooks();
-        add_action('init', [$this, 'log_translation']);
     }
 
     public static function get_instance() {
@@ -34,13 +32,7 @@ class JecPortfolio {
     }
 
     public function load_textdomain() {
-        $mofile = dirname(plugin_basename(__FILE__)) . '/languages/' . get_locale() . '.mo';
-        $loaded = load_plugin_textdomain('jec-portfolio', false, dirname(plugin_basename(__FILE__)) . '/languages');
-        if (!$loaded) {
-            error_log('jec-portfolio: Error al cargar el archivo de traducción: ' . $mofile);
-        } else {
-            error_log('jec-portfolio: Archivo de traducción cargado correctamente: ' . $mofile . ' para el idioma ' . get_locale());
-        }
+        load_plugin_textdomain('jec-portfolio', false, dirname(plugin_basename(__FILE__)) . '/languages');
     }
 
     private function includes() {
@@ -53,12 +45,7 @@ class JecPortfolio {
         register_activation_hook(__FILE__, [$this, 'activate']);
         register_deactivation_hook(__FILE__, [$this, 'deactivate']);
     }
-
-    public function log_translation() {
-        $translated_text = __('Profile Widget', 'jec-portfolio');
-        error_log('jec-portfolio: Traducción de "Profile Widget": ' . $translated_text);
-    }
-
+    
     public function activate() {
         flush_rewrite_rules();
     }
@@ -68,5 +55,4 @@ class JecPortfolio {
     }
 }
 
-// Asegúrate de que la clase se instancie solo una vez
-add_action('plugins_loaded', ['JecPortfolio', 'get_instance']);
+JecPortfolio::get_instance();
