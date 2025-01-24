@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: jec-portfolio 1.0.0\n"
 "POT-Creation-Date: 2025-01-24 15:11+0000\n"
-"PO-Revision-Date: 2025-01-24 15:12+0000\n"
+"PO-Revision-Date: 2025-01-24 17:05+0000\n"
 "Last-Translator: \n"
 "Language-Team: Español\n"
 "Language: es_ES\n"
@@ -23,10 +23,20 @@ msgstr "Un complemento para administrar portafolios."
 msgid "A widget to display profile information"
 msgstr "Un widget para mostrar información del perfil"
 
-#: includes/post-types/position.php:41 includes/post-types/profile.php:33
+#: includes/post-types/project.php:96
+msgid "Active"
+msgstr "Activo"
+
+#: includes/post-types/position.php:41 includes/post-types/project.php:41
+#: includes/post-types/company.php:72 includes/post-types/profile.php:33
 #: includes/partials/meta-boxes/select.php:17
+#: includes/partials/meta-boxes/multiselect.php:43
 msgid "Add New"
 msgstr "Agregar nuevo"
+
+#: includes/post-types/company.php:71
+msgid "Add New Company"
+msgstr "Agregar nueva compañía"
 
 #: includes/post-types/position.php:40
 msgid "Add New Position"
@@ -35,6 +45,14 @@ msgstr "Agregar nuevo cargo"
 #: includes/post-types/profile.php:32
 msgid "Add New Profile"
 msgstr "Agregar nuevo perfil"
+
+#: includes/post-types/project.php:40
+msgid "Add New Project"
+msgstr "Agregar nuevo proyecto"
+
+#: includes/post-types/company.php:70
+msgid "All Companies"
+msgstr "Todas las compañías"
 
 #: includes/classes/meta-boxes/abstract.php:20
 msgid "All parameters are required."
@@ -47,6 +65,10 @@ msgstr "Todas los cargos"
 #: includes/post-types/profile.php:31
 msgid "All Profiles"
 msgstr "Todos los perfiles"
+
+#: includes/post-types/project.php:39
+msgid "All Projects"
+msgstr "Todos los proyectos"
 
 #: includes/post-types/profile.php:77
 msgid "Basic Information"
@@ -80,9 +102,42 @@ msgstr "Fecha de nacimiento"
 msgid "Career"
 msgstr "Carrera"
 
-#: includes/post-types/position.php:86
+#: includes/post-types/company.php:122 includes/post-types/company.php:146
+msgid "Category"
+msgstr "Rubro"
+
+#: includes/post-types/project.php:96
+msgid "Check if the project is currently active."
+msgstr "Marcar si el proyecto sigue activo."
+
+#: includes/post-types/company.php:65
+msgid "Companies"
+msgstr "Compañías"
+
+#: includes/post-types/company.php:87
+msgid "Companies list"
+msgstr "Lista de compañías"
+
+#: includes/post-types/company.php:88
+msgid "Companies list navigation"
+msgstr "Navegación de lista de compañías"
+
+#: includes/post-types/position.php:86 includes/post-types/company.php:66
+#: includes/post-types/company.php:93
 msgid "Company"
 msgstr "Compañía"
+
+#: includes/post-types/company.php:67
+msgid "Company Archives"
+msgstr "Archivo de compañías"
+
+#: includes/post-types/company.php:68
+msgid "Company Attributes"
+msgstr "Atributos de compañía"
+
+#: includes/post-types/company.php:121 includes/post-types/company.php:134
+msgid "Company URL"
+msgstr "URL de la compañía"
 
 #: includes/widgets/profile-display.php:42
 msgid "CV"
@@ -96,9 +151,18 @@ msgstr "Currículum"
 msgid "CV ES"
 msgstr "Currículum"
 
+#: includes/post-types/project.php:86
+msgid "Dates"
+msgstr "Fechas"
+
 #: includes/post-types/position.php:85 includes/post-types/position.php:98
+#: includes/post-types/project.php:85 includes/post-types/project.php:91
 msgid "Description"
 msgstr "Descripción"
+
+#: includes/post-types/company.php:94
+msgid "Description of the Company post type"
+msgstr "Descripción del tipo de entrada 'Compañía'"
 
 #: includes/post-types/position.php:63
 msgid "Description of the Position post type"
@@ -108,6 +172,10 @@ msgstr "Descripción del tipo de entrada 'Cargo'"
 msgid "Description of the Profile post type"
 msgstr "Descripción del tipo de entrada 'Perfil'"
 
+#: includes/post-types/project.php:63
+msgid "Description of the Project post type"
+msgstr "Descripción del tipo de entrada 'Proyecto'"
+
 #: includes/widgets/profile-display.php:44
 msgid "Download CV"
 msgstr "Descargar currículum"
@@ -115,6 +183,10 @@ msgstr "Descargar currículum"
 #: includes/widgets/profile-display.php:52
 msgid "Download resume"
 msgstr "Descargar curriculum"
+
+#: includes/post-types/company.php:74
+msgid "Edit Company"
+msgstr "Editar compañía"
 
 #: includes/post-types/position.php:43
 msgid "Edit Position"
@@ -124,9 +196,17 @@ msgstr "Editar cargo"
 msgid "Edit Profile"
 msgstr "Editar perfil"
 
+#: includes/post-types/project.php:43
+msgid "Edit Project"
+msgstr "Editar proyecto"
+
 #: includes/post-types/profile.php:89
 msgid "Email"
 msgstr "Correo electrónico"
+
+#: includes/post-types/project.php:98
+msgid "End Date"
+msgstr "Fecha de término"
 
 #: includes/widgets/profile-display.php:19
 msgid "English"
@@ -148,13 +228,25 @@ msgstr "Introduzca la fecha de nacimiento."
 msgid "Enter the career."
 msgstr "Ingresa el título universitario."
 
+#: includes/post-types/company.php:146
+msgid "Enter the category of the company."
+msgstr "Ingresa el rubro de la compañía."
+
 #: includes/post-types/position.php:98
 msgid "Enter the description of the position."
 msgstr "Ingrese la descripción del cargo."
 
+#: includes/post-types/project.php:91
+msgid "Enter the description of the project."
+msgstr "Ingrese la descripción del proyecto."
+
 #: includes/post-types/profile.php:89
 msgid "Enter the email address."
 msgstr "Introduzca la dirección de correo electrónico."
+
+#: includes/post-types/project.php:98
+msgid "Enter the end date for the project."
+msgstr "Ingresa la fecha de término del proyecto."
 
 #: includes/post-types/profile.php:107
 msgid "Enter the Git URL."
@@ -184,9 +276,22 @@ msgstr "Introduzca el número de teléfono."
 msgid "Enter the StackOverflow URL."
 msgstr "Ingrese la URL de StackOverflow."
 
-#: includes/post-types/position.php:50 includes/post-types/profile.php:42
+#: includes/post-types/project.php:97
+msgid "Enter the start date for the project."
+msgstr "Ingresa la fecha de inicio del proyecto."
+
+#: includes/post-types/company.php:134
+msgid "Enter the URL of the company."
+msgstr "Ingresa la URL de la compañía."
+
+#: includes/post-types/position.php:50 includes/post-types/project.php:50
+#: includes/post-types/company.php:81 includes/post-types/profile.php:42
 msgid "Featured Image"
 msgstr "Imagen destacada"
+
+#: includes/post-types/company.php:89
+msgid "Filter companies list"
+msgstr "Filtrar listado de compañías"
 
 #: includes/post-types/position.php:58
 msgid "Filter positions list"
@@ -195,6 +300,10 @@ msgstr "Filtrar listado de cargos"
 #: includes/post-types/profile.php:50
 msgid "Filter profiles list"
 msgstr "Filtrar listado de perfiles"
+
+#: includes/post-types/project.php:58
+msgid "Filter projects list"
+msgstr "Filtrar listado de proyectos"
 
 #: includes/post-types/profile.php:107
 msgid "Git URL"
@@ -209,13 +318,21 @@ msgstr "GitHub"
 msgid "https://www.juane.cl"
 msgstr "https://www.juane.cl"
 
+#: includes/post-types/company.php:85
+msgid "Insert into company"
+msgstr "Agregar a compañía"
+
 #: includes/post-types/position.php:54
 msgid "Insert into position"
-msgstr "Insertar en cargo"
+msgstr "Agregar a cargo"
 
 #: includes/post-types/profile.php:46
 msgid "Insert into profile"
-msgstr "Insertar en el perfil"
+msgstr "Agregar al perfil"
+
+#: includes/post-types/project.php:54
+msgid "Insert into project"
+msgstr "Agregar al proyecto"
 
 #. Author of the plugin
 msgid "Juan Enrique Chomon Del Campo"
@@ -234,9 +351,18 @@ msgstr "URL de LinkedIn"
 msgid "Location"
 msgstr "Ubicación"
 
+#: includes/classes/meta-box-renderer.php:58
+#, php-format
+msgid "Meta box type not found: %s"
+msgstr ""
+
 #: includes/post-types/profile.php:85
 msgid "Name"
 msgstr "Nombre"
+
+#: includes/post-types/company.php:73
+msgid "New Company"
+msgstr "Nueva compañía"
 
 #: includes/post-types/position.php:42
 msgid "New Position"
@@ -246,21 +372,35 @@ msgstr "Nuevo cargo"
 msgid "New Profile"
 msgstr "Nuevo perfil"
 
-#: includes/post-types/position.php:48 includes/post-types/profile.php:40
+#: includes/post-types/project.php:42
+msgid "New Project"
+msgstr "Nuevo proyecto"
+
+#: includes/post-types/position.php:48 includes/post-types/project.php:48
+#: includes/post-types/company.php:79 includes/post-types/profile.php:40
 msgid "Not found"
 msgstr "No encontrado"
 
-#: includes/post-types/position.php:49 includes/post-types/profile.php:41
+#: includes/post-types/position.php:49 includes/post-types/project.php:49
+#: includes/post-types/company.php:80 includes/post-types/profile.php:41
 msgid "Not found in Trash"
 msgstr "No se encontró en la papelera"
 
+#: includes/post-types/company.php:69
+msgid "Parent Company:"
+msgstr "Compañía superior:"
+
 #: includes/post-types/position.php:38
 msgid "Parent Position:"
-msgstr "Cargo anterior:"
+msgstr "Cargo superior:"
 
 #: includes/post-types/profile.php:30
 msgid "Parent Profile:"
-msgstr "Perfil anterior:"
+msgstr "Perfil superior:"
+
+#: includes/post-types/project.php:38
+msgid "Parent Project:"
+msgstr "Proyecto superior:"
 
 #: includes/post-types/profile.php:87
 msgid "Phone"
@@ -294,29 +434,45 @@ msgstr "Lista de cargos"
 msgid "Positions list navigation"
 msgstr "Navegación por la lista de cargos"
 
-#: includes/post-types/position.php:32
+#: includes/post-types/company.php:63
+msgctxt "Post Type General Name"
+msgid "Companies"
+msgstr "Compañías"
 
+#: includes/post-types/position.php:32
 msgctxt "Post Type General Name"
 msgid "Positions"
 msgstr "Cargos"
 
 #: includes/post-types/profile.php:24
-
 msgctxt "Post Type General Name"
 msgid "Profiles"
 msgstr "Perfiles"
 
-#: includes/post-types/position.php:33
+#: includes/post-types/project.php:32
+msgctxt "Post Type General Name"
+msgid "Projects"
+msgstr "Proyectos"
 
+#: includes/post-types/company.php:64
+msgctxt "Post Type Singular Name"
+msgid "Company"
+msgstr "Compañía"
+
+#: includes/post-types/position.php:33
 msgctxt "Post Type Singular Name"
 msgid "Position"
 msgstr "Cargo"
 
 #: includes/post-types/profile.php:25
-
 msgctxt "Post Type Singular Name"
 msgid "Profile"
 msgstr "Perfil"
+
+#: includes/post-types/project.php:33
+msgctxt "Post Type Singular Name"
+msgid "Project"
+msgstr "Proyecto"
 
 #: includes/post-types/profile.php:27 includes/post-types/profile.php:54
 msgid "Profile"
@@ -331,7 +487,7 @@ msgid "Profile Attributes"
 msgstr "Atributos del perfil"
 
 #. Base ID
-#: index.php:58 includes/widgets/profile-widget.php:8
+#: includes/widgets/profile-widget.php:8
 msgid "Profile Widget"
 msgstr "Widget de perfil"
 
@@ -347,17 +503,42 @@ msgstr "Lista de perfiles"
 msgid "Profiles list navigation"
 msgstr "Navegación por la lista de perfiles"
 
-#: includes/post-types/position.php:88
+#: includes/post-types/project.php:35 includes/post-types/project.php:62
+msgid "Project"
+msgstr "Proyecto"
+
+#: includes/post-types/project.php:36
+msgid "Project Archives"
+msgstr "Archivo de proyectos"
+
+#: includes/post-types/project.php:37
+msgid "Project Attributes"
+msgstr "Atributos de proyecto"
+
+#: includes/post-types/position.php:88 includes/post-types/project.php:34
 msgid "Projects"
 msgstr "Proyectos"
 
-#: includes/post-types/position.php:52 includes/post-types/profile.php:44
+#: includes/post-types/project.php:56
+msgid "Projects list"
+msgstr "Listado de proyectos"
+
+#: includes/post-types/project.php:57
+msgid "Projects list navigation"
+msgstr "Navegación de listado de proyectos"
+
+#: includes/post-types/position.php:52 includes/post-types/project.php:52
+#: includes/post-types/company.php:83 includes/post-types/profile.php:44
 msgid "Remove featured image"
 msgstr "Eliminar imagen destacada"
 
 #: includes/widgets/profile-display.php:50
 msgid "Resume"
 msgstr "Currículum"
+
+#: includes/post-types/company.php:78
+msgid "Search Company"
+msgstr "Buscar compañía"
 
 #: includes/post-types/position.php:47
 msgid "Search Position"
@@ -366,6 +547,10 @@ msgstr "Buscar Cargo"
 #: includes/post-types/profile.php:39
 msgid "Search Profile"
 msgstr "Buscar Perfil"
+
+#: includes/post-types/project.php:47
+msgid "Search Project"
+msgstr "Buscar proyecto"
 
 #: includes/widgets/profile-widget.php:33
 msgid "Select a profile"
@@ -395,7 +580,8 @@ msgstr "Seleccione la empresa asociada a este cargo."
 msgid "Select the projects associated with this position."
 msgstr "Seleccione los proyectos asociados a este cargo."
 
-#: includes/post-types/position.php:51 includes/post-types/profile.php:43
+#: includes/post-types/position.php:51 includes/post-types/project.php:51
+#: includes/post-types/company.php:82 includes/post-types/profile.php:43
 msgid "Set featured image"
 msgstr "Establecer imagen destacada"
 
@@ -415,9 +601,22 @@ msgstr "Stack Overflow"
 msgid "StackOverflow URL"
 msgstr "URL de StackOverflow"
 
+#: includes/post-types/project.php:97
+msgid "Start Date"
+msgstr "Fecha de inicio"
+
 #: includes/widgets/profile-display.php:34
 msgid "Summary"
 msgstr "Acerca"
+
+#: includes/classes/meta-boxes/select.php:24
+#: includes/classes/meta-boxes/multiselect.php:24
+msgid "The post_type parameter is required."
+msgstr ""
+
+#: includes/post-types/company.php:75
+msgid "Update Company"
+msgstr "Actualizar compañía"
 
 #: includes/post-types/position.php:44
 msgid "Update Position"
@@ -427,6 +626,10 @@ msgstr "Actualizar cargo"
 msgid "Update Profile"
 msgstr "Actualizar perfil"
 
+#: includes/post-types/project.php:44
+msgid "Update Project"
+msgstr "Actualizar cargo"
+
 #: includes/post-types/profile.php:101
 msgid "Upload the CV in English."
 msgstr "Subir el currículum en inglés."
@@ -434,6 +637,10 @@ msgstr "Subir el currículum en inglés."
 #: includes/post-types/profile.php:95
 msgid "Upload the CV in Spanish."
 msgstr "Subir el currículum en español."
+
+#: includes/post-types/company.php:86
+msgid "Uploaded to this company"
+msgstr "Subido a esta compañía"
 
 #: includes/post-types/position.php:55
 msgid "Uploaded to this position"
@@ -443,9 +650,26 @@ msgstr "Subido a este cargo"
 msgid "Uploaded to this profile"
 msgstr "Subido a este perfil"
 
-#: includes/post-types/position.php:53 includes/post-types/profile.php:45
+#: includes/post-types/project.php:55
+msgid "Uploaded to this project"
+msgstr "Subido a este proyecto"
+
+#: includes/post-types/position.php:53 includes/post-types/project.php:53
+#: includes/post-types/company.php:84 includes/post-types/profile.php:45
 msgid "Use as featured image"
 msgstr "Usar como imagen destacada"
+
+#: includes/post-types/company.php:77
+msgid "View Companies"
+msgstr "Ver compañías"
+
+#: includes/post-types/company.php:76
+msgid "View Company"
+msgstr "Ver compañía"
+
+#: includes/partials/meta-boxes/file.php:5
+msgid "View File"
+msgstr ""
 
 #: includes/post-types/position.php:45
 msgid "View Position"
@@ -462,3 +686,11 @@ msgstr "Ver perfil"
 #: includes/post-types/profile.php:38
 msgid "View Profiles"
 msgstr "Ver perfiles"
+
+#: includes/post-types/project.php:45
+msgid "View Project"
+msgstr "Ver proyecto"
+
+#: includes/post-types/project.php:46
+msgid "View Projects"
+msgstr "Ver proyectos"
