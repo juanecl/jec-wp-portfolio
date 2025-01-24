@@ -71,6 +71,27 @@
                     <?php endif; ?>
                 </div>
             </div>
+ 
+            <div class="card mb-4 lang-en">
+                <div class="card-body">
+                    <h5 class="card-title"><?php _e('Resume', 'jec-portfolio'); ?></h5>
+                    <?php if ($cv_en = get_post_meta($post->ID, 'wpcf-cv_en', true)): ?>
+                        <a href="<?php echo esc_url($cv_en); ?>" target="_blank" class="btn btn-primary"><?php _e('Download resume', 'jec-portfolio'); ?></a>
+                    <?php endif; ?>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-4">
+        <div class="col-md-4">
+            <div class="card mb-4">
+                <div class="card-body text-center">
+                    <h5 class="card-title"><?php _e('GitHub', 'jec-portfolio'); ?></h5>
+                    <a href="<?php echo esc_url(get_post_meta($post->ID, 'wpcf-git_url', true)); ?>" target="_blank" class="btn btn-outline-dark">
+                        <i class="fab fa-github"></i> GitHub
+                    </a>
+                </div>
+            </div>
         </div>
         <div class="col-md-4">
             <!-- LinkedIn Profile Card -->
