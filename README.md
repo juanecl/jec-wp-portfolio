@@ -20,31 +20,51 @@ The plugin registers several custom post types and taxonomies to manage the port
 
 ## Plugin Structure
 ```
+├── README.md
 ├── assets
 │   └── js
 │       └── admin.js
 ├── includes
+│   ├── classes
+│   │   ├── meta-box-renderer.php
+│   │   └── meta-boxes
+│   │       ├── abstract.php
+│   │       ├── checkbox.php
+│   │       ├── date.php
+│   │       ├── file.php
+│   │       ├── index.php
+│   │       ├── interface.php
+│   │       ├── multiselect.php
+│   │       ├── select.php
+│   │       ├── text.php
+│   │       ├── textarea.php
+│   │       └── url.php
 │   ├── helpers.php
-│   ├── front
-│   │   ├── profile-display.php
-│   │   └── profile-widget.php
 │   ├── partials
-│   │   ├── abstract-meta-box.php
-│   │   ├── checkbox-meta-box.php
-│   │   ├── date-meta-box.php
-│   │   ├── file-meta-box.php
-│   │   ├── multi-select-meta-box.php
-│   │   ├── select-meta-box.php
-│   │   ├── taxonomy-meta-box.php
-│   │   ├── text-meta-box.php
-│   │   ├── textarea-meta-box.php
-│   │   └── url-meta-box.php
-│   └── post_types
-│       ├── company.php
-│       ├── position.php
-│       ├── profile.php
-│       └── project.php
-└── index.php
+│   │   └── meta-boxes
+│   │       ├── checkbox.php
+│   │       ├── date.php
+│   │       ├── file.php
+│   │       ├── multiselect.php
+│   │       ├── select.php
+│   │       ├── text.php
+│   │       ├── textarea.php
+│   │       └── url.php
+│   ├── post-types
+│   │   ├── company.php
+│   │   ├── index.php
+│   │   ├── position.php
+│   │   ├── profile.php
+│   │   └── project.php
+│   └── widgets
+│       ├── profile-display.php
+│       └── profile-widget.php
+├── index.php
+└── languages
+    ├── jec-portfolio-en_US.mo
+    ├── jec-portfolio-en_US.po
+    ├── jec-portfolio-es_ES.mo
+    └── jec-portfolio-es_ES.po
 ```
 
 ## Author
