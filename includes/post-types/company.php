@@ -183,7 +183,11 @@ class CompanyPostType extends AbstractMetaBoxRenderer {
                 $value = sanitize_text_field($_POST[$field_id]);
                 update_post_meta($post_id, $field_id, $value);
             } else {
-                delete_post_meta($post_id, $field_id);
+                if (metadata_exists('post', $post_id, $field_id)) {
+                    if (!delete_post_meta($post_id, $field_id)) {
+                        throw new Exception('Failed to delete post meta for field: ' . $field_id);
+                    }
+                }
             }
         }
     }

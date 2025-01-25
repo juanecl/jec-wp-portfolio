@@ -39,6 +39,7 @@ class JecPortfolio {
         require_once plugin_dir_path(__FILE__) . 'includes/helpers.php';
         require_once plugin_dir_path(__FILE__) . 'includes/post-types/index.php';
         require_once plugin_dir_path(__FILE__) . 'includes/widgets/profile-widget.php';
+        require_once plugin_dir_path(__FILE__) . 'includes/widgets/position-widget.php';
     }
 
     private function init_hooks() {
