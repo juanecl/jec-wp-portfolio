@@ -110,6 +110,7 @@ class ProjectPostType extends AbstractMetaBoxRenderer {
     public function add_meta_boxes() {
         add_meta_box('project_description', __('Description', 'jec-portfolio'), [$this, 'render_description_meta_box'], 'project', 'normal', 'high');
         add_meta_box('project_dates', __('Dates', 'jec-portfolio'), [$this, 'render_dates_meta_box'], 'project', 'side', 'default');
+        add_meta_box('project_url', __('Project URL', 'jec-portfolio'), [$this, 'render_url_meta_box'], 'project', 'normal', 'high');
     }
 
     /**
@@ -130,8 +131,18 @@ class ProjectPostType extends AbstractMetaBoxRenderer {
     public function render_dates_meta_box($post) {
         wp_nonce_field('save_project_fields_nonce', 'project_fields_nonce');
         $this->render_meta_box('checkbox', $post, 'active', __('Active', 'jec-portfolio'), __('Check if the project is currently active.', 'jec-portfolio'));
-        $this->render_meta_box('date', $post, 'start_date', __('Start Date', 'jec-portfolio'), __('Enter the start date for the project.', 'jec-portfolio'));
-        $this->render_meta_box('date', $post, 'end_date', __('End Date', 'jec-portfolio'), __('Enter the end date for the project.', 'jec-portfolio'));
+        $this->render_meta_box('date', $post, 'start-date', __('Start Date', 'jec-portfolio'), __('Enter the start date for the project.', 'jec-portfolio'));
+        $this->render_meta_box('date', $post, 'end-date', __('End Date', 'jec-portfolio'), __('Enter the end date for the project.', 'jec-portfolio'));
+    }
+
+    /**
+     * Render the URL meta box.
+     *
+     * @param WP_Post $post The current post object.
+     */
+    public function render_url_meta_box($post) {
+        wp_nonce_field('save_project_fields_nonce', 'project_fields_nonce');
+        $this->render_meta_box('text', $post, 'url', __('Project URL', 'jec-portfolio'), __('Enter the URL for the project.', 'jec-portfolio'));
     }
 
     /**
@@ -140,74 +151,11 @@ class ProjectPostType extends AbstractMetaBoxRenderer {
      * @param int $post_id The ID of the current post.
      */
     public function save_custom_fields($post_id) {
-        // Verify nonce.
-        if (!isset($_POST['project_fields_nonce']) || !wp_verify_nonce($_POST['project_fields_nonce'], 'save_project_fields_nonce')) {
-            return;
-        }
-
-        // Verify autosave.
-        if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
-            return;
-        }
-
-        // Verify user permissions.
-        if (isset($_POST['post_type']) && 'page' == $_POST['post_type']) {
-            if (!current_user_can('edit_page', $post_id)) {
-                return;
-            }
-        } else {
-            if (!current_user_can('edit_post', $post_id)) {
-                return;
-            }
-        }
-
-        // Save custom fields
-        $fields = ['description', 'active', 'start_date', 'end_date'];
-        foreach ($fields as $field) {
-            $field_id = 'wpcf-' . $field;
-            try {
-                if (isset($_POST[$field_id])) {
-                    $value = sanitize_text_field($_POST[$field_id]);
-                    if (is_array($value)) {
-                        $value = array_map('sanitize_text_field', $value);
-                    } else {
-                        $value = sanitize_text_field($value);
-                    }
-
-                    // Verify if the value is valid
-                    if (empty($value)) {
-                        throw new Exception('The value for field ' . $field_id . ' is empty or invalid.');
-                    }
-
-                    // Verify if the meta field already exists
-                    $current_value = get_post_meta($post_id, $field_id, true);
-                    if ($current_value === $value) {
-                        error_log('The value for field ' . $field_id . ' is already up to date.');
-                    } else {
-                        if (!update_post_meta($post_id, $field_id, $value)) {
-                            throw new Exception('Failed to update post meta for field: ' . $field_id);
-                        }
-                    }
-                } else {
-                    if (metadata_exists('post', $post_id, $field_id)) {
-                        if (!delete_post_meta($post_id, $field_id)) {
-                            throw new Exception('Failed to delete post meta for field: ' . $field_id);
-                        }
-                    }
-                }
-            } catch (Exception $e) {
-                error_log('Error: ' . $e->getMessage());
-                add_settings_error(
-                    'project_meta_box_errors',
-                    esc_attr('settings_updated'),
-                    $e->getMessage(),
-                    'error'
-                );
-            }
-        }
-
-        // Display errors on the admin screen
-        settings_errors('project_meta_box_errors');
+        // Define the fields to be saved
+        $fields = ['description', 'active', 'start-date', 'end-date', 'url'];
+    
+        // Call the external function to save custom meta fields
+        save_custom_meta_fields($post_id, $fields, 'project_fields_nonce', 'save_project_fields_nonce');
     }
 }
 

@@ -169,42 +169,22 @@ class ProfilePostType extends AbstractMetaBoxRenderer {
      * @param int $post_id The ID of the current post.
      */
     public function save_custom_fields($post_id) {
-        // Verify nonce.
-        if (!isset($_POST['profile_fields_nonce']) || !wp_verify_nonce($_POST['profile_fields_nonce'], 'save_profile_fields_nonce')) {
-            return;
-        }
-
-        // Verify autosave.
-        if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
-            return;
-        }
-
-        // Verify user permissions.
-        if (isset($_POST['post_type']) && 'page' == $_POST['post_type']) {
-            if (!current_user_can('edit_page', $post_id)) {
-                return;
-            }
-        } else {
-            if (!current_user_can('edit_post', $post_id)) {
-                return;
-            }
-        }
-
-        // Save custom fields
-        $fields = ['name', 'birthdate', 'phone', 'location', 'email', 'career', 'cv_es', 'bio_es', 'cv_en', 'bio_en', 'git_url', 'linkedin_url', 'stackoverflow_url'];
-        foreach ($fields as $field) {
-            $field_id = 'wpcf-' . $field;
-            if (isset($_POST[$field_id])) {
-                $value = sanitize_text_field($_POST[$field_id]);
-                update_post_meta($post_id, $field_id, $value);
-            } else {
-                if (metadata_exists('post', $post_id, $field_id)) {
-                    if (!delete_post_meta($post_id, $field_id)) {
-                        throw new Exception('Failed to delete post meta for field: ' . $field_id);
-                    }
-                }
-            }
-        }
+        $fields = [
+            'name', 
+            'birthdate', 
+            'phone', 
+            'location', 
+            'email', 
+            'career', 
+            'cv_es', 
+            ['bio_es', true], // enriched text
+            'cv_en', 
+            ['bio_en', true], // enriched text
+            'git_url', 
+            'linkedin_url', 
+            'stackoverflow_url'
+        ];
+        save_custom_meta_fields($post_id, $fields, 'profile_fields_nonce', 'save_profile_fields_nonce');
     }
 }
 

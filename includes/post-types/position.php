@@ -174,81 +174,19 @@ class PositionPostType extends AbstractMetaBoxRenderer {
      * @param int $post_id The ID of the current post.
      */
     public function save_custom_fields($post_id) {
-        // Verify nonce.
-        if (!isset($_POST['position_fields_nonce']) || !wp_verify_nonce($_POST['position_fields_nonce'], 'save_position_fields_nonce')) {
-            return;
-        }
-
-        // Verify autosave.
-        if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
-            return;
-        }
-
-        // Verify user permissions.
-        if (isset($_POST['post_type']) && 'page' == $_POST['post_type']) {
-            if (!current_user_can('edit_page', $post_id)) {
-                return;
-            }
-        } else {
-            if (!current_user_can('edit_post', $post_id)) {
-                return;
-            }
-        }
-
-        // Save custom fields
-        $fields = ['description', 'company_id', 'location', 'project_ids', 'active', 'start-date', 'end-date'];
-        foreach ($fields as $field) {
-            $field_id = 'wpcf-' . $field;
-            try {
-                if (isset($_POST[$field_id])) {
-                    $value = $_POST[$field_id];
-                    if (is_array($value)) {
-                        $value = array_map('sanitize_text_field', $value);
-                    } else {
-                        $value = sanitize_text_field($value);
-                    }
-
-                    // Verify if the value is valid
-                    if (empty($value)) {
-                        throw new Exception('The value for field ' . $field_id . ' is empty or invalid.');
-                    }
-
-                    // Verify if the meta field already exists
-                    $current_value = get_post_meta($post_id, $field_id, true);
-                    if ($current_value === $value) {
-                        error_log('The value for field ' . $field_id . ' is already up to date.');
-                    } else {
-                        if (!update_post_meta($post_id, $field_id, $value)) {
-                            throw new Exception('Failed to update post meta for field: ' . $field_id);
-                        }
-                    }
-                } else {
-                    if (metadata_exists('post', $post_id, $field_id)) {
-                        if (!delete_post_meta($post_id, $field_id)) {
-                            throw new Exception('Failed to delete post meta for field: ' . $field_id);
-                        }
-                    }
-                }
-            } catch (Exception $e) {
-                error_log('Error: ' . $e->getMessage());
-                add_settings_error(
-                    'position_meta_box_errors',
-                    esc_attr('settings_updated'),
-                    $e->getMessage(),
-                    'error'
-                );
-            }
-        }
-
-        // Display errors on the admin screen
-        settings_errors('position_meta_box_errors');
-    }
-
-    /**
-     * Enqueue admin scripts.
-     */
-    public function enqueue_admin_scripts() {
-        wp_enqueue_script('position-admin-script', plugin_dir_url(__FILE__) . 'js/admin.js', ['jquery'], null, true);
+        // Define the fields to be saved
+        $fields = [
+            ['description', true], // Enriched text area
+            'company_id',
+            'location',
+            'project_ids',
+            'active',
+            'start-date',
+            'end-date'
+        ];
+    
+        // Call the external function to save custom meta fields
+        save_custom_meta_fields($post_id, $fields, 'position_fields_nonce', 'save_position_fields_nonce');
     }
 }
 
