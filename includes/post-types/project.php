@@ -130,8 +130,8 @@ class ProjectPostType extends AbstractMetaBoxRenderer {
     public function render_dates_meta_box($post) {
         wp_nonce_field('save_project_fields_nonce', 'project_fields_nonce');
         $this->render_meta_box('checkbox', $post, 'active', __('Active', 'jec-portfolio'), __('Check if the project is currently active.', 'jec-portfolio'));
-        $this->render_meta_box('date', $post, 'start-date', __('Start Date', 'jec-portfolio'), __('Enter the start date for the project.', 'jec-portfolio'));
-        $this->render_meta_box('date', $post, 'end-date', __('End Date', 'jec-portfolio'), __('Enter the end date for the project.', 'jec-portfolio'));
+        $this->render_meta_box('date', $post, 'start_date', __('Start Date', 'jec-portfolio'), __('Enter the start date for the project.', 'jec-portfolio'));
+        $this->render_meta_box('date', $post, 'end_date', __('End Date', 'jec-portfolio'), __('Enter the end date for the project.', 'jec-portfolio'));
     }
 
     /**
@@ -162,16 +162,52 @@ class ProjectPostType extends AbstractMetaBoxRenderer {
         }
 
         // Save custom fields
-        $fields = ['description', 'active', 'start-date', 'end-date'];
+        $fields = ['description', 'active', 'start_date', 'end_date'];
         foreach ($fields as $field) {
             $field_id = 'wpcf-' . $field;
-            if (isset($_POST[$field_id])) {
-                $value = sanitize_text_field($_POST[$field_id]);
-                update_post_meta($post_id, $field_id, $value);
-            } else {
-                delete_post_meta($post_id, $field_id);
+            try {
+                if (isset($_POST[$field_id])) {
+                    $value = sanitize_text_field($_POST[$field_id]);
+                    if (is_array($value)) {
+                        $value = array_map('sanitize_text_field', $value);
+                    } else {
+                        $value = sanitize_text_field($value);
+                    }
+
+                    // Verify if the value is valid
+                    if (empty($value)) {
+                        throw new Exception('The value for field ' . $field_id . ' is empty or invalid.');
+                    }
+
+                    // Verify if the meta field already exists
+                    $current_value = get_post_meta($post_id, $field_id, true);
+                    if ($current_value === $value) {
+                        error_log('The value for field ' . $field_id . ' is already up to date.');
+                    } else {
+                        if (!update_post_meta($post_id, $field_id, $value)) {
+                            throw new Exception('Failed to update post meta for field: ' . $field_id);
+                        }
+                    }
+                } else {
+                    if (metadata_exists('post', $post_id, $field_id)) {
+                        if (!delete_post_meta($post_id, $field_id)) {
+                            throw new Exception('Failed to delete post meta for field: ' . $field_id);
+                        }
+                    }
+                }
+            } catch (Exception $e) {
+                error_log('Error: ' . $e->getMessage());
+                add_settings_error(
+                    'project_meta_box_errors',
+                    esc_attr('settings_updated'),
+                    $e->getMessage(),
+                    'error'
+                );
             }
         }
+
+        // Display errors on the admin screen
+        settings_errors('project_meta_box_errors');
     }
 }
 
