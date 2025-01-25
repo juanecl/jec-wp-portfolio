@@ -1,15 +1,4 @@
 <?php
-
-/**
- * Enqueue admin scripts.
- *
- * This function enqueues the JavaScript file for the admin area.
- */
-function enqueue_admin_scripts() {
-    wp_enqueue_script('admin-js', plugin_dir_url(__FILE__) . '../assets/js/admin.js', ['jquery'], null, true);
-}
-add_action('admin_enqueue_scripts', 'enqueue_admin_scripts');
-
 /**
  * Disable Gutenberg for specific post types.
  *
