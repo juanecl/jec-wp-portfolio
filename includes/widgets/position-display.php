@@ -29,6 +29,10 @@ $position_active = get_post_meta($position_id, 'wpcf-active', true);
 $position_start_date_formatted = date_i18n(get_option('date_format'), strtotime($position_start_date));
 $position_end_date_formatted = $position_end_date ? date_i18n(get_option('date_format'), strtotime($position_end_date)) : '';
 
+// Get knowledge and skills taxonomies
+$knowledge_terms = wp_get_post_terms($position_id, 'knowledge', ['fields' => 'names']);
+$skills_terms = wp_get_post_terms($position_id, 'skills', ['fields' => 'names']);
+
 $projects = [];
 if (is_array($project_ids)) {
     foreach ($project_ids as $project_id) {
@@ -58,6 +62,8 @@ $args = [
     'position_start_date_formatted' => $position_start_date_formatted,
     'position_end_date_formatted' => $position_end_date_formatted,
     'position_active' => $position_active,
+    'knowledge_terms' => $knowledge_terms,
+    'skills_terms' => $skills_terms,
     'projects' => $projects,
 ];
 

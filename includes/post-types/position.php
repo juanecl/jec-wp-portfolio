@@ -16,6 +16,7 @@ class PositionPostType extends AbstractMetaBoxRenderer {
     private function __construct() {
         parent::__construct();
         add_action('init', [$this, 'register_post_type']);
+        add_action('init', [$this, 'register_taxonomies']);
         add_action('add_meta_boxes', [$this, 'add_meta_boxes']);
         add_action('save_post', [$this, 'save_custom_fields']);
         add_filter('use_block_editor_for_post_type', [$this, 'disable_block_editor'], 10, 2);
@@ -101,9 +102,89 @@ class PositionPostType extends AbstractMetaBoxRenderer {
             'publicly_queryable' => true,
             'capability_type' => 'post',
             'show_in_rest' => true,
+            'taxonomies' => ['knowledge', 'skills'], // Add taxonomies here
         ];
 
         register_post_type('position', $args);
+    }
+
+    /**
+     * Register custom taxonomies for the "position" post type.
+     */
+    public function register_taxonomies() {
+        // Register Knowledge Taxonomy
+        $labels = [
+            'name' => _x('Knowledge', 'Taxonomy General Name', 'jec-portfolio'),
+            'singular_name' => _x('Knowledge', 'Taxonomy Singular Name', 'jec-portfolio'),
+            'menu_name' => __('Knowledge', 'jec-portfolio'),
+            'all_items' => __('All Knowledge', 'jec-portfolio'),
+            'parent_item' => __('Parent Knowledge', 'jec-portfolio'),
+            'parent_item_colon' => __('Parent Knowledge:', 'jec-portfolio'),
+            'new_item_name' => __('New Knowledge Name', 'jec-portfolio'),
+            'add_new_item' => __('Add New Knowledge', 'jec-portfolio'),
+            'edit_item' => __('Edit Knowledge', 'jec-portfolio'),
+            'update_item' => __('Update Knowledge', 'jec-portfolio'),
+            'view_item' => __('View Knowledge', 'jec-portfolio'),
+            'separate_items_with_commas' => __('Separate knowledge with commas', 'jec-portfolio'),
+            'add_or_remove_items' => __('Add or remove knowledge', 'jec-portfolio'),
+            'choose_from_most_used' => __('Choose from the most used', 'jec-portfolio'),
+            'popular_items' => __('Popular Knowledge', 'jec-portfolio'),
+            'search_items' => __('Search Knowledge', 'jec-portfolio'),
+            'not_found' => __('Not Found', 'jec-portfolio'),
+            'no_terms' => __('No knowledge', 'jec-portfolio'),
+            'items_list' => __('Knowledge list', 'jec-portfolio'),
+            'items_list_navigation' => __('Knowledge list navigation', 'jec-portfolio'),
+        ];
+
+        $args = [
+            'labels' => $labels,
+            'hierarchical' => false,
+            'public' => true,
+            'show_ui' => true,
+            'show_admin_column' => true,
+            'show_in_nav_menus' => true,
+            'show_tagcloud' => true,
+            'show_in_rest' => true,
+        ];
+
+        register_taxonomy('knowledge', ['position'], $args);
+
+        // Register Skills Taxonomy
+        $labels = [
+            'name' => _x('Skills', 'Taxonomy General Name', 'jec-portfolio'),
+            'singular_name' => _x('Skill', 'Taxonomy Singular Name', 'jec-portfolio'),
+            'menu_name' => __('Skills', 'jec-portfolio'),
+            'all_items' => __('All Skills', 'jec-portfolio'),
+            'parent_item' => __('Parent Skill', 'jec-portfolio'),
+            'parent_item_colon' => __('Parent Skill:', 'jec-portfolio'),
+            'new_item_name' => __('New Skill Name', 'jec-portfolio'),
+            'add_new_item' => __('Add New Skill', 'jec-portfolio'),
+            'edit_item' => __('Edit Skill', 'jec-portfolio'),
+            'update_item' => __('Update Skill', 'jec-portfolio'),
+            'view_item' => __('View Skill', 'jec-portfolio'),
+            'separate_items_with_commas' => __('Separate skills with commas', 'jec-portfolio'),
+            'add_or_remove_items' => __('Add or remove skills', 'jec-portfolio'),
+            'choose_from_most_used' => __('Choose from the most used', 'jec-portfolio'),
+            'popular_items' => __('Popular Skills', 'jec-portfolio'),
+            'search_items' => __('Search Skills', 'jec-portfolio'),
+            'not_found' => __('Not Found', 'jec-portfolio'),
+            'no_terms' => __('No skills', 'jec-portfolio'),
+            'items_list' => __('Skills list', 'jec-portfolio'),
+            'items_list_navigation' => __('Skills list navigation', 'jec-portfolio'),
+        ];
+
+        $args = [
+            'labels' => $labels,
+            'hierarchical' => false,
+            'public' => true,
+            'show_ui' => true,
+            'show_admin_column' => true,
+            'show_in_nav_menus' => true,
+            'show_tagcloud' => true,
+            'show_in_rest' => true,
+        ];
+
+        register_taxonomy('skills', ['position'], $args);
     }
 
     /**

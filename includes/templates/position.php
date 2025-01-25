@@ -1,20 +1,13 @@
-<?php
 /**
  * Template for displaying a Position with its associated Company and Projects.
  *
  * @param array $args The arguments for the template.
  */
 
-$position_id = $args['position_id'];
-$company_name = $args['company_name'];
-$company_category = $args['company_category'];
-$company_website = $args['company_website'];
-$position_title = $args['position_title'];
-$position_description = $args['position_description'];
-$position_start_date_formatted = $args['position_start_date_formatted'];
-$position_end_date_formatted = $args['position_end_date_formatted'];
-$position_active = $args['position_active'];
-$projects = $args['projects'];
+// Assign the arguments to variables
+foreach ($args as $key => $value) {
+    ${$key} = $value;
+}
 ?>
 
 <div class="container mt-5">
@@ -47,6 +40,28 @@ $projects = $args['projects'];
                 <div class="collapse show" id="position-content-<?php echo esc_attr($position_id); ?>">
                     <div class="position-description mb-4 py-4 px-3 border-top border-bottom">
                         <p><?php echo wp_kses_post($position_description); ?></p>
+                    </div>
+                    <div class="row mb-4">
+                        <div class="col-md-6">
+                            <h5><?php _e('Knowledge', 'jec-portfolio'); ?></h5>
+                            <?php if (!empty($knowledge_terms)): ?>
+                                <?php foreach ($knowledge_terms as $term): ?>
+                                    <span class="badge bg-primary"><?php echo esc_html($term); ?></span>
+                                <?php endforeach; ?>
+                            <?php else: ?>
+                                <p><?php _e('No knowledge terms assigned.', 'jec-portfolio'); ?></p>
+                            <?php endif; ?>
+                        </div>
+                        <div class="col-md-6">
+                            <h5><?php _e('Skills', 'jec-portfolio'); ?></h5>
+                            <?php if (!empty($skills_terms)): ?>
+                                <?php foreach ($skills_terms as $term): ?>
+                                    <span class="badge bg-success"><?php echo esc_html($term); ?></span>
+                                <?php endforeach; ?>
+                            <?php else: ?>
+                                <p><?php _e('No skills terms assigned.', 'jec-portfolio'); ?></p>
+                            <?php endif; ?>
+                        </div>
                     </div>
                     <div class="ro mt-5 d-block mb-3">
                         <h4><?php _e('Related projects', 'jec-portfolio'); ?></h4>
