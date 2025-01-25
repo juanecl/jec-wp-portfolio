@@ -19,6 +19,7 @@ class PositionPostType extends AbstractMetaBoxRenderer {
         add_action('add_meta_boxes', [$this, 'add_meta_boxes']);
         add_action('save_post', [$this, 'save_custom_fields']);
         add_filter('use_block_editor_for_post_type', [$this, 'disable_block_editor'], 10, 2);
+        add_action('admin_enqueue_scripts', [$this, 'enqueue_admin_scripts']);
     }
 
     /**
@@ -112,6 +113,7 @@ class PositionPostType extends AbstractMetaBoxRenderer {
         add_meta_box('position_company', __('Company', 'jec-portfolio'), [$this, 'render_company_meta_box'], 'position', 'normal', 'high');
         add_meta_box('position_location', __('Location', 'jec-portfolio'), [$this, 'render_location_meta_box'], 'position', 'normal', 'high');
         add_meta_box('position_projects', __('Projects', 'jec-portfolio'), [$this, 'render_projects_meta_box'], 'position', 'side', 'default');
+        add_meta_box('position_dates', __('Dates', 'jec-portfolio'), [$this, 'render_dates_meta_box'], 'position', 'side', 'default');
     }
 
     /**
@@ -155,6 +157,18 @@ class PositionPostType extends AbstractMetaBoxRenderer {
     }
 
     /**
+     * Render the dates meta box.
+     *
+     * @param WP_Post $post The current post object.
+     */
+    public function render_dates_meta_box($post) {
+        wp_nonce_field('save_position_fields_nonce', 'position_fields_nonce');
+        $this->render_meta_box('checkbox', $post, 'active', __('Active', 'jec-portfolio'), __('Check if the position is currently active.', 'jec-portfolio'));
+        $this->render_meta_box('date', $post, 'start-date', __('Start Date', 'jec-portfolio'), __('Enter the start date for the position.', 'jec-portfolio'));
+        $this->render_meta_box('date', $post, 'end-date', __('End Date', 'jec-portfolio'), __('Enter the end date for the position.', 'jec-portfolio'));
+    }
+
+    /**
      * Save custom fields for the "position" post type.
      *
      * @param int $post_id The ID of the current post.
@@ -182,7 +196,7 @@ class PositionPostType extends AbstractMetaBoxRenderer {
         }
 
         // Save custom fields
-        $fields = ['description', 'company_id', 'location', 'project_ids'];
+        $fields = ['description', 'company_id', 'location', 'project_ids', 'active', 'start-date', 'end-date'];
         foreach ($fields as $field) {
             $field_id = 'wpcf-' . $field;
             try {
@@ -209,8 +223,10 @@ class PositionPostType extends AbstractMetaBoxRenderer {
                         }
                     }
                 } else {
-                    if (!delete_post_meta($post_id, $field_id)) {
-                        throw new Exception('Failed to delete post meta for field: ' . $field_id);
+                    if (metadata_exists('post', $post_id, $field_id)) {
+                        if (!delete_post_meta($post_id, $field_id)) {
+                            throw new Exception('Failed to delete post meta for field: ' . $field_id);
+                        }
                     }
                 }
             } catch (Exception $e) {
@@ -226,6 +242,13 @@ class PositionPostType extends AbstractMetaBoxRenderer {
 
         // Display errors on the admin screen
         settings_errors('position_meta_box_errors');
+    }
+
+    /**
+     * Enqueue admin scripts.
+     */
+    public function enqueue_admin_scripts() {
+        wp_enqueue_script('position-admin-script', plugin_dir_url(__FILE__) . 'js/admin.js', ['jquery'], null, true);
     }
 }
 
