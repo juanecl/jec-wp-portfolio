@@ -20,6 +20,7 @@ class PositionPostType extends AbstractMetaBoxRenderer {
         add_action('save_post', [$this, 'save_custom_fields']);
         add_filter('use_block_editor_for_post_type', [$this, 'disable_block_editor'], 10, 2);
         add_action('admin_enqueue_scripts', [$this, 'enqueue_admin_scripts']);
+        add_action('wp_enqueue_scripts', [$this, 'enqueue_position_scripts']);
     }
 
     /**
@@ -187,6 +188,14 @@ class PositionPostType extends AbstractMetaBoxRenderer {
     
         // Call the external function to save custom meta fields
         save_custom_meta_fields($post_id, $fields, 'position_fields_nonce', 'save_position_fields_nonce');
+    }
+
+    /**
+     * Enqueue position scripts.
+     */
+    public function enqueue_position_scripts() {
+        wp_enqueue_script('position', plugin_dir_url(__FILE__) . '../../assets/js/position.js', ['jquery'], null, true);
+
     }
 }
 

@@ -54,6 +54,7 @@ abstract class AbstractMetaBoxRenderer {
      * Enqueue admin scripts.
      */
     public function enqueue_admin_scripts() {
-        wp_enqueue_script('position-admin-script', plugin_dir_url(__FILE__) . 'js/admin.js', ['jquery'], null, true);
+        wp_enqueue_script('portfolio-admin-script', plugin_dir_url(__FILE__) . 'js/admin.js', ['jquery'], null, true);
     }
+    
 }
