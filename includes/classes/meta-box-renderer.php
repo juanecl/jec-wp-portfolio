@@ -49,4 +49,11 @@ abstract class AbstractMetaBoxRenderer {
             throw new Exception(sprintf(__('Meta box type not found: %s', 'jec-portfolio'), $type));
         }
     }
+
+    /**
+     * Enqueue admin scripts.
+     */
+    public function enqueue_admin_scripts() {
+        wp_enqueue_script('position-admin-script', plugin_dir_url(__FILE__) . 'js/admin.js', ['jquery'], null, true);
+    }
 }
