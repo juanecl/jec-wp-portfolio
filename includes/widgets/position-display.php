@@ -1,6 +1,6 @@
 <?php
 /**
- * Template for displaying a Position with its associated Company and Projects.
+ * Logic for displaying a Position with its associated Company and Projects.
  *
  * @param WP_Post $post The current post object.
  */
@@ -46,104 +46,19 @@ if (is_array($project_ids)) {
         ];
     }
 }
-?>
 
-<div class="container mt-5">
-    <div class="card mb-4">
-        <div class="card-header">
-            <h2><?php echo esc_html($company_name); ?></h2>
-            <span class="website">
-                <?php echo esc_html($company_category); ?>
-                <i class="fa fa-angle-double-right"></i>
-                <a href="<?php echo esc_url($company_website); ?>" target="_blank">
-                    <i class="fa fa-globe"></i> <?php _e('View website', 'jec-portfolio'); ?>
-                </a>
-            </span>
-        </div>
-        <div class="card-body">
-            <div class="position-wrapper">
-                <span class="position-dates">
-                    <i class="fa fa-calendar-check-o"></i> <?php echo esc_html($position_start_date_formatted); ?> -
-                    <?php if ($position_active && empty($position_end_date)): ?>
-                        <?php _e('Current job', 'jec-portfolio'); ?>
-                    <?php else: ?>
-                        <i class="fa fa-calendar-times-o"></i> <?php echo esc_html($position_end_date_formatted); ?>
-                    <?php endif; ?>
-                </span>
-                <h3 class="position-title"><?php echo esc_html($position_title); ?></h3>
-                <p><?php echo wp_kses_post($position_description); ?></p>
-            </div>
-            <div class="mt-5 d-block">
-                <h4><?php _e('Related projects', 'jec-portfolio'); ?></h4>
-                <div class="row">
-                    <?php foreach ($projects as $project): ?>
-                        <div class="col-md-6 mb-4">
-                            <div class="card">
-                                <div class="card-header position-relative">
-                                    <span class="project-title d-block w-100">
-                                        <?php if (!empty($project['url'])): ?>
-                                            <a href="<?php echo esc_url($project['url']); ?>" target="_blank"><?php echo esc_html($project['title']); ?></a>
-                                        <?php else: ?>
-                                            <?php echo esc_html($project['title']); ?>
-                                        <?php endif; ?>
-                                    </span>
-                                    <span class="project-dates d-block w-100">
-                                        <strong>
-                                            <i class="fa fa-calendar"></i> <?php echo esc_html($project['start_date']); ?> -
-                                            <?php if ($project['active'] && empty($project['end_date'])): ?>
-                                                <?php _e('Active', 'jec-portfolio'); ?>
-                                            <?php else: ?>
-                                                <i class="fa fa-calendar"></i> <?php echo esc_html($project['end_date']); ?>
-                                            <?php endif; ?>
-                                        </strong>
-                                    </span>
-                                    <i class="toggle_project fa fa-plus-circle text-danger position-absolute" style="top: 10px; right: 10px; cursor: pointer;" data-bs-toggle="collapse" data-bs-target="#project-<?php echo $project['id']; ?>"></i>
-                                </div>
-                                <div id="project-<?php echo $project['id']; ?>" class="collapse card-body project-description text-justify">
-                                    <?php echo wp_kses_post($project['description']); ?>
-                                </div>
-                            </div>
-                        </div>
-                    <?php endforeach; ?>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+// Pass data to the template
+$args = [
+    'position_id' => $position_id,
+    'company_name' => $company_name,
+    'company_category' => $company_category,
+    'company_website' => $company_website,
+    'position_title' => $position_title,
+    'position_description' => $position_description,
+    'position_start_date_formatted' => $position_start_date_formatted,
+    'position_end_date_formatted' => $position_end_date_formatted,
+    'position_active' => $position_active,
+    'projects' => $projects,
+];
 
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-    const toggleButtons = document.querySelectorAll('.toggle_project');
-    toggleButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            const target = document.querySelector(button.getAttribute('data-bs-target'));
-            const bsCollapse = new bootstrap.Collapse(target, {
-                toggle: false
-            });
-            if (target.classList.contains('show')) {
-                bsCollapse.hide();
-                button.classList.remove('fa-minus-circle');
-                button.classList.add('fa-plus-circle');
-            } else {
-                bsCollapse.show();
-                button.classList.remove('fa-plus-circle');
-                button.classList.add('fa-minus-circle');
-            }
-        });
-    });
-
-    const collapseElements = document.querySelectorAll('.collapse');
-    collapseElements.forEach(collapseElement => {
-        collapseElement.addEventListener('show.bs.collapse', () => {
-            const button = document.querySelector(`[data-bs-target="#${collapseElement.id}"]`);
-            button.classList.remove('fa-plus-circle');
-            button.classList.add('fa-minus-circle');
-        });
-        collapseElement.addEventListener('hide.bs.collapse', () => {
-            const button = document.querySelector(`[data-bs-target="#${collapseElement.id}"]`);
-            button.classList.remove('fa-minus-circle');
-            button.classList.add('fa-plus-circle');
-        });
-    });
-});
-</script>
+include plugin_dir_path(__FILE__) . '../templates/position.php';
