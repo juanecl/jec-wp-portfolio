@@ -23,7 +23,8 @@ The plugin registers several custom post types and taxonomies to manage the port
 ├── README.md
 ├── assets
 │   └── js
-│       └── admin.js
+│       ├── admin.js
+│       └── position.js
 ├── includes
 │   ├── classes
 │   │   ├── meta-box-renderer.php
@@ -56,7 +57,12 @@ The plugin registers several custom post types and taxonomies to manage the port
 │   │   ├── position.php
 │   │   ├── profile.php
 │   │   └── project.php
+│   ├── templates
+│   │   ├── position.php
+│   │   └── projects.php
 │   └── widgets
+│       ├── position-display.php
+│       ├── position-widget.php
 │       ├── profile-display.php
 │       └── profile-widget.php
 ├── index.php
