@@ -24,7 +24,7 @@ foreach ($args as $key => $value) {
 ?>
 
 <div class="container">
-    <div class="card">
+    <div class="card mb-2">
         <div class="card-header position-relative">
             <a class="btn btn-outline-primary position-absolute" style="top: 0; right: 0; margin: 0.5rem;" data-bs-toggle="collapse" href="#position-content-<?php echo esc_attr($position_id); ?>" role="button" aria-expanded="true" aria-controls="position-content-<?php echo esc_attr($position_id); ?>">
                 <i class="fa fa-minus-circle toggle-icon"></i>

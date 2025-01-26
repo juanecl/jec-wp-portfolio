@@ -2,9 +2,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: jec-portfolio 1.0.0\n"
 "POT-Creation-Date: 2025-01-24 15:11+0000\n"
-"PO-Revision-Date: 2025-01-24 17:05+0000\n"
+"PO-Revision-Date: 2025-01-26 02:51+0000\n"
 "Last-Translator: \n"
-"Language-Team: Español\n"
+"Language-Team: Spanish (Spain)\n"
 "Language: es_ES\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -13,24 +13,35 @@ msgstr ""
 "X-Poedit-SourceCharset: UTF-8\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "Report-Msgid-Bugs-To: \n"
-"X-Loco-Version: 2.6.14; wp-6.7.1"
+"X-Loco-Version: 2.7.0; wp-6.7.1"
 
 #. Description of the plugin
 msgid "A plugin to manage portfolios."
 msgstr "Un complemento para administrar portafolios."
 
-#: includes/widgets/profile-widget.php:9
+#: includes/widgets/position-widget.php:18
+msgid ""
+"A widget to display position information with associated company and projects"
+msgstr ""
+"Un widget para mostrar la información de un cargo con la compañía y "
+"proyectos asociados"
+
+#: includes/widgets/profile-widget.php:17
 msgid "A widget to display profile information"
 msgstr "Un widget para mostrar información del perfil"
 
-#: includes/post-types/project.php:96
+#: includes/post-types/position.php:248 includes/post-types/project.php:133
 msgid "Active"
 msgstr "Activo"
 
-#: includes/post-types/position.php:41 includes/post-types/project.php:41
-#: includes/post-types/company.php:72 includes/post-types/profile.php:33
-#: includes/partials/meta-boxes/select.php:17
-#: includes/partials/meta-boxes/multiselect.php:43
+#: includes/templates/projects.php:29
+msgid "active"
+msgstr "activo"
+
+#: includes/post-types/position.php:67 includes/post-types/project.php:64
+#: includes/post-types/company.php:72 includes/post-types/profile.php:64
+#: includes/partials/meta-boxes/select.php:39
+#: includes/partials/meta-boxes/multiselect.php:51
 msgid "Add New"
 msgstr "Agregar nuevo"
 
@@ -38,67 +49,91 @@ msgstr "Agregar nuevo"
 msgid "Add New Company"
 msgstr "Agregar nueva compañía"
 
-#: includes/post-types/position.php:40
+#: includes/post-types/position.php:124
+msgid "Add New Knowledge"
+msgstr "Agregar nuevo conocimiento"
+
+#: includes/post-types/position.php:66
 msgid "Add New Position"
 msgstr "Agregar nuevo cargo"
 
-#: includes/post-types/profile.php:32
+#: includes/post-types/profile.php:63
 msgid "Add New Profile"
 msgstr "Agregar nuevo perfil"
 
-#: includes/post-types/project.php:40
+#: includes/post-types/project.php:63
 msgid "Add New Project"
 msgstr "Agregar nuevo proyecto"
+
+#: includes/post-types/position.php:161
+msgid "Add New Skill"
+msgstr "Agregar nueva habilidad"
+
+#: includes/post-types/position.php:129
+msgid "Add or remove knowledge"
+msgstr "Agrega o elimina conocimiento"
+
+#: includes/post-types/position.php:166
+msgid "Add or remove skills"
+msgstr "Agrega o elimina habilidad"
 
 #: includes/post-types/company.php:70
 msgid "All Companies"
 msgstr "Todas las compañías"
 
+#: includes/post-types/position.php:120
+msgid "All Knowledge"
+msgstr "Todos los conocimientos"
+
 #: includes/classes/meta-boxes/abstract.php:20
 msgid "All parameters are required."
 msgstr "Todos los parámetros son obligatorios."
 
-#: includes/post-types/position.php:39
+#: includes/post-types/position.php:65
 msgid "All Positions"
 msgstr "Todas los cargos"
 
-#: includes/post-types/profile.php:31
+#: includes/post-types/profile.php:62
 msgid "All Profiles"
 msgstr "Todos los perfiles"
 
-#: includes/post-types/project.php:39
+#: includes/post-types/project.php:62
 msgid "All Projects"
 msgstr "Todos los proyectos"
 
-#: includes/post-types/profile.php:77
+#: includes/post-types/position.php:157
+msgid "All Skills"
+msgstr "Todas las habilidades"
+
+#: includes/post-types/profile.php:111
 msgid "Basic Information"
 msgstr "Información básica"
 
-#: includes/widgets/profile-display.php:28
+#: includes/widgets/profile-display.php:51
 msgid "Bio"
 msgstr "Acerca"
 
-#: includes/post-types/profile.php:79
+#: includes/post-types/profile.php:113
 msgid "Bio (EN)"
 msgstr "Acerca"
 
-#: includes/post-types/profile.php:78
+#: includes/post-types/profile.php:112
 msgid "Bio (ES)"
 msgstr "Acerca"
 
-#: includes/post-types/profile.php:102
+#: includes/post-types/profile.php:151
 msgid "Bio EN"
 msgstr "Acerca"
 
-#: includes/post-types/profile.php:96
+#: includes/post-types/profile.php:140
 msgid "Bio ES"
 msgstr "Acerca"
 
-#: includes/post-types/profile.php:86
+#: includes/post-types/profile.php:125
 msgid "Birthdate"
 msgstr "Fecha de nacimiento"
 
-#: includes/post-types/profile.php:90
+#: includes/post-types/profile.php:129
 msgid "Career"
 msgstr "Carrera"
 
@@ -106,9 +141,17 @@ msgstr "Carrera"
 msgid "Category"
 msgstr "Rubro"
 
-#: includes/post-types/project.php:96
+#: includes/post-types/position.php:248
+msgid "Check if the position is currently active."
+msgstr "Marca si el cargo es el actual."
+
+#: includes/post-types/project.php:133
 msgid "Check if the project is currently active."
 msgstr "Marcar si el proyecto sigue activo."
+
+#: includes/post-types/position.php:130 includes/post-types/position.php:167
+msgid "Choose from the most used"
+msgstr "Elige de las más usadas"
 
 #: includes/post-types/company.php:65
 msgid "Companies"
@@ -122,7 +165,7 @@ msgstr "Lista de compañías"
 msgid "Companies list navigation"
 msgstr "Navegación de lista de compañías"
 
-#: includes/post-types/position.php:86 includes/post-types/company.php:66
+#: includes/post-types/position.php:195 includes/post-types/company.php:66
 #: includes/post-types/company.php:93
 msgid "Company"
 msgstr "Compañía"
@@ -139,24 +182,28 @@ msgstr "Atributos de compañía"
 msgid "Company URL"
 msgstr "URL de la compañía"
 
-#: includes/widgets/profile-display.php:42
+#: includes/templates/position.php:43
+msgid "Current job"
+msgstr "Trabajo actual"
+
+#: includes/widgets/profile-display.php:68
 msgid "CV"
 msgstr "Currículum"
 
-#: includes/post-types/profile.php:101
+#: includes/post-types/profile.php:150
 msgid "CV EN"
 msgstr "Currículum"
 
-#: includes/post-types/profile.php:95
+#: includes/post-types/profile.php:139
 msgid "CV ES"
 msgstr "Currículum"
 
-#: includes/post-types/project.php:86
+#: includes/post-types/position.php:198 includes/post-types/project.php:112
 msgid "Dates"
 msgstr "Fechas"
 
-#: includes/post-types/position.php:85 includes/post-types/position.php:98
-#: includes/post-types/project.php:85 includes/post-types/project.php:91
+#: includes/post-types/position.php:194 includes/post-types/position.php:218
+#: includes/post-types/project.php:111 includes/post-types/project.php:123
 msgid "Description"
 msgstr "Descripción"
 
@@ -164,23 +211,23 @@ msgstr "Descripción"
 msgid "Description of the Company post type"
 msgstr "Descripción del tipo de entrada 'Compañía'"
 
-#: includes/post-types/position.php:63
+#: includes/post-types/position.php:89
 msgid "Description of the Position post type"
 msgstr "Descripción del tipo de entrada 'Cargo'"
 
-#: includes/post-types/profile.php:55
+#: includes/post-types/profile.php:86
 msgid "Description of the Profile post type"
 msgstr "Descripción del tipo de entrada 'Perfil'"
 
-#: includes/post-types/project.php:63
+#: includes/post-types/project.php:86
 msgid "Description of the Project post type"
 msgstr "Descripción del tipo de entrada 'Proyecto'"
 
-#: includes/widgets/profile-display.php:44
+#: includes/widgets/profile-display.php:70
 msgid "Download CV"
 msgstr "Descargar currículum"
 
-#: includes/widgets/profile-display.php:52
+#: includes/widgets/profile-display.php:79
 msgid "Download resume"
 msgstr "Descargar curriculum"
 
@@ -188,43 +235,51 @@ msgstr "Descargar curriculum"
 msgid "Edit Company"
 msgstr "Editar compañía"
 
-#: includes/post-types/position.php:43
+#: includes/post-types/position.php:125
+msgid "Edit Knowledge"
+msgstr "Editar conocimiento"
+
+#: includes/post-types/position.php:69
 msgid "Edit Position"
 msgstr "Editar cargo"
 
-#: includes/post-types/profile.php:35
+#: includes/post-types/profile.php:66
 msgid "Edit Profile"
 msgstr "Editar perfil"
 
-#: includes/post-types/project.php:43
+#: includes/post-types/project.php:66
 msgid "Edit Project"
 msgstr "Editar proyecto"
 
-#: includes/post-types/profile.php:89
+#: includes/post-types/position.php:162
+msgid "Edit Skill"
+msgstr "Editar habilidad"
+
+#: includes/post-types/profile.php:128
 msgid "Email"
 msgstr "Correo electrónico"
 
-#: includes/post-types/project.php:98
+#: includes/post-types/position.php:250 includes/post-types/project.php:135
 msgid "End Date"
 msgstr "Fecha de término"
 
-#: includes/widgets/profile-display.php:19
+#: includes/widgets/profile-display.php:41
 msgid "English"
 msgstr "Inglés"
 
-#: includes/post-types/profile.php:102
+#: includes/post-types/profile.php:151
 msgid "Enter the bio in English."
 msgstr "Introduzca la biografía en inglés."
 
-#: includes/post-types/profile.php:96
+#: includes/post-types/profile.php:140
 msgid "Enter the bio in Spanish."
 msgstr "Ingresa la biografía en español."
 
-#: includes/post-types/profile.php:86
+#: includes/post-types/profile.php:125
 msgid "Enter the birthdate."
 msgstr "Introduzca la fecha de nacimiento."
 
-#: includes/post-types/profile.php:90
+#: includes/post-types/profile.php:129
 msgid "Enter the career."
 msgstr "Ingresa el título universitario."
 
@@ -232,60 +287,72 @@ msgstr "Ingresa el título universitario."
 msgid "Enter the category of the company."
 msgstr "Ingresa el rubro de la compañía."
 
-#: includes/post-types/position.php:98
+#: includes/post-types/position.php:218
 msgid "Enter the description of the position."
 msgstr "Ingrese la descripción del cargo."
 
-#: includes/post-types/project.php:91
+#: includes/post-types/project.php:123
 msgid "Enter the description of the project."
 msgstr "Ingrese la descripción del proyecto."
 
-#: includes/post-types/profile.php:89
+#: includes/post-types/profile.php:128
 msgid "Enter the email address."
 msgstr "Introduzca la dirección de correo electrónico."
 
-#: includes/post-types/project.php:98
+#: includes/post-types/position.php:250
+msgid "Enter the end date for the position."
+msgstr "Ingresa la fecha de término de la experiencia laboral."
+
+#: includes/post-types/project.php:135
 msgid "Enter the end date for the project."
 msgstr "Ingresa la fecha de término del proyecto."
 
-#: includes/post-types/profile.php:107
+#: includes/post-types/profile.php:161
 msgid "Enter the Git URL."
 msgstr "Introduzca la URL de Git."
 
-#: includes/post-types/profile.php:108
+#: includes/post-types/profile.php:162
 msgid "Enter the LinkedIn URL."
 msgstr "Introduzca la URL de LinkedIn."
 
-#: includes/post-types/position.php:108
+#: includes/post-types/position.php:238
 msgid "Enter the location for this position."
 msgstr "Introduzca la ubicación para este cargo."
 
-#: includes/post-types/profile.php:88
+#: includes/post-types/profile.php:127
 msgid "Enter the location."
 msgstr "Introduzca la ubicación."
 
-#: includes/post-types/profile.php:85
+#: includes/post-types/profile.php:124
 msgid "Enter the name."
 msgstr "Introduzca el nombre."
 
-#: includes/post-types/profile.php:87
+#: includes/post-types/profile.php:126
 msgid "Enter the phone number."
 msgstr "Introduzca el número de teléfono."
 
-#: includes/post-types/profile.php:109
+#: includes/post-types/profile.php:163
 msgid "Enter the StackOverflow URL."
 msgstr "Ingrese la URL de StackOverflow."
 
-#: includes/post-types/project.php:97
+#: includes/post-types/position.php:249
+msgid "Enter the start date for the position."
+msgstr "Ingresa la fecha de inicio de la experiencia laboral."
+
+#: includes/post-types/project.php:134
 msgid "Enter the start date for the project."
 msgstr "Ingresa la fecha de inicio del proyecto."
+
+#: includes/post-types/project.php:145
+msgid "Enter the URL for the project."
+msgstr "Ingresa la URL del proyecto."
 
 #: includes/post-types/company.php:134
 msgid "Enter the URL of the company."
 msgstr "Ingresa la URL de la compañía."
 
-#: includes/post-types/position.php:50 includes/post-types/project.php:50
-#: includes/post-types/company.php:81 includes/post-types/profile.php:42
+#: includes/post-types/position.php:76 includes/post-types/project.php:73
+#: includes/post-types/company.php:81 includes/post-types/profile.php:73
 msgid "Featured Image"
 msgstr "Imagen destacada"
 
@@ -293,23 +360,23 @@ msgstr "Imagen destacada"
 msgid "Filter companies list"
 msgstr "Filtrar listado de compañías"
 
-#: includes/post-types/position.php:58
+#: includes/post-types/position.php:84
 msgid "Filter positions list"
 msgstr "Filtrar listado de cargos"
 
-#: includes/post-types/profile.php:50
+#: includes/post-types/profile.php:81
 msgid "Filter profiles list"
 msgstr "Filtrar listado de perfiles"
 
-#: includes/post-types/project.php:58
+#: includes/post-types/project.php:81
 msgid "Filter projects list"
 msgstr "Filtrar listado de proyectos"
 
-#: includes/post-types/profile.php:107
+#: includes/post-types/profile.php:161
 msgid "Git URL"
 msgstr "URL de Git"
 
-#: includes/widgets/profile-display.php:63
+#: includes/widgets/profile-display.php:89
 msgid "GitHub"
 msgstr "GitHub"
 
@@ -322,15 +389,15 @@ msgstr "https://www.juane.cl"
 msgid "Insert into company"
 msgstr "Agregar a compañía"
 
-#: includes/post-types/position.php:54
+#: includes/post-types/position.php:80
 msgid "Insert into position"
 msgstr "Agregar a cargo"
 
-#: includes/post-types/profile.php:46
+#: includes/post-types/profile.php:77
 msgid "Insert into profile"
 msgstr "Agregar al perfil"
 
-#: includes/post-types/project.php:54
+#: includes/post-types/project.php:77
 msgid "Insert into project"
 msgstr "Agregar al proyecto"
 
@@ -338,25 +405,38 @@ msgstr "Agregar al proyecto"
 msgid "Juan Enrique Chomon Del Campo"
 msgstr "Juan Enrique Chomon Del Campo"
 
-#: includes/widgets/profile-display.php:73
+#: includes/templates/position.php:62 includes/templates/positions.php:26
+#: includes/post-types/position.php:119
+msgid "Knowledge"
+msgstr "Conocimiento"
+
+#: includes/post-types/position.php:135
+msgid "Knowledge list"
+msgstr "Listado de conocimiento"
+
+#: includes/post-types/position.php:136
+msgid "Knowledge list navigation"
+msgstr "Navegación de listado de conocimiento"
+
+#: includes/widgets/profile-display.php:100
 msgid "LinkedIn"
 msgstr "LinkedIn"
 
-#: includes/post-types/profile.php:108
+#: includes/post-types/profile.php:162
 msgid "LinkedIn URL"
 msgstr "URL de LinkedIn"
 
-#: includes/post-types/position.php:87 includes/post-types/position.php:108
-#: includes/post-types/profile.php:88
+#: includes/post-types/position.php:196 includes/post-types/position.php:238
+#: includes/post-types/profile.php:127
 msgid "Location"
 msgstr "Ubicación"
 
-#: includes/classes/meta-box-renderer.php:58
+#: includes/classes/meta-box-renderer.php:49
 #, php-format
 msgid "Meta box type not found: %s"
-msgstr ""
+msgstr "Tipo de meta box no encontrado: %s"
 
-#: includes/post-types/profile.php:85
+#: includes/post-types/profile.php:124
 msgid "Name"
 msgstr "Nombre"
 
@@ -364,25 +444,58 @@ msgstr "Nombre"
 msgid "New Company"
 msgstr "Nueva compañía"
 
-#: includes/post-types/position.php:42
+#: includes/post-types/position.php:123
+msgid "New Knowledge Name"
+msgstr "Nombre de nuevo conocimiento"
+
+#: includes/post-types/position.php:68
 msgid "New Position"
 msgstr "Nuevo cargo"
 
-#: includes/post-types/profile.php:34
+#: includes/post-types/profile.php:65
 msgid "New Profile"
 msgstr "Nuevo perfil"
 
-#: includes/post-types/project.php:42
+#: includes/post-types/project.php:65
 msgid "New Project"
 msgstr "Nuevo proyecto"
 
-#: includes/post-types/position.php:48 includes/post-types/project.php:48
-#: includes/post-types/company.php:79 includes/post-types/profile.php:40
+#: includes/post-types/position.php:160
+msgid "New Skill Name"
+msgstr "Nombre de nueva habilidad"
+
+#: includes/post-types/position.php:134
+msgid "No knowledge"
+msgstr "Sin conocimientos"
+
+#: includes/templates/position.php:68
+msgid "No knowledge terms assigned."
+msgstr "No hay términos de conocimiento asignados."
+
+#: includes/classes/position-renderer.php:142
+#: includes/templates/positions.php:79
+msgid "No positions found."
+msgstr "Sin cargos encontrados."
+
+#: includes/post-types/position.php:171
+msgid "No skills"
+msgstr "Sin habilidades"
+
+#: includes/templates/position.php:78
+msgid "No skills terms assigned."
+msgstr "No hay términos de habilidad asignados."
+
+#: includes/post-types/position.php:133 includes/post-types/position.php:170
+msgid "Not Found"
+msgstr "No encontrado"
+
+#: includes/post-types/position.php:74 includes/post-types/project.php:71
+#: includes/post-types/company.php:79 includes/post-types/profile.php:71
 msgid "Not found"
 msgstr "No encontrado"
 
-#: includes/post-types/position.php:49 includes/post-types/project.php:49
-#: includes/post-types/company.php:80 includes/post-types/profile.php:41
+#: includes/post-types/position.php:75 includes/post-types/project.php:72
+#: includes/post-types/company.php:80 includes/post-types/profile.php:72
 msgid "Not found in Trash"
 msgstr "No se encontró en la papelera"
 
@@ -390,47 +503,81 @@ msgstr "No se encontró en la papelera"
 msgid "Parent Company:"
 msgstr "Compañía superior:"
 
-#: includes/post-types/position.php:38
+#: includes/post-types/position.php:121
+msgid "Parent Knowledge"
+msgstr "Conocimiento superior"
+
+#: includes/post-types/position.php:122
+msgid "Parent Knowledge:"
+msgstr "Conocimiento superior:"
+
+#: includes/post-types/position.php:64
 msgid "Parent Position:"
 msgstr "Cargo superior:"
 
-#: includes/post-types/profile.php:30
+#: includes/post-types/profile.php:61
 msgid "Parent Profile:"
 msgstr "Perfil superior:"
 
-#: includes/post-types/project.php:38
+#: includes/post-types/project.php:61
 msgid "Parent Project:"
 msgstr "Proyecto superior:"
 
-#: includes/post-types/profile.php:87
+#: includes/post-types/position.php:158
+msgid "Parent Skill"
+msgstr "Habilidad superior"
+
+#: includes/post-types/position.php:159
+msgid "Parent Skill:"
+msgstr "Habilidad superior:"
+
+#: includes/post-types/profile.php:126
 msgid "Phone"
 msgstr "Teléfono"
+
+#: includes/post-types/position.php:131
+msgid "Popular Knowledge"
+msgstr "Conocimiento popular"
+
+#: includes/post-types/position.php:168
+msgid "Popular Skills"
+msgstr "Habilidades popular"
 
 #. Name of the plugin
 msgid "Portfolio Plugin"
 msgstr "Portafolio"
 
-#: includes/post-types/position.php:35 includes/post-types/position.php:62
+#: includes/post-types/position.php:61 includes/post-types/position.php:88
 msgid "Position"
 msgstr "Cargo"
 
-#: includes/post-types/position.php:36
+#: includes/post-types/position.php:62
 msgid "Position Archives"
 msgstr "Archivos de cargos"
 
-#: includes/post-types/position.php:37
+#: includes/post-types/position.php:63
 msgid "Position Attributes"
 msgstr "Atributos de la cargo"
 
-#: includes/post-types/position.php:34
+#. Base ID
+#: includes/widgets/position-widget.php:17
+msgid "Position Widget"
+msgstr "Widget de cargo"
+
+#: includes/post-types/position.php:60
 msgid "Positions"
 msgstr "Cargos"
 
-#: includes/post-types/position.php:56
+#: includes/classes/position-renderer.php:127
+#: includes/templates/positions.php:65
+msgid "positions found."
+msgstr "cargos encontrados."
+
+#: includes/post-types/position.php:82
 msgid "Positions list"
 msgstr "Lista de cargos"
 
-#: includes/post-types/position.php:57
+#: includes/post-types/position.php:83
 msgid "Positions list navigation"
 msgstr "Navegación por la lista de cargos"
 
@@ -439,17 +586,17 @@ msgctxt "Post Type General Name"
 msgid "Companies"
 msgstr "Compañías"
 
-#: includes/post-types/position.php:32
+#: includes/post-types/position.php:58
 msgctxt "Post Type General Name"
 msgid "Positions"
 msgstr "Cargos"
 
-#: includes/post-types/profile.php:24
+#: includes/post-types/profile.php:55
 msgctxt "Post Type General Name"
 msgid "Profiles"
 msgstr "Perfiles"
 
-#: includes/post-types/project.php:32
+#: includes/post-types/project.php:55
 msgctxt "Post Type General Name"
 msgid "Projects"
 msgstr "Proyectos"
@@ -459,80 +606,92 @@ msgctxt "Post Type Singular Name"
 msgid "Company"
 msgstr "Compañía"
 
-#: includes/post-types/position.php:33
+#: includes/post-types/position.php:59
 msgctxt "Post Type Singular Name"
 msgid "Position"
 msgstr "Cargo"
 
-#: includes/post-types/profile.php:25
+#: includes/post-types/profile.php:56
 msgctxt "Post Type Singular Name"
 msgid "Profile"
 msgstr "Perfil"
 
-#: includes/post-types/project.php:33
+#: includes/post-types/project.php:56
 msgctxt "Post Type Singular Name"
 msgid "Project"
 msgstr "Proyecto"
 
-#: includes/post-types/profile.php:27 includes/post-types/profile.php:54
+#: includes/post-types/profile.php:58 includes/post-types/profile.php:85
 msgid "Profile"
 msgstr "Perfil"
 
-#: includes/post-types/profile.php:28
+#: includes/post-types/profile.php:59
 msgid "Profile Archives"
 msgstr "Archivos de perfil"
 
-#: includes/post-types/profile.php:29
+#: includes/post-types/profile.php:60
 msgid "Profile Attributes"
 msgstr "Atributos del perfil"
 
 #. Base ID
-#: includes/widgets/profile-widget.php:8
+#: includes/widgets/profile-widget.php:16
 msgid "Profile Widget"
 msgstr "Widget de perfil"
 
-#: includes/post-types/profile.php:26
+#: includes/post-types/profile.php:57
 msgid "Profiles"
 msgstr "Perfiles"
 
-#: includes/post-types/profile.php:48
+#: includes/post-types/profile.php:79
 msgid "Profiles list"
 msgstr "Lista de perfiles"
 
-#: includes/post-types/profile.php:49
+#: includes/post-types/profile.php:80
 msgid "Profiles list navigation"
 msgstr "Navegación por la lista de perfiles"
 
-#: includes/post-types/project.php:35 includes/post-types/project.php:62
+#: includes/post-types/project.php:58 includes/post-types/project.php:85
 msgid "Project"
 msgstr "Proyecto"
 
-#: includes/post-types/project.php:36
+#: includes/post-types/project.php:59
 msgid "Project Archives"
 msgstr "Archivo de proyectos"
 
-#: includes/post-types/project.php:37
+#: includes/post-types/project.php:60
 msgid "Project Attributes"
 msgstr "Atributos de proyecto"
 
-#: includes/post-types/position.php:88 includes/post-types/project.php:34
+#: includes/post-types/project.php:113 includes/post-types/project.php:145
+msgid "Project URL"
+msgstr "URL de proyecto"
+
+#: includes/post-types/position.php:197 includes/post-types/project.php:57
 msgid "Projects"
 msgstr "Proyectos"
 
-#: includes/post-types/project.php:56
+#: includes/post-types/project.php:79
 msgid "Projects list"
 msgstr "Listado de proyectos"
 
-#: includes/post-types/project.php:57
+#: includes/post-types/project.php:80
 msgid "Projects list navigation"
 msgstr "Navegación de listado de proyectos"
 
-#: includes/post-types/position.php:52 includes/post-types/project.php:52
-#: includes/post-types/company.php:83 includes/post-types/profile.php:44
+#: includes/templates/position.php:83
+msgid "Related projects"
+msgstr "Proyectos relacionados"
+
+#: includes/post-types/position.php:78 includes/post-types/project.php:75
+#: includes/post-types/company.php:83 includes/post-types/profile.php:75
 msgid "Remove featured image"
 msgstr "Eliminar imagen destacada"
 
-#: includes/widgets/profile-display.php:50
+#: includes/templates/positions.php:44
+msgid "Reset Filters"
+msgstr "Borrar filtros"
+
+#: includes/widgets/profile-display.php:77
 msgid "Resume"
 msgstr "Currículum"
 
@@ -540,101 +699,166 @@ msgstr "Currículum"
 msgid "Search Company"
 msgstr "Buscar compañía"
 
-#: includes/post-types/position.php:47
+#: includes/post-types/position.php:132
+msgid "Search Knowledge"
+msgstr "Buscar conocimiento"
+
+#: includes/post-types/position.php:73
 msgid "Search Position"
 msgstr "Buscar Cargo"
 
-#: includes/post-types/profile.php:39
+#: includes/post-types/profile.php:70
 msgid "Search Profile"
 msgstr "Buscar Perfil"
 
-#: includes/post-types/project.php:47
+#: includes/post-types/project.php:70
 msgid "Search Project"
 msgstr "Buscar proyecto"
 
-#: includes/widgets/profile-widget.php:33
+#: includes/post-types/position.php:169
+msgid "Search Skills"
+msgstr "Buscar habilidades"
+
+#: includes/widgets/position-widget.php:54
+msgid "Select a position"
+msgstr "Selecciona un cargo"
+
+#: includes/widgets/profile-widget.php:52
 msgid "Select a profile"
 msgstr "Seleccione un perfil"
 
-#: includes/post-types/position.php:103
+#: includes/post-types/position.php:228
 msgid "Select Company"
 msgstr "Seleccionar empresa"
 
-#: includes/widgets/profile-display.php:17
+#: includes/widgets/profile-display.php:39
 msgid "Select Language:"
 msgstr "Seleccione idioma:"
 
-#: includes/widgets/profile-widget.php:31
+#: includes/widgets/position-widget.php:52
+msgid "Select Position:"
+msgstr "Selecciona un cargo:"
+
+#: includes/widgets/profile-widget.php:50
 msgid "Select Profile:"
 msgstr "Seleccionar perfil:"
 
-#: includes/post-types/position.php:93
+#: includes/post-types/position.php:208
 msgid "Select Projects"
 msgstr "Seleccionar Proyectos"
 
-#: includes/post-types/position.php:103
+#: includes/post-types/position.php:228
 msgid "Select the company associated with this position."
 msgstr "Seleccione la empresa asociada a este cargo."
 
-#: includes/post-types/position.php:93
+#: includes/post-types/position.php:208
 msgid "Select the projects associated with this position."
 msgstr "Seleccione los proyectos asociados a este cargo."
 
-#: includes/post-types/position.php:51 includes/post-types/project.php:51
-#: includes/post-types/company.php:82 includes/post-types/profile.php:43
+#: includes/post-types/position.php:128
+msgid "Separate knowledge with commas"
+msgstr "Separa los términos de conocimiento por comas"
+
+#: includes/post-types/position.php:165
+msgid "Separate skills with commas"
+msgstr "Separa los términos de habilidades por comas"
+
+#: includes/post-types/position.php:77 includes/post-types/project.php:74
+#: includes/post-types/company.php:82 includes/post-types/profile.php:74
 msgid "Set featured image"
 msgstr "Establecer imagen destacada"
 
-#: includes/post-types/profile.php:80
+#: includes/templates/position.php:72 includes/templates/positions.php:34
+#: includes/post-types/position.php:156
+msgid "Skills"
+msgstr "Habilidades"
+
+#: includes/post-types/position.php:172
+msgid "Skills list"
+msgstr "Listado de habilidades"
+
+#: includes/post-types/position.php:173
+msgid "Skills list navigation"
+msgstr "Navegación de listado de habilidades"
+
+#: includes/post-types/profile.php:114
 msgid "Social URLs"
 msgstr "URL sociales"
 
-#: includes/widgets/profile-display.php:20
+#: includes/widgets/profile-display.php:42
 msgid "Spanish"
 msgstr "Español"
 
-#: includes/widgets/profile-display.php:83
+#: includes/widgets/profile-display.php:111
 msgid "Stack Overflow"
 msgstr "Stack Overflow"
 
-#: includes/post-types/profile.php:109
+#: includes/post-types/profile.php:163
 msgid "StackOverflow URL"
 msgstr "URL de StackOverflow"
 
-#: includes/post-types/project.php:97
+#: includes/post-types/position.php:249 includes/post-types/project.php:134
 msgid "Start Date"
 msgstr "Fecha de inicio"
 
-#: includes/widgets/profile-display.php:34
+#: includes/widgets/profile-display.php:59
 msgid "Summary"
 msgstr "Acerca"
+
+#: includes/post-types/position.php:117
+msgctxt "Taxonomy General Name"
+msgid "Knowledge"
+msgstr "Conocimiento"
+
+#: includes/post-types/position.php:154
+msgctxt "Taxonomy General Name"
+msgid "Skills"
+msgstr "Habilidades"
+
+#: includes/post-types/position.php:118
+msgctxt "Taxonomy Singular Name"
+msgid "Knowledge"
+msgstr "Conocimiento"
+
+#: includes/post-types/position.php:155
+msgctxt "Taxonomy Singular Name"
+msgid "Skill"
+msgstr "Habilidad"
 
 #: includes/classes/meta-boxes/select.php:24
 #: includes/classes/meta-boxes/multiselect.php:24
 msgid "The post_type parameter is required."
-msgstr ""
+msgstr "El parámetro post_type es requerido."
 
 #: includes/post-types/company.php:75
 msgid "Update Company"
 msgstr "Actualizar compañía"
 
-#: includes/post-types/position.php:44
+#: includes/post-types/position.php:126
+msgid "Update Knowledge"
+msgstr "Actualizar conocimiento"
+
+#: includes/post-types/position.php:70
 msgid "Update Position"
 msgstr "Actualizar cargo"
 
-#: includes/post-types/profile.php:36
+#: includes/post-types/profile.php:67
 msgid "Update Profile"
 msgstr "Actualizar perfil"
 
-#: includes/post-types/project.php:44
+#: includes/post-types/project.php:67
 msgid "Update Project"
 msgstr "Actualizar cargo"
 
-#: includes/post-types/profile.php:101
+#: includes/post-types/position.php:163
+msgid "Update Skill"
+msgstr "Actualizar habilidad"
+
+#: includes/post-types/profile.php:150
 msgid "Upload the CV in English."
 msgstr "Subir el currículum en inglés."
 
-#: includes/post-types/profile.php:95
+#: includes/post-types/profile.php:139
 msgid "Upload the CV in Spanish."
 msgstr "Subir el currículum en español."
 
@@ -642,20 +866,20 @@ msgstr "Subir el currículum en español."
 msgid "Uploaded to this company"
 msgstr "Subido a esta compañía"
 
-#: includes/post-types/position.php:55
+#: includes/post-types/position.php:81
 msgid "Uploaded to this position"
 msgstr "Subido a este cargo"
 
-#: includes/post-types/profile.php:47
+#: includes/post-types/profile.php:78
 msgid "Uploaded to this profile"
 msgstr "Subido a este perfil"
 
-#: includes/post-types/project.php:55
+#: includes/post-types/project.php:78
 msgid "Uploaded to this project"
 msgstr "Subido a este proyecto"
 
-#: includes/post-types/position.php:53 includes/post-types/project.php:53
-#: includes/post-types/company.php:84 includes/post-types/profile.php:45
+#: includes/post-types/position.php:79 includes/post-types/project.php:76
+#: includes/post-types/company.php:84 includes/post-types/profile.php:76
 msgid "Use as featured image"
 msgstr "Usar como imagen destacada"
 
@@ -667,30 +891,42 @@ msgstr "Ver compañías"
 msgid "View Company"
 msgstr "Ver compañía"
 
-#: includes/partials/meta-boxes/file.php:5
+#: includes/partials/meta-boxes/file.php:24
 msgid "View File"
-msgstr ""
+msgstr "Ver"
 
-#: includes/post-types/position.php:45
+#: includes/post-types/position.php:127
+msgid "View Knowledge"
+msgstr "Ver conocimiento"
+
+#: includes/post-types/position.php:71
 msgid "View Position"
 msgstr "Ver cargo"
 
-#: includes/post-types/position.php:46
+#: includes/post-types/position.php:72
 msgid "View Positions"
 msgstr "Ver cargos"
 
-#: includes/post-types/profile.php:37
+#: includes/post-types/profile.php:68
 msgid "View Profile"
 msgstr "Ver perfil"
 
-#: includes/post-types/profile.php:38
+#: includes/post-types/profile.php:69
 msgid "View Profiles"
 msgstr "Ver perfiles"
 
-#: includes/post-types/project.php:45
+#: includes/post-types/project.php:68
 msgid "View Project"
 msgstr "Ver proyecto"
 
-#: includes/post-types/project.php:46
+#: includes/post-types/project.php:69
 msgid "View Projects"
 msgstr "Ver proyectos"
+
+#: includes/post-types/position.php:164
+msgid "View Skill"
+msgstr "Ver habilidad"
+
+#: includes/templates/positions.php:22
+msgid "Work experience"
+msgstr "Experiencia laboral"
