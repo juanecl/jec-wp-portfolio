@@ -1,43 +1,59 @@
+<?php
 /**
  * Template for displaying a Position with its associated Company and Projects.
  *
  * @param array $args The arguments for the template.
  */
-
+require_once plugin_dir_path(__FILE__) . '../classes/position-renderer.php';
 // Assign the arguments to variables
+
+if (!isset($post)) {
+    // Si $post no está definido, buscar el position_id en $args
+    $position_id = isset($args['position_id']) ? $args['position_id'] : null;
+    if ($position_id) {
+        $post = get_post($position_id);
+    }
+} else {
+    $position_id = $post->ID;
+}
+$args = PositionRenderer::prepare_position_args($position_id);
+
 foreach ($args as $key => $value) {
     ${$key} = $value;
 }
 ?>
 
-<div class="container mt-5">
-    <div class="card mb-4">
-        <div class="card-header d-flex justify-content-between align-items-center">
-            <div>
-                <h2 class="mb-0"><?php echo esc_html($company_name); ?></h2>
-                <span class="text-muted"><?php echo esc_html($company_category); ?></span>
-                <a href="<?php echo esc_url($company_website); ?>" target="_blank" class="ms-2">
-                    <i class="fa fa-globe"></i> <?php _e('View website', 'jec-portfolio'); ?>
-                </a>
-            </div>
-            <a class="btn btn-outline-primary" data-bs-toggle="collapse" href="#position-content-<?php echo esc_attr($position_id); ?>" role="button" aria-expanded="true" aria-controls="position-content-<?php echo esc_attr($position_id); ?>">
+<div class="container">
+    <div class="card">
+        <div class="card-header position-relative">
+            <a class="btn btn-outline-primary position-absolute" style="top: 0; right: 0; margin: 0.5rem;" data-bs-toggle="collapse" href="#position-content-<?php echo esc_attr($position_id); ?>" role="button" aria-expanded="true" aria-controls="position-content-<?php echo esc_attr($position_id); ?>">
                 <i class="fa fa-minus-circle toggle-icon"></i>
             </a>
-        </div>
-        <div class="card-body">
-            <div class="position-wrapper">
-                <div class="d-flex justify-content-between align-items-center mb-3">
-                    <h3 class="position-title mb-0"><?php echo esc_html($position_title); ?></h3>
-                    <span class="position-dates">
+            <div class="d-flex flex-column">
+                <div class="bg-light p-2 mb-2">
+                    <h4 class="position-title mb-1">
+                        <?php echo esc_html($position_title); ?> 
+                        <span class="text-muted" style="font-size: 0.9em;">
+                            @ <a href="<?php echo esc_url($company_website); ?>" target="_blank" class="text-muted"><?php echo esc_html($company_name); ?></a>
+                        </span>
+                    </h4>
+                    <div class="position-dates text-muted">
                         <i class="fa fa-calendar-check-o"></i> <?php echo esc_html($position_start_date_formatted); ?> -
                         <?php if ($position_active && empty($position_end_date)): ?>
                             <?php _e('Current job', 'jec-portfolio'); ?>
                         <?php else: ?>
-                            <i class="fa fa-calendar-times-o"></i> <?php echo esc_html($position_end_date_formatted); ?>
+                            <?php echo esc_html($position_end_date_formatted); ?>
                         <?php endif; ?>
-                    </span>
+                    </div>
+                    <div class="mt-2">
+                        <span class="bg-secondary text-white d-inline-block px-2 py-1 rounded fs-7"  style="font-size: 0.8em;"><?php echo esc_html($company_category); ?></span>
+                    </div>
                 </div>
-                <div class="collapse show" id="position-content-<?php echo esc_attr($position_id); ?>">
+            </div>
+        </div>
+        <div class="card-body p-0">
+            <div class="position-wrapper">
+                <div class="collapse show p-4" id="position-content-<?php echo esc_attr($position_id); ?>">
                     <div class="position-description mb-4 py-4 px-3 border-top border-bottom">
                         <p><?php echo wp_kses_post($position_description); ?></p>
                     </div>

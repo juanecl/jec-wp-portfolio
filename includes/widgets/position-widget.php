@@ -5,6 +5,7 @@
  *
  * This class defines a custom widget to display position information along with associated company and projects.
  */
+require_once plugin_dir_path(__FILE__) . '../classes/position-renderer.php';
 class Position_Widget extends WP_Widget {
 
     /**
@@ -29,11 +30,10 @@ class Position_Widget extends WP_Widget {
             $position_id = $instance['position_id'];
             $post = get_post($position_id);
             if ($post && $post->post_type === 'position') {
-                echo $args['before_widget'];
+                echo isset($args['before_widget']) ? $args['before_widget'] : '';
                 // Pass the post object to the template
-                set_query_var('post', $post);
-                include plugin_dir_path(__FILE__) . 'position-display.php';
-                echo $args['after_widget'];
+                include plugin_dir_path(__FILE__) . '../templates/position.php';
+                echo isset($args['after_widget']) ? $args['after_widget'] : '';
             }
         }
     }
