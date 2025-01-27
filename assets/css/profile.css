@@ -1,0 +1,70 @@
+.custom-sticky-button {
+    position: -webkit-sticky; /* For Safari */
+    position: sticky;
+    top: 10px; /* Adjust the distance from the top */
+    left: 0;
+    z-index: 1030; /* Ensure the button is above other elements */
+    margin-left: 0; /* Ensure the button is at the edge */
+}
+.bio-card {
+    height: calc(100vh - 200px); /* Adjust the height as needed */
+    overflow-y: auto;
+    margin-bottom: 20px; /* Add margin at the bottom */
+}
+.offcanvas-tab {
+    position: fixed;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    background-color: #007bff;
+    color: white;
+    padding: 10px;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    z-index: 1041;
+    transition: left 0.35s ease;
+}
+.offcanvas-tab-open {
+    left: 399px; /* Adjust this value to match the width of your offcanvas */
+}
+.offcanvas-tab i {
+    font-size: 24px;
+}
+.form-check-input.toggle-custom {
+    width: 60px!important;
+    height: 30px!important;
+    background: linear-gradient(to right, #007bff 50%, #dc3545 50%);
+    background-size: 200% 100%;
+    background-position: right bottom;
+    transition: background-position 0.3s ease-in-out;
+}
+.form-check-input.toggle-custom:checked {
+    background-position: left bottom;
+    background-color: #dc3545; /* Red */
+    border-color: #dc3545; /* Red */
+}
+/* not checked style */
+.form-check-input.toggle-custom:not(:checked) {
+    background-color: #007bff; /* Blue */
+    border-color: #007bff; /* Blue */
+    color: #dc3545;
+}
+.toggle-lang-text {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: opacity 0.3s ease-in-out;
+}
+
+#toggle-lang-text-es {
+    color: #fb0;
+}
+
+#toggle-lang-text-en {
+    color: #fff;
+}
+
+#bio-content p {
+    text-align: justify;
+    padding: 0 .75rem;
+}
