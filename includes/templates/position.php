@@ -2,13 +2,16 @@
 /**
  * Template for displaying a Position with its associated Company and Projects.
  *
- * @param array $args The arguments for the template.
+ * This template is used to display detailed information about a position, including the company and related projects.
+ * It expects an array of arguments ($args) to be passed to it for rendering the position.
+ *
+ * @package JEC_Portfolio
+ * @version 1.0
  */
-require_once plugin_dir_path(__FILE__) . '../classes/position-renderer.php';
-// Assign the arguments to variables
 
+// Assign the arguments to variables
 if (!isset($post)) {
-    // Si $post no está definido, buscar el position_id en $args
+    // If $post is not defined, look for position_id in $args
     $position_id = isset($args['position_id']) ? $args['position_id'] : null;
     if ($position_id) {
         $post = get_post($position_id);
@@ -16,21 +19,24 @@ if (!isset($post)) {
 } else {
     $position_id = $post->ID;
 }
+
+// Prepare the arguments for rendering the position
 $args = PositionRenderer::prepare_position_args($position_id);
 
+// Assign each argument to a variable
 foreach ($args as $key => $value) {
     ${$key} = $value;
 }
 ?>
 
-<div class="container">
+<div class="container-fluid">
     <div class="card mb-2">
         <div class="card-header position-relative">
             <a class="btn btn-outline-primary position-absolute" style="top: 0; right: 0; margin: 0.5rem;" data-bs-toggle="collapse" href="#position-content-<?php echo esc_attr($position_id); ?>" role="button" aria-expanded="true" aria-controls="position-content-<?php echo esc_attr($position_id); ?>">
                 <i class="fa fa-minus-circle toggle-icon"></i>
             </a>
             <div class="d-flex flex-column">
-                <div class="bg-light p-2 mb-2">
+                <div class=" p-2 mb-2">
                     <h4 class="position-title mb-1">
                         <?php echo esc_html($position_title); ?> 
                         <span class="text-muted" style="font-size: 0.9em;">
@@ -46,7 +52,7 @@ foreach ($args as $key => $value) {
                         <?php endif; ?>
                     </div>
                     <div class="mt-2">
-                        <span class="bg-secondary text-white d-inline-block px-2 py-1 rounded fs-7"  style="font-size: 0.8em;"><?php echo esc_html($company_category); ?></span>
+                        <span class="bg-secondary text-white d-inline-block px-2 py-1 rounded fs-7" style="font-size: 0.8em;"><?php echo esc_html($company_category); ?></span>
                     </div>
                 </div>
             </div>
@@ -72,18 +78,19 @@ foreach ($args as $key => $value) {
                             <h5><?php _e('Skills', 'jec-portfolio'); ?></h5>
                             <?php if (!empty($skills_terms)): ?>
                                 <?php foreach ($skills_terms as $term): ?>
-                                    <span class="badge bg-success"><?php echo esc_html($term); ?></span>
+                                    <span class="badge bg-secondary"><?php echo esc_html($term); ?></span>
                                 <?php endforeach; ?>
                             <?php else: ?>
                                 <p><?php _e('No skills terms assigned.', 'jec-portfolio'); ?></p>
                             <?php endif; ?>
                         </div>
                     </div>
-                    <div class="ro mt-5 d-block mb-3">
+                    <div class="row mt-5 d-block mb-3">
                         <h4><?php _e('Related projects', 'jec-portfolio'); ?></h4>
                     </div>
                     <div class="row">
                         <?php
+                        // Include the related projects template
                         include plugin_dir_path(__FILE__) . 'projects.php';
                         ?>
                     </div>

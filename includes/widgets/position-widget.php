@@ -5,7 +5,6 @@
  *
  * This class defines a custom widget to display position information along with associated company and projects.
  */
-require_once plugin_dir_path(__FILE__) . '../classes/position-renderer.php';
 class Position_Widget extends WP_Widget {
 
     /**

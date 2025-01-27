@@ -108,9 +108,7 @@ function save_custom_meta_fields($post_id, $fields, $nonce_name, $nonce_action) 
 
                 // Verify if the meta field already exists
                 $current_value = get_post_meta($post_id, $field_id, true);
-                if ($current_value === $value) {
-                    error_log('The value for field ' . $field_id . ' is already up to date.');
-                } else {
+                if ($current_value !== $value) {
                     if (!update_post_meta($post_id, $field_id, $value)) {
                         throw new Exception('Failed to update post meta for field: ' . $field_id);
                     }
