@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: 2025-01-26 02:54+0000\n"
-"PO-Revision-Date: 2025-01-26 03:08+0000\n"
+"PO-Revision-Date: 2025-01-27 18:57+0000\n"
 "Last-Translator: \n"
 "Language-Team: English (United States)\n"
 "Language: en_US\n"
@@ -19,7 +19,7 @@ msgstr ""
 msgid "A plugin to manage portfolios."
 msgstr "A plugin to manage portfolios."
 
-#: includes/widgets/position-widget.php:18
+#: includes/widgets/position-widget.php:17
 msgid ""
 "A widget to display position information with associated company and projects"
 msgstr ""
@@ -108,10 +108,6 @@ msgstr "All Skills"
 msgid "Basic Information"
 msgstr "Basic Information"
 
-#: includes/widgets/profile-display.php:51
-msgid "Bio"
-msgstr "Summary"
-
 #: includes/post-types/profile.php:113
 msgid "Bio (EN)"
 msgstr "Summary"
@@ -132,6 +128,14 @@ msgstr "Summary"
 msgid "Birthdate"
 msgstr "Birthdate"
 
+#: includes/templates/positions.php:32
+msgid "By knowledge"
+msgstr "By knowledge"
+
+#: includes/templates/positions.php:40
+msgid "By skills"
+msgstr "By skills"
+
 #: includes/post-types/profile.php:129
 msgid "Career"
 msgstr "Career"
@@ -151,6 +155,10 @@ msgstr "Check if the project is currently active."
 #: includes/post-types/position.php:130 includes/post-types/position.php:167
 msgid "Choose from the most used"
 msgstr "Choose from the most used"
+
+#: includes/templates/profile.php:34
+msgid "Close"
+msgstr "Close"
 
 #: includes/post-types/company.php:65
 msgid "Companies"
@@ -181,13 +189,9 @@ msgstr "Company Attributes"
 msgid "Company URL"
 msgstr "Company URL"
 
-#: includes/templates/position.php:43
+#: includes/templates/position.php:49
 msgid "Current job"
 msgstr "Current job"
-
-#: includes/widgets/profile-display.php:68
-msgid "CV"
-msgstr "Resume"
 
 #: includes/post-types/profile.php:150
 msgid "CV EN"
@@ -222,13 +226,14 @@ msgstr "Description of the Profile post type"
 msgid "Description of the Project post type"
 msgstr "Description of the Project post type"
 
-#: includes/widgets/profile-display.php:70
+#: includes/templates/profile.php:64
 msgid "Download CV"
 msgstr "Download resume"
 
-#: includes/widgets/profile-display.php:79
-msgid "Download resume"
-msgstr "Download resume"
+#: includes/templates/profile.php:69
+#| msgid "Download resume"
+msgid "Download Resume"
+msgstr "Download Resume"
 
 #: includes/post-types/company.php:74
 msgid "Edit Company"
@@ -254,17 +259,13 @@ msgstr "Edit Project"
 msgid "Edit Skill"
 msgstr "Edit Skill"
 
-#: includes/post-types/profile.php:128
+#: includes/templates/profile.php:60 includes/post-types/profile.php:128
 msgid "Email"
 msgstr "Email"
 
 #: includes/post-types/position.php:250 includes/post-types/project.php:135
 msgid "End Date"
 msgstr "End Date"
-
-#: includes/widgets/profile-display.php:41
-msgid "English"
-msgstr "English"
 
 #: includes/post-types/profile.php:151
 msgid "Enter the bio in English."
@@ -350,10 +351,18 @@ msgstr "Enter the URL for the project."
 msgid "Enter the URL of the company."
 msgstr "Enter the URL of the company."
 
+#: includes/templates/positions-loop.php:19
+msgid "Error: Positions query results not provided."
+msgstr "Error: Positions query results not provided."
+
 #: includes/post-types/position.php:76 includes/post-types/project.php:73
 #: includes/post-types/company.php:81 includes/post-types/profile.php:73
 msgid "Featured Image"
 msgstr "Featured Image"
+
+#: includes/templates/positions.php:30
+msgid "Filter by knowledge and skill terms"
+msgstr "Filter by knowledge and skill terms"
 
 #: includes/post-types/company.php:89
 msgid "Filter companies list"
@@ -374,10 +383,6 @@ msgstr "Filter projects list"
 #: includes/post-types/profile.php:161
 msgid "Git URL"
 msgstr "Git URL"
-
-#: includes/widgets/profile-display.php:89
-msgid "GitHub"
-msgstr "GitHub"
 
 #. URI of the plugin
 #. Author URI of the plugin
@@ -404,8 +409,7 @@ msgstr "Insert into project"
 msgid "Juan Enrique Chomon Del Campo"
 msgstr "Juan Enrique Chomon Del Campo"
 
-#: includes/templates/position.php:62 includes/templates/positions.php:26
-#: includes/post-types/position.php:119
+#: includes/templates/position.php:68 includes/post-types/position.php:119
 msgid "Knowledge"
 msgstr "Knowledge"
 
@@ -416,10 +420,6 @@ msgstr "Knowledge list"
 #: includes/post-types/position.php:136
 msgid "Knowledge list navigation"
 msgstr "Knowledge list navigation"
-
-#: includes/widgets/profile-display.php:100
-msgid "LinkedIn"
-msgstr "LinkedIn"
 
 #: includes/post-types/profile.php:162
 msgid "LinkedIn URL"
@@ -463,16 +463,23 @@ msgstr "New Project"
 msgid "New Skill Name"
 msgstr "New Skill Name"
 
+#: includes/classes/position-renderer.php:33
+msgid "No category"
+msgstr "No category"
+
+#: includes/classes/position-renderer.php:31
+msgid "No company"
+msgstr "No company"
+
 #: includes/post-types/position.php:134
 msgid "No knowledge"
 msgstr "No knowledge"
 
-#: includes/templates/position.php:68
+#: includes/templates/position.php:74
 msgid "No knowledge terms assigned."
 msgstr "No knowledge terms assigned."
 
-#: includes/classes/position-renderer.php:142
-#: includes/templates/positions.php:79
+#: includes/templates/positions-loop.php:48
 msgid "No positions found."
 msgstr "No positions found."
 
@@ -480,7 +487,7 @@ msgstr "No positions found."
 msgid "No skills"
 msgstr "No skills"
 
-#: includes/templates/position.php:78
+#: includes/templates/position.php:84
 msgid "No skills terms assigned."
 msgstr "No skills terms assigned."
 
@@ -559,7 +566,7 @@ msgid "Position Attributes"
 msgstr "Position Attributes"
 
 #. Base ID
-#: includes/widgets/position-widget.php:17
+#: includes/widgets/position-widget.php:16
 msgid "Position Widget"
 msgstr "Position Widget"
 
@@ -567,8 +574,7 @@ msgstr "Position Widget"
 msgid "Positions"
 msgstr "Positions"
 
-#: includes/classes/position-renderer.php:127
-#: includes/templates/positions.php:65
+#: includes/templates/positions-loop.php:28
 msgid "positions found."
 msgstr "positions found."
 
@@ -632,6 +638,14 @@ msgstr "Profile Archives"
 msgid "Profile Attributes"
 msgstr "Profile Attributes"
 
+#: includes/templates/profile.php:15
+msgid "Profile ID not provided."
+msgstr "Profile ID not provided."
+
+#: includes/templates/profile.php:21
+msgid "Profile not found."
+msgstr "Profile not found."
+
 #. Base ID
 #: includes/widgets/profile-widget.php:16
 msgid "Profile Widget"
@@ -677,7 +691,7 @@ msgstr "Projects list"
 msgid "Projects list navigation"
 msgstr "Projects list navigation"
 
-#: includes/templates/position.php:83
+#: includes/templates/position.php:89
 msgid "Related projects"
 msgstr "Related projects"
 
@@ -686,13 +700,9 @@ msgstr "Related projects"
 msgid "Remove featured image"
 msgstr "Remove featured image"
 
-#: includes/templates/positions.php:44
+#: includes/templates/positions.php:50
 msgid "Reset Filters"
 msgstr "Reset Filters"
-
-#: includes/widgets/profile-display.php:77
-msgid "Resume"
-msgstr "Resume"
 
 #: includes/post-types/company.php:78
 msgid "Search Company"
@@ -706,6 +716,10 @@ msgstr "Search Knowledge"
 msgid "Search Position"
 msgstr "Search Position"
 
+#: includes/templates/positions.php:29
+msgid "Search Positions"
+msgstr "Search Positions"
+
 #: includes/post-types/profile.php:70
 msgid "Search Profile"
 msgstr "Search Profile"
@@ -718,7 +732,7 @@ msgstr "Search Project"
 msgid "Search Skills"
 msgstr "Search Skills"
 
-#: includes/widgets/position-widget.php:54
+#: includes/widgets/position-widget.php:53
 msgid "Select a position"
 msgstr "Select a position"
 
@@ -730,11 +744,7 @@ msgstr "Select a profile"
 msgid "Select Company"
 msgstr "Select Company"
 
-#: includes/widgets/profile-display.php:39
-msgid "Select Language:"
-msgstr "Select Language:"
-
-#: includes/widgets/position-widget.php:52
+#: includes/widgets/position-widget.php:51
 msgid "Select Position:"
 msgstr "Select Position:"
 
@@ -767,8 +777,7 @@ msgstr "Separate skills with commas"
 msgid "Set featured image"
 msgstr "Set featured image"
 
-#: includes/templates/position.php:72 includes/templates/positions.php:34
-#: includes/post-types/position.php:156
+#: includes/templates/position.php:78 includes/post-types/position.php:156
 msgid "Skills"
 msgstr "Skills"
 
@@ -784,14 +793,6 @@ msgstr "Skills list navigation"
 msgid "Social URLs"
 msgstr "Social URLs"
 
-#: includes/widgets/profile-display.php:42
-msgid "Spanish"
-msgstr "Spanish"
-
-#: includes/widgets/profile-display.php:111
-msgid "Stack Overflow"
-msgstr "StackOverflow"
-
 #: includes/post-types/profile.php:163
 msgid "StackOverflow URL"
 msgstr "StackOverflow URL"
@@ -800,10 +801,6 @@ msgstr "StackOverflow URL"
 msgid "Start Date"
 msgstr ""
 "Start Date\n"
-
-#: includes/widgets/profile-display.php:59
-msgid "Summary"
-msgstr "Resume"
 
 #: includes/post-types/position.php:117
 msgctxt "Taxonomy General Name"
@@ -927,6 +924,6 @@ msgstr "View Projects"
 msgid "View Skill"
 msgstr "View Skill"
 
-#: includes/templates/positions.php:22
+#: includes/templates/positions.php:25
 msgid "Work experience"
 msgstr "Work experience"
