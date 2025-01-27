@@ -22,24 +22,30 @@ The plugin registers several custom post types and taxonomies to manage the port
 ```
 ├── README.md
 ├── assets
+│   ├── css
+│   │   └── profile.css
 │   └── js
 │       ├── admin.js
-│       └── position.js
+│       ├── position.js
+│       └── profile.js
 ├── includes
 │   ├── classes
 │   │   ├── meta-box-renderer.php
-│   │   └── meta-boxes
-│   │       ├── abstract.php
-│   │       ├── checkbox.php
-│   │       ├── date.php
-│   │       ├── file.php
-│   │       ├── index.php
-│   │       ├── interface.php
-│   │       ├── multiselect.php
-│   │       ├── select.php
-│   │       ├── text.php
-│   │       ├── textarea.php
-│   │       └── url.php
+│   │   ├── meta-boxes
+│   │   │   ├── abstract.php
+│   │   │   ├── checkbox.php
+│   │   │   ├── date.php
+│   │   │   ├── file.php
+│   │   │   ├── index.php
+│   │   │   ├── interface.php
+│   │   │   ├── multiselect.php
+│   │   │   ├── select.php
+│   │   │   ├── text.php
+│   │   │   ├── textarea.php
+│   │   │   └── url.php
+│   │   ├── position-query.php
+│   │   ├── position-renderer.php
+│   │   └── profile-renderer.php
 │   ├── helpers.php
 │   ├── partials
 │   │   └── meta-boxes
@@ -59,11 +65,13 @@ The plugin registers several custom post types and taxonomies to manage the port
 │   │   └── project.php
 │   ├── templates
 │   │   ├── position.php
+│   │   ├── positions-loop.php
+│   │   ├── positions.php
+│   │   ├── profile.php
 │   │   └── projects.php
 │   └── widgets
 │       ├── position-display.php
 │       ├── position-widget.php
-│       ├── profile-display.php
 │       └── profile-widget.php
 ├── index.php
 └── languages
