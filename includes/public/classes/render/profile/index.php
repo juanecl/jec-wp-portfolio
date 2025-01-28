@@ -1,0 +1,24 @@
+<?php
+
+class ProfileRenderer {
+    private static $instance = null;
+
+    private function __construct() {
+        add_action('wp_enqueue_scripts', [$this, 'enqueue_assets']);
+    }
+
+    public static function get_instance() {
+        if (self::$instance === null) {
+            self::$instance = new self();
+        }
+        return self::$instance;
+    }
+
+    public function enqueue_assets() {
+        wp_enqueue_style('jec-portfolio-profile', PLUGIN_ROOT_URL . 'assets/css/profile.css', array(), '1.0');
+        wp_enqueue_script('jec-portfolio-profile', PLUGIN_ROOT_URL . 'assets/js/profile.js', array('jquery'), '1.0', true);
+    }
+}
+
+// Inicializar el singleton
+ProfileRenderer::get_instance();

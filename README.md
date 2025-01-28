@@ -29,50 +29,64 @@ The plugin registers several custom post types and taxonomies to manage the port
 │       ├── position.js
 │       └── profile.js
 ├── includes
-│   ├── classes
-│   │   ├── meta-box-renderer.php
-│   │   ├── meta-boxes
-│   │   │   ├── abstract.php
-│   │   │   ├── checkbox.php
-│   │   │   ├── date.php
-│   │   │   ├── file.php
-│   │   │   ├── index.php
-│   │   │   ├── interface.php
-│   │   │   ├── multiselect.php
-│   │   │   ├── select.php
-│   │   │   ├── text.php
-│   │   │   ├── textarea.php
-│   │   │   └── url.php
-│   │   ├── position-query.php
-│   │   ├── position-renderer.php
-│   │   └── profile-renderer.php
 │   ├── helpers.php
-│   ├── partials
-│   │   └── meta-boxes
-│   │       ├── checkbox.php
-│   │       ├── date.php
-│   │       ├── file.php
-│   │       ├── multiselect.php
-│   │       ├── select.php
-│   │       ├── text.php
-│   │       ├── textarea.php
-│   │       └── url.php
-│   ├── post-types
-│   │   ├── company.php
-│   │   ├── index.php
-│   │   ├── position.php
-│   │   ├── profile.php
-│   │   └── project.php
-│   ├── templates
-│   │   ├── position.php
-│   │   ├── positions-loop.php
-│   │   ├── positions.php
-│   │   ├── profile.php
-│   │   └── projects.php
-│   └── widgets
-│       ├── position-display.php
-│       ├── position-widget.php
-│       └── profile-widget.php
+│   ├── private
+│   │   ├── classes
+│   │   │   ├── meta-box-renderer.php
+│   │   │   └── meta-boxes
+│   │   │       ├── abstract.php
+│   │   │       ├── checkbox.php
+│   │   │       ├── date.php
+│   │   │       ├── file.php
+│   │   │       ├── init.php
+│   │   │       ├── interface.php
+│   │   │       ├── multiselect.php
+│   │   │       ├── select.php
+│   │   │       ├── text.php
+│   │   │       ├── textarea.php
+│   │   │       └── url.php
+│   │   ├── post-types
+│   │   │   ├── company.php
+│   │   │   ├── init.php
+│   │   │   ├── position.php
+│   │   │   ├── profile.php
+│   │   │   └── project.php
+│   │   └── templates
+│   │       └── meta-boxes
+│   │           ├── checkbox.php
+│   │           ├── date.php
+│   │           ├── file.php
+│   │           ├── multiselect.php
+│   │           ├── select.php
+│   │           ├── text.php
+│   │           ├── textarea.php
+│   │           └── url.php
+│   └── public
+│       ├── classes
+│       │   ├── init.php
+│       │   └── render
+│       │       ├── position
+│       │       │   ├── index.php
+│       │       │   └── query.php
+│       │       └── profile
+│       │           └── index.php
+│       ├── templates
+│       │   ├── position
+│       │   │   ├── content-position.php
+│       │   │   ├── index.php
+│       │   │   └── single-position.php
+│       │   ├── profile
+│       │   │   ├── content-profile.php
+│       │   │   └── single-profile.php
+│       │   └── project
+│       │       ├── index.php
+│       │       └── single-project.php
+│       └── widgets
+│           ├── init.php
+│           ├── position
+│           │   └── index.php
+│           └── profile
+│               └── index.php
 ├── index.php
 └── languages
     ├── jec-portfolio-en_US.mo

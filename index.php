@@ -15,6 +15,22 @@ if (!defined('ABSPATH')) {
     exit; // Exit if accessed directly
 }
 
+if (!defined('PLUGIN_ROOT_PATH')) {
+    define('PLUGIN_ROOT_PATH', plugin_dir_path(__FILE__));
+}
+
+if (!defined('PLUGIN_ROOT_URL')) {
+    define('PLUGIN_ROOT_URL', plugin_dir_url(__FILE__));
+}
+
+if (!defined('PLUGIN_VERSION')) {
+    define('PLUGIN_VERSION', '1.0');
+}
+
+if (!defined('PLUGIN_TEXT_DOMAIN')) {
+    define('PLUGIN_TEXT_DOMAIN', 'jec-portfolio');
+}
+
 /**
  * Main class for the JecPortfolio plugin.
  */
@@ -54,17 +70,17 @@ class JecPortfolio {
      * Loads the plugin's text domain for localization.
      */
     public function load_textdomain() {
-        load_plugin_textdomain('jec-portfolio', false, dirname(plugin_basename(__FILE__)) . '/languages');
+        load_plugin_textdomain(PLUGIN_TEXT_DOMAIN, false, dirname(plugin_basename(__FILE__)) . '/languages');
     }
 
     /**
      * Includes necessary files for the plugin.
      */
     private function includes() {
-        require_once plugin_dir_path(__FILE__) . 'includes/helpers.php';
-        require_once plugin_dir_path(__FILE__) . 'includes/post-types/init.php';
-        require_once plugin_dir_path(__FILE__) . 'includes/widgets/init.php';
-        require_once plugin_dir_path(__FILE__) . 'includes/classes/init.php';
+        require_once PLUGIN_ROOT_PATH . 'includes/helpers.php';
+        require_once PLUGIN_ROOT_PATH. 'includes/private/post-types/init.php';
+        require_once PLUGIN_ROOT_PATH . 'includes/public/widgets/init.php';
+        require_once PLUGIN_ROOT_PATH . 'includes/public/classes/init.php';
     }
 
     /**
@@ -97,7 +113,7 @@ class JecPortfolio {
      * Registers shortcodes for the plugin.
      */
     public function register_shortcodes() {
-        add_shortcode('jec-portfolio', [$this, 'render_shortcode']);
+        add_shortcode(PLUGIN_TEXT_DOMAIN, [$this, 'render_shortcode']);
     }
 
     /**
@@ -113,14 +129,14 @@ class JecPortfolio {
                 'id' => '',
             ),
             $atts,
-            'jec-portfolio'
+            PLUGIN_TEXT_DOMAIN
         );
 
         ob_start();
 
         if ($atts['type'] == 'profile' && !empty($atts['id'])) {
             $profile_id = intval($atts['id']);
-            include plugin_dir_path(__FILE__) . 'includes/templates/profile.php';
+            include plugin_dir_path(__FILE__) . 'includes/public/templates/profile/single-profile.php';
         } elseif ($atts['type'] == 'position') {
             $position_ids = array();
 
@@ -130,7 +146,7 @@ class JecPortfolio {
             }
 
             // Include the positions template
-            include plugin_dir_path(__FILE__) . 'includes/templates/positions.php';
+            include plugin_dir_path(__FILE__) . 'includes/public/templates/position/index.php';
         }
 
         return ob_get_clean();
