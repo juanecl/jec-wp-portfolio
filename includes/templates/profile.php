@@ -48,7 +48,7 @@ if (!$post) {
                     <h2 class="text-white"><?php echo esc_html(get_post_meta($post->ID, 'wpcf-name', true)); ?></h2>
                     
                     <!-- Display the career information -->
-                    <p class="lead text-white"><?php echo esc_html(get_post_meta($post->ID, 'wpcf-career', true)); ?></p>
+                    <p class="lead text-primary"><?php echo esc_html(get_post_meta($post->ID, 'wpcf-career', true)); ?></p>
                     
                     <hr class="my-4">
                     
@@ -81,21 +81,24 @@ if (!$post) {
                         </a>
                     </div>
 
-                    <!-- Language toggle switch -->
-                    <div class="text-center mb-4 mt-4">
-                        <div class="d-flex justify-content-center align-items-center position-relative">
-                            <span class="toggle-lang-text" id="toggle-lang-text-en">EN</span>
-                            <div class="form-check form-switch mx-2">
-                                <input class="form-check-input toggle-custom" type="checkbox" id="toggle-lang">
+                    <div class="container mb-4 mt-4">
+                        <h4><?php _e('Summary', 'jec-portfolio'); ?></h4>
+                        <!-- Language toggle switch -->
+                        <div class="text-center mb-2">
+                            <div class="d-flex justify-content-center align-items-center position-relative">
+                                <span class="toggle-lang-text" id="toggle-lang-text-en">EN</span>
+                                <div class="form-check form-switch mx-2">
+                                    <input class="form-check-input toggle-custom" type="checkbox" id="toggle-lang">
+                                </div>
+                                <span class="toggle-lang-text d-none" id="toggle-lang-text-es">ES</span>
                             </div>
-                            <span class="toggle-lang-text d-none" id="toggle-lang-text-es">ES</span>
                         </div>
-                    </div>
-                    
-                    <!-- Bio Content -->
-                    <div id="bio-content">
-                        <p class="lang-es d-none text-white"><?php echo wp_kses_post(get_post_meta($post->ID, 'wpcf-bio_es', true)); ?></p>
-                        <p class="lang-en text-white"><?php echo wp_kses_post(get_post_meta($post->ID, 'wpcf-bio_en', true)); ?></p>
+                        
+                        <!-- Bio Content -->
+                        <div id="bio-content">
+                            <p class="lang-es d-none text-white"><?php echo wp_kses_post(get_post_meta($post->ID, 'wpcf-bio_es', true)); ?></p>
+                            <p class="lang-en text-white"><?php echo wp_kses_post(get_post_meta($post->ID, 'wpcf-bio_en', true)); ?></p>
+                        </div>
                     </div>
                 </div>
             </div>

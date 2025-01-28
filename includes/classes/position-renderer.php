@@ -53,8 +53,16 @@ class PositionRenderer {
         $position_end_date_formatted = $position_end_date ? date_i18n(get_option('date_format'), strtotime($position_end_date)) : '';
     
         // Get knowledge and skills taxonomies
-        $knowledge_terms = wp_get_post_terms($position_id, 'knowledge', ['fields' => 'names']);
-        $skills_terms = wp_get_post_terms($position_id, 'skills', ['fields' => 'names']);
+        $knowledge_terms = wp_get_post_terms($position_id, 'knowledge', ['fields' => 'all']);
+        $skills_terms = wp_get_post_terms($position_id, 'skills', ['fields' => 'all']);
+        
+        $knowledge_terms = array_map(function($term) {
+            return ['name' => $term->name, 'slug' => $term->slug];
+        }, $knowledge_terms);
+        
+        $skills_terms = array_map(function($term) {
+            return ['name' => $term->name, 'slug' => $term->slug];
+        }, $skills_terms);
     
         // Get project details
         $project_ids = get_post_meta($position_id, 'wpcf-project_ids', true);

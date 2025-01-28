@@ -30,7 +30,7 @@ if (!isset($positions)) {
         </div>
     </div>
 </div>
-<div id="positions-loop" class="overflow-auto border-top border-bottom mb-2 pt-2 pb-2 mt-1 mb-1" style="max-height: 400px;">
+<div id="positions-loop" class="overflow-auto border-top border-bottom mb-2 pt-2 pb-2 mt-1 mb-1" style="border-color: rgba(255,255,255,.2)!important;max-height: 500px;">
     <?php
     // Check if there are any positions to display
     if ($positions->have_posts()) {
@@ -39,6 +39,8 @@ if (!isset($positions)) {
             $positions->the_post();
             $post = get_post(get_the_ID());
             // Include the single position template for each position
+          
+            $container_class = ($positions->current_post % 2 == 0 ? 'even' : 'odd');
             include plugin_dir_path(__FILE__) . 'position.php';
         }
         // Reset the post data after the loop

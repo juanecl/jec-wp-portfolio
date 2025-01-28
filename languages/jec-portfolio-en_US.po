@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: 2025-01-26 02:54+0000\n"
-"PO-Revision-Date: 2025-01-27 18:57+0000\n"
+"PO-Revision-Date: 2025-01-27 22:10+0000\n"
 "Last-Translator: \n"
 "Language-Team: English (United States)\n"
 "Language: en_US\n"
@@ -33,7 +33,7 @@ msgstr "A widget to display profile information"
 msgid "Active"
 msgstr "Active"
 
-#: includes/templates/projects.php:29
+#: includes/templates/projects.php:42
 msgid "active"
 msgstr "active"
 
@@ -479,7 +479,7 @@ msgstr "No knowledge"
 msgid "No knowledge terms assigned."
 msgstr "No knowledge terms assigned."
 
-#: includes/templates/positions-loop.php:48
+#: includes/templates/positions-loop.php:50
 msgid "No positions found."
 msgstr "No positions found."
 
@@ -691,7 +691,7 @@ msgstr "Projects list"
 msgid "Projects list navigation"
 msgstr "Projects list navigation"
 
-#: includes/templates/position.php:89
+#: includes/templates/projects.php:12
 msgid "Related projects"
 msgstr "Related projects"
 
@@ -801,6 +801,10 @@ msgstr "StackOverflow URL"
 msgid "Start Date"
 msgstr ""
 "Start Date\n"
+
+#: includes/templates/profile.php:85
+msgid "Summary"
+msgstr "Summary"
 
 #: includes/post-types/position.php:117
 msgctxt "Taxonomy General Name"

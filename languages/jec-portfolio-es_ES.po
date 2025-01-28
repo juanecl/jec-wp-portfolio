@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: jec-portfolio 1.0.0\n"
 "POT-Creation-Date: 2025-01-24 15:11+0000\n"
-"PO-Revision-Date: 2025-01-27 18:59+0000\n"
+"PO-Revision-Date: 2025-01-27 22:10+0000\n"
 "Last-Translator: \n"
 "Language-Team: Español\n"
 "Language: es_ES\n"
@@ -34,7 +34,7 @@ msgstr "Un widget para mostrar información del perfil"
 msgid "Active"
 msgstr "Activo"
 
-#: includes/templates/projects.php:29
+#: includes/templates/projects.php:42
 msgid "active"
 msgstr "activo"
 
@@ -480,7 +480,7 @@ msgstr "Sin conocimientos"
 msgid "No knowledge terms assigned."
 msgstr "No hay términos de conocimiento asignados."
 
-#: includes/templates/positions-loop.php:48
+#: includes/templates/positions-loop.php:50
 msgid "No positions found."
 msgstr "Sin cargos encontrados."
 
@@ -692,7 +692,7 @@ msgstr "Listado de proyectos"
 msgid "Projects list navigation"
 msgstr "Navegación de listado de proyectos"
 
-#: includes/templates/position.php:89
+#: includes/templates/projects.php:12
 msgid "Related projects"
 msgstr "Proyectos relacionados"
 
@@ -801,6 +801,10 @@ msgstr "URL de StackOverflow"
 #: includes/post-types/position.php:249 includes/post-types/project.php:134
 msgid "Start Date"
 msgstr "Fecha de inicio"
+
+#: includes/templates/profile.php:85
+msgid "Summary"
+msgstr "Acerca"
 
 #: includes/post-types/position.php:117
 msgctxt "Taxonomy General Name"

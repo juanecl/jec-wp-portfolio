@@ -29,22 +29,22 @@ foreach ($args as $key => $value) {
 }
 ?>
 
-<div class="container-fluid">
-    <div class="card mb-2">
+<div class="container-fluid"> 
+    <div class="card mb-4 <?php echo esc_attr($container_class); ?>">
         <div class="card-header position-relative">
-            <a class="btn btn-outline-primary position-absolute" style="top: 0; right: 0; margin: 0.5rem;" data-bs-toggle="collapse" href="#position-content-<?php echo esc_attr($position_id); ?>" role="button" aria-expanded="true" aria-controls="position-content-<?php echo esc_attr($position_id); ?>">
+            <a class="btn btn-outline-primary position-absolute toggle-description" style="top: 0; right: 0; margin: 0.5rem;" data-bs-toggle="collapse" href="#position-content-<?php echo esc_attr($position_id); ?>" role="button" aria-expanded="true" aria-controls="position-content-<?php echo esc_attr($position_id); ?>">
                 <i class="fa fa-minus-circle toggle-icon"></i>
             </a>
             <div class="d-flex flex-column">
                 <div class=" p-2 mb-2">
-                    <h4 class="position-title mb-1">
+                    <h4 class="position-title mb-2">
                         <?php echo esc_html($position_title); ?> 
                         <span class="text-muted" style="font-size: 0.9em;">
-                            @ <a href="<?php echo esc_url($company_website); ?>" target="_blank" class="text-muted"><?php echo esc_html($company_name); ?></a>
+                            @ <a href="<?php echo esc_url($company_website); ?>" target="_blank" class="text-primary text-decoration-none fw-bolder"><?php echo esc_html($company_name); ?></a>
                         </span>
                     </h4>
-                    <div class="position-dates text-muted">
-                        <i class="fa fa-calendar-check-o"></i> <?php echo esc_html($position_start_date_formatted); ?> -
+                    <div class="position-dates text-muted mb-2">
+                        <i class="fa fa-calendar-day text-primary"></i> <?php echo esc_html($position_start_date_formatted); ?> - <i class="fa fa-calendar-day text-primary"></i>
                         <?php if ($position_active && empty($position_end_date)): ?>
                             <?php _e('Current job', 'jec-portfolio'); ?>
                         <?php else: ?>
@@ -60,7 +60,7 @@ foreach ($args as $key => $value) {
         <div class="card-body p-0">
             <div class="position-wrapper">
                 <div class="collapse show p-4" id="position-content-<?php echo esc_attr($position_id); ?>">
-                    <div class="position-description mb-4 py-4 px-3 border-top border-bottom">
+                    <div class="position-description mb-2 py-2 px-3">
                         <p><?php echo wp_kses_post($position_description); ?></p>
                     </div>
                     <div class="row mb-4">
@@ -68,7 +68,7 @@ foreach ($args as $key => $value) {
                             <h5><?php _e('Knowledge', 'jec-portfolio'); ?></h5>
                             <?php if (!empty($knowledge_terms)): ?>
                                 <?php foreach ($knowledge_terms as $term): ?>
-                                    <span class="badge bg-primary"><?php echo esc_html($term); ?></span>
+                                    <span class="badge bg-primary knowledge-badge cursor-pointer text-decoration-underline-hover" data-term="<?php echo esc_attr($term['slug']); ?>"><?php echo esc_html($term['name']); ?></span>
                                 <?php endforeach; ?>
                             <?php else: ?>
                                 <p><?php _e('No knowledge terms assigned.', 'jec-portfolio'); ?></p>
@@ -78,22 +78,17 @@ foreach ($args as $key => $value) {
                             <h5><?php _e('Skills', 'jec-portfolio'); ?></h5>
                             <?php if (!empty($skills_terms)): ?>
                                 <?php foreach ($skills_terms as $term): ?>
-                                    <span class="badge bg-secondary"><?php echo esc_html($term); ?></span>
+                                    <span class="badge bg-secondary skills-badge cursor-pointer text-decoration-underline-hover" data-term="<?php echo esc_attr($term['slug']); ?>"><?php echo esc_html($term['name']); ?></span>
                                 <?php endforeach; ?>
                             <?php else: ?>
                                 <p><?php _e('No skills terms assigned.', 'jec-portfolio'); ?></p>
                             <?php endif; ?>
                         </div>
                     </div>
-                    <div class="row mt-5 d-block mb-3">
-                        <h4><?php _e('Related projects', 'jec-portfolio'); ?></h4>
-                    </div>
-                    <div class="row">
-                        <?php
-                        // Include the related projects template
-                        include plugin_dir_path(__FILE__) . 'projects.php';
-                        ?>
-                    </div>
+                    <?php
+                    // Include the related projects template
+                    include plugin_dir_path(__FILE__) . 'projects.php';
+                    ?>
                 </div>
             </div>
         </div>

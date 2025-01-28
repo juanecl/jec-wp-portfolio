@@ -22,8 +22,8 @@ $position_ids = isset($position_ids) ? $position_ids : array();
 
 <div class="container-fluid mt-5">
     <!-- Filter Form -->
-    <h2><?php _e('Work experience', 'jec-portfolio'); ?></h2>
-    <div class=" p-3">
+    <h2 class="text-center"><?php _e('Work experience', 'jec-portfolio'); ?></h2>
+    <div class="p-5 bg-dark-muted" style="margin-left: -22px; margin-right: -22px;">
         <form id="filter-form">
             <div class="row mb-4">
                 <h5><?php _e('Search Positions', 'jec-portfolio'); ?></h5>
@@ -72,49 +72,3 @@ $position_ids = isset($position_ids) ? $position_ids : array();
         ?>
     </div>
 </div>
-
-<script>
-    jQuery(document).ready(function($) {
-        const filterForm = document.getElementById('filter-form');
-        const positionsContainer = document.getElementById('positions-container-fluid');
-        const resetFiltersButton = document.getElementById('reset-filters');
-    
-        // Initialize Bootstrap Select
-        $('#knowledge').select2({
-            allowClear: true,
-            theme: "bootstrap-5",
-        });
-        $('#skills').select2({
-            allowClear: true,
-            theme: "bootstrap-5"
-        });
-    
-        function fetchPositions(params) {
-            const url = '<?php echo admin_url('admin-ajax.php'); ?>?action=filter_positions' + (params ? '&' + params : '');
-            fetch(url)
-                .then(response => response.text())
-                .then(data => {
-                    positionsContainer.innerHTML = data;
-                });
-        }
-        
-        $('#knowledge, #skills').on('change', function() {
-            const formData = new FormData(filterForm);
-            const params = new URLSearchParams(formData).toString();
-            if (params) {
-                fetchPositions(params);
-            }
-        });
-
-        resetFiltersButton.addEventListener('click', function() {
-            // Reset the form
-            filterForm.reset();
-            // Reset the select2 fields
-            $('#knowledge').val(null).trigger('change');
-            $('#skills').val(null).trigger('change');
-    
-            // Trigger change event to reload positions
-            fetchPositions('');
-        });
-    });
-</script>
