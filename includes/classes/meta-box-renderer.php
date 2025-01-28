@@ -1,5 +1,5 @@
 <?php
-require_once plugin_dir_path(__FILE__) . 'meta-boxes/index.php';
+require_once plugin_dir_path(__FILE__) . 'meta-boxes/init.php';
 /**
  * Abstract class for managing meta boxes.
  * 

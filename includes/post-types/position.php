@@ -276,8 +276,9 @@ class PositionPostType extends AbstractMetaBoxRenderer {
      */
     public function enqueue_position_scripts() {
         wp_enqueue_script('position', plugin_dir_url(__FILE__) . '../../assets/js/position.js', ['jquery'], null, true);
-        wp_localize_script('position', 'ajaxurl', admin_url('admin-ajax.php'));
-
+        $ajax_url = admin_url('admin-ajax.php');
+        $inline_script = "const ajaxurl = '{$ajax_url}';";
+        wp_add_inline_script('position', $inline_script);
     }
 }
 

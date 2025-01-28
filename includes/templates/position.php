@@ -32,8 +32,8 @@ foreach ($args as $key => $value) {
 <div class="container-fluid"> 
     <div class="card mb-4 <?php echo esc_attr($container_class); ?>">
         <div class="card-header position-relative">
-            <a class="btn btn-outline-primary position-absolute toggle-description" style="top: 0; right: 0; margin: 0.5rem;" data-bs-toggle="collapse" href="#position-content-<?php echo esc_attr($position_id); ?>" role="button" aria-expanded="true" aria-controls="position-content-<?php echo esc_attr($position_id); ?>">
-                <i class="fa fa-minus-circle toggle-icon"></i>
+            <a class="btn btn-outline-primary position-absolute toggle-description" style="top: 0; right: 0; margin: 0.5rem;" data-bs-toggle="collapse" href="#position-content-<?php echo esc_attr($position_id); ?>" role="button" aria-expanded="<?php echo $toggle_open ? 'true' : 'false'; ?>" aria-controls="position-content-<?php echo esc_attr($position_id); ?>">
+                <i class="fa <?php echo $toggle_open ? 'fa-minus-circle' : 'fa-plus-circle'; ?> toggle-icon"></i>
             </a>
             <div class="d-flex flex-column">
                 <div class=" p-2 mb-2">
@@ -59,7 +59,7 @@ foreach ($args as $key => $value) {
         </div>
         <div class="card-body p-0">
             <div class="position-wrapper">
-                <div class="collapse show p-4" id="position-content-<?php echo esc_attr($position_id); ?>">
+                <div class="collapse <?php echo $toggle_open; ?> p-4" id="position-content-<?php echo esc_attr($position_id); ?>">
                     <div class="position-description mb-2 py-2 px-3">
                         <p><?php echo wp_kses_post($position_description); ?></p>
                     </div>

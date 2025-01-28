@@ -34,6 +34,7 @@ if (!isset($positions)) {
     <?php
     // Check if there are any positions to display
     if ($positions->have_posts()) {
+        $is_first_iteration = true; // Variable de control para la primera iteración
         // Loop through the positions and display each one
         while ($positions->have_posts()) {
             $positions->the_post();
@@ -41,7 +42,9 @@ if (!isset($positions)) {
             // Include the single position template for each position
           
             $container_class = ($positions->current_post % 2 == 0 ? 'even' : 'odd');
+            $toggle_open = $is_first_iteration ? 'show' : ''; // Determinar si el toggle debe estar abierto o cerrado
             include plugin_dir_path(__FILE__) . 'position.php';
+            $is_first_iteration = false; // Marcar que la primera iteración ya ha pasado
         }
         // Reset the post data after the loop
         wp_reset_postdata();
