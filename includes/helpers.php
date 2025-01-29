@@ -8,6 +8,11 @@
  * @param string $post_type The post type being checked.
  * @return bool Whether the block editor is enabled.
  */
+
+if (!defined('ABSPATH')) {
+    exit; // Exit if accessed directly
+}
+
 function disable_gutenberg_for_custom_post_types($is_enabled, $post_type) {
     $custom_post_types = ['article', 'profile', 'company', 'project', 'position'];
     if (in_array($post_type, $custom_post_types)) {

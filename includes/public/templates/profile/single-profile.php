@@ -11,6 +11,10 @@
  * @param WP_Post $post The current post object.
  */
 
+ if (!defined('ABSPATH')) {
+    exit; // Exit if accessed directly
+}
+
 if (!isset($profile_id)) {
     echo esc_html__('Profile ID not provided.', PLUGIN_TEXT_DOMAIN);
     return;

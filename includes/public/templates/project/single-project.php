@@ -1,3 +1,4 @@
+
 <div class="col-md-6 mb-4">
     <div class="card project-card">
         <div class="card-header p-0">
@@ -13,9 +14,7 @@
                             <?php endif; ?>
                         </h6>
                     </span>
-                    <i class="toggle_project fa fa-plus-circle ms-2" data-bs-toggle="collapse"
-                        data-bs-target="#project-<?php echo esc_attr($project['id']); ?>"
-                        style="cursor: pointer;"></i>
+                    <i class="toggle_project fa fa-plus-circle ms-2 cursor-pointer" data-bs-toggle="collapse" data-bs-target="#project-<?php echo esc_attr($project['id']); ?>"></i>
                 </div>
                 <span class="project-dates text-muted mt-2 text-small">
                     <i class="fa fa-calendar text-primary"></i> <?php echo esc_html($project['start_date']); ?> -

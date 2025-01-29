@@ -1,5 +1,9 @@
 <?php
 
+if (!defined('ABSPATH')) {
+    exit; // Exit if accessed directly
+}
+
 include plugin_dir_path(__FILE__) . 'query.php';
 class PositionRenderer {
     private static $instance = null;

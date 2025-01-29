@@ -8,6 +8,10 @@
  * @version 1.0
  */
 
+ if (!defined('ABSPATH')) {
+    exit; // Exit if accessed directly
+}
+
 // Include the Position Widget
 require_once plugin_dir_path(__FILE__) . 'position/index.php';
 

@@ -24,7 +24,7 @@ if (!isset($positions)) {
     <div class="row">
         <!-- Display the number of results found -->
         <div class="col-md-12">
-            <p class="results-count  d-block w-100 text-center mb-1">
+            <p class="results-count d-block w-100 text-center mt-3">
                 <?php echo $positions->found_posts . ' ' . __('positions found.', PLUGIN_TEXT_DOMAIN); ?>
             </p>
         </div>

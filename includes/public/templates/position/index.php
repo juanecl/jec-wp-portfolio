@@ -9,7 +9,9 @@
  * @package JEC_Portfolio
  */
 
-
+ if (!defined('ABSPATH')) {
+    exit; // Exit if accessed directly
+}
 
 // Get terms for the taxonomies
 $knowledge_terms = get_terms(array('taxonomy' => 'knowledge', 'hide_empty' => false));
@@ -22,14 +24,14 @@ $position_ids = isset($position_ids) ? $position_ids : array();
 
 <div class="container-fluid mt-5">
     <!-- Filter Form -->
-    <h2 class="text-center"><?php _e('Work experience', PLUGIN_TEXT_DOMAIN); ?></h2>
+    <h2 class="text-center mb-4"><?php _e('Work experience', PLUGIN_TEXT_DOMAIN); ?></h2>
     <div class="p-5 bg-dark-muted" style="margin-left: -22px; margin-right: -22px;">
         <form id="filter-form">
             <div class="row mb-4">
                 <h5><?php _e('Search Positions', PLUGIN_TEXT_DOMAIN); ?></h5>
                 <p><?php _e('Filter by knowledge and skill terms', PLUGIN_TEXT_DOMAIN); ?></p>
                 <div class="col-md-6">
-                    <label for="knowledge"><?php _e('By knowledge', PLUGIN_TEXT_DOMAIN); ?></label>
+                    <label for="knowledge" class="mx-1 mb-2 mt-2"><?php _e('By knowledge', PLUGIN_TEXT_DOMAIN); ?></label>
                     <select id="knowledge" name="knowledge[]" multiple class="form-control select2">
                         <?php foreach ($knowledge_terms as $term): ?>
                             <option value="<?php echo esc_attr($term->slug); ?>"><?php echo esc_html($term->name); ?></option>
@@ -37,7 +39,7 @@ $position_ids = isset($position_ids) ? $position_ids : array();
                     </select>
                 </div>
                 <div class="col-md-6">
-                    <label for="skills"><?php _e('By skills', PLUGIN_TEXT_DOMAIN); ?></label>
+                    <label for="skills" class="mx-1 mb-2 mt-2"><?php _e('By skills', PLUGIN_TEXT_DOMAIN); ?></label>
                     <select id="skills" name="skills[]" multiple class="form-control select2">
                         <?php foreach ($skills_terms as $term): ?>
                             <option value="<?php echo esc_attr($term->slug); ?>"><?php echo esc_html($term->name); ?></option>
@@ -47,7 +49,7 @@ $position_ids = isset($position_ids) ? $position_ids : array();
             </div>
             <div class="row mb-1">
                 <div class="col-md-12">
-                    <button type="button" id="reset-filters" class="btn btn-secondary"><?php _e('Reset Filters', PLUGIN_TEXT_DOMAIN); ?></button>
+                    <button type="button" id="reset-filters" class="btn btn-secondary mx-2"><?php _e('Reset Filters', PLUGIN_TEXT_DOMAIN); ?></button>
                 </div>
             </div>
         </form>

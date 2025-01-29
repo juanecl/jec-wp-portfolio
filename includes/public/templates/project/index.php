@@ -5,6 +5,10 @@
  * @param array $args The arguments for the template.
  */
 
+ if (!defined('ABSPATH')) {
+    exit; // Exit if accessed directly
+}
+
 $projects = $args['projects'];
 if (!empty($projects)) {
     ?>

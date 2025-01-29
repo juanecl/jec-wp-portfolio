@@ -39,3 +39,4 @@ dist/
 # Archivos de configuración de despliegue
 deploy/
 .history/
+diff.txt
