@@ -32,8 +32,8 @@ foreach ($args as $key => $value) {
 <div class="container-fluid"> 
     <div class="card mb-4 <?php echo esc_attr($container_class); ?>">
         <div class="card-header position-relative">
-            <a class="btn btn-outline-primary position-absolute toggle-description" style="top: 0; right: 0; margin: 0.5rem;" data-bs-toggle="collapse" href="#position-content-<?php echo esc_attr($position_id); ?>" role="button" aria-expanded="<?php echo $toggle_open ? 'true' : 'false'; ?>" aria-controls="position-content-<?php echo esc_attr($position_id); ?>">
-                <i class="fa <?php echo $toggle_open ? 'fa-minus-circle' : 'fa-plus-circle'; ?> toggle-icon"></i>
+            <a class="btn text-secondary position-absolute toggle-description" style="top: 0; right: 0; margin: 0.5rem;" data-bs-toggle="collapse" href="#position-content-<?php echo esc_attr($position_id); ?>" role="button" aria-expanded="<?php echo $toggle_open ? 'true' : 'false'; ?>" aria-controls="position-content-<?php echo esc_attr($position_id); ?>">
+                <i class="fa <?php echo $toggle_open ? 'fa-minus' : 'fa-plus'; ?> toggle-icon"></i>
             </a>
             <div class="d-flex flex-column">
                 <div class=" p-2 mb-2">

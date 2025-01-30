@@ -143,7 +143,7 @@ class PositionRenderer {
 
         // Execute the query
         $positions = $position_query->get_positions();
-        include plugin_dir_path(__FILE__) . '../templates/position/content-position.php';
+        include PLUGIN_ROOT_PATH . 'includes/public/templates/position/content-position.php';
 
         wp_die();
     }
