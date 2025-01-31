@@ -22,7 +22,7 @@ if (!isset($profile_id)) {
 
 $post = get_post($profile_id);
 if (!$post) {
-    echo esc_html__('Profile not found.', PLUGIN_TEXT_DOMAIN);
+    echo '<p class="text-center mt-3 alert alert-warning alert-dismissible fade show">' . esc_html__('Profile not found.', PLUGIN_TEXT_DOMAIN) . '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></p>';
     return;
 }
 ?>

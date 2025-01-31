@@ -152,7 +152,7 @@ class PositionRenderer {
      * Enqueue position scripts.
      */
     public function enqueue_position_scripts() {
-        wp_enqueue_script('position', PLUGIN_ROOT_URL . 'assets/js/position.js', ['jquery'], null, true);
+        wp_enqueue_script('position', PLUGIN_ROOT_URL . 'assets/js/position.js', ['jquery'], '1.0.0', true);
         $ajax_url = admin_url('admin-ajax.php');
         $inline_script = "const ajaxurl = '{$ajax_url}';";
         wp_add_inline_script('position', $inline_script);

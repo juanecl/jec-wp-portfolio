@@ -9,13 +9,18 @@ jQuery(document).ready(function ($) {
     const knowledgeSelect = $('#knowledge');
     const skillsSelect = $('#skills');
 
-    // Initialize select2 for knowledge and skills fields
-    knowledgeSelect.select2({
-        theme: "bootstrap-5",
-    });
-    skillsSelect.select2({
-        theme: "bootstrap-5",
-    });
+    // Initialize select2 for knowledge and skills fields if they exist
+    if (knowledgeSelect.length) {
+        knowledgeSelect.select2({
+            theme: "bootstrap-5",
+        });
+    }
+
+    if (skillsSelect.length) {
+        skillsSelect.select2({
+            theme: "bootstrap-5",
+        });
+    }
 
     /**
      * Fetch positions based on the provided parameters.
@@ -31,24 +36,33 @@ jQuery(document).ready(function ($) {
     }
 
     // Event listener for changes in knowledge and skills select2 fields
-    knowledgeSelect.add(skillsSelect).on('change', function () {
-        const formData = new FormData(filterForm);
-        const params = new URLSearchParams(formData).toString();
-        if (params) {
-            fetchPositions(params);
-        }
-    });
+    if (knowledgeSelect.length && skillsSelect.length) {
+        knowledgeSelect.add(skillsSelect).on('change', function () {
+            const formData = new FormData(filterForm);
+            const params = new URLSearchParams(formData).toString();
+            if (params) {
+                fetchPositions(params);
+            }
+        });
+    }
 
     // Event listener for the reset filters button
-    resetFiltersButton.addEventListener('click', function () {
-        // Reset the form and select2 fields
-        filterForm.reset();
-        knowledgeSelect.val(null).trigger('change');
-        skillsSelect.val(null).trigger('change');
+    if (resetFiltersButton) {
+        resetFiltersButton.addEventListener('click', function () {
+            // Reset the form and select2 fields
+            filterForm.reset();
+            if (knowledgeSelect.length) {
+                knowledgeSelect.val(null).trigger('change');
+            }
+            if (skillsSelect.length) {
+                skillsSelect.val(null).trigger('change');
+            }
 
-        // Fetch all positions
-        fetchPositions('');
-    });
+            // Fetch all positions
+            fetchPositions('');
+        });
+    }
+
     // Initialize toggle functionality for description elements
     const toggleDescriptionButtons = document.querySelectorAll('.toggle-description[data-bs-toggle="collapse"]');
     toggleDescriptionButtons.forEach(toggleDescriptionButton => {
@@ -63,7 +77,7 @@ jQuery(document).ready(function ($) {
             console.error('Target element not found for selector:', targetSelector);
             return;
         }
-    
+
         target.addEventListener('show.bs.collapse', () => {
             toggleDescriptionIcon.classList.replace('fa-plus-circle', 'fa-minus-circle');
         });
@@ -71,6 +85,7 @@ jQuery(document).ready(function ($) {
             toggleDescriptionIcon.classList.replace('fa-minus-circle', 'fa-plus-circle');
         });
     });
+
     // Update toggle button icons on collapse show/hide events
     const collapseElements = document.querySelectorAll('.collapse');
     collapseElements.forEach(collapseElement => {

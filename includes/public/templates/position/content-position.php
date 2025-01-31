@@ -50,7 +50,7 @@ if (!isset($positions)) {
         wp_reset_postdata();
     } else {
         // Display a message if no positions are found
-        echo '<p>' . __('No positions found.', PLUGIN_TEXT_DOMAIN) . '</p>';
+        echo '<p class="text-center mt-3 alert alert-warning alert-dismissible fade show">' . __('No positions found.', PLUGIN_TEXT_DOMAIN) . '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></p>';
     }
     ?>
 </div>
