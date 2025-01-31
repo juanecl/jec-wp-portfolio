@@ -195,6 +195,7 @@ class PositionPostType extends AbstractMetaBoxRenderer {
         add_meta_box('position_location', __('Location', PLUGIN_TEXT_DOMAIN), [$this, 'render_location_meta_box'], 'position', 'normal', 'high');
         add_meta_box('position_projects', __('Projects', PLUGIN_TEXT_DOMAIN), [$this, 'render_projects_meta_box'], 'position', 'side', 'default');
         add_meta_box('position_dates', __('Dates', PLUGIN_TEXT_DOMAIN), [$this, 'render_dates_meta_box'], 'position', 'side', 'default');
+        add_meta_box('position_freelance', __('Freelance', PLUGIN_TEXT_DOMAIN), [$this, 'render_freelance_meta_box'], 'position', 'side', 'default'); // Add freelance meta box
     }
 
     /**
@@ -250,6 +251,16 @@ class PositionPostType extends AbstractMetaBoxRenderer {
     }
 
     /**
+     * Render the freelance meta box.
+     *
+     * @param WP_Post $post The current post object.
+     */
+    public function render_freelance_meta_box($post) {
+        wp_nonce_field('save_position_fields_nonce', 'position_fields_nonce');
+        $this->render_meta_box('checkbox', $post, 'freelance', __('Freelance', PLUGIN_TEXT_DOMAIN), __('Check if the position is freelance.', PLUGIN_TEXT_DOMAIN));
+    }
+
+    /**
      * Save custom fields for the "position" post type.
      *
      * @param int $post_id The ID of the current post.
@@ -263,7 +274,8 @@ class PositionPostType extends AbstractMetaBoxRenderer {
             'project_ids',
             'active',
             'start-date',
-            'end-date'
+            'end-date',
+            'freelance' // Add freelance field
         ];
     
         // Call the external function to save custom meta fields

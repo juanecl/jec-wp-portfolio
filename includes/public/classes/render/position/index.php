@@ -52,6 +52,7 @@ class PositionRenderer {
         $position_start_date = get_post_meta($position_id, 'wpcf-start-date', true);
         $position_end_date = get_post_meta($position_id, 'wpcf-end-date', true);
         $position_active = get_post_meta($position_id, 'wpcf-active', true);
+        $position_is_freelance = get_post_meta($position_id, 'wpcf-freelance', true);
     
         // Format dates based on locale
         $position_start_date_formatted = $position_start_date ? date_i18n(get_option('date_format'), strtotime($position_start_date)) : '';
@@ -91,6 +92,7 @@ class PositionRenderer {
             'position_active' => $position_active,
             'knowledge_terms' => $knowledge_terms,
             'skills_terms' => $skills_terms,
+            'freelance' => $position_is_freelance,
             'projects' => $projects,
         ];
     
@@ -152,6 +154,7 @@ class PositionRenderer {
      * Enqueue position scripts.
      */
     public function enqueue_position_scripts() {
+        wp_enqueue_style('position', PLUGIN_ROOT_URL . 'assets/css/position.css', array(), '1.0.0');
         wp_enqueue_script('position', PLUGIN_ROOT_URL . 'assets/js/position.js', ['jquery'], '1.0.0', true);
         $ajax_url = admin_url('admin-ajax.php');
         $inline_script = "const ajaxurl = '{$ajax_url}';";

@@ -1,0 +1,30 @@
+/* Class for position loop container */
+.position-loop-container {
+  border-color: rgba(255, 255, 255, 0.2) !important;
+  max-height: 485px;
+}
+
+/* Class for dark-muted background with padding */
+.bg-dark-muted-padding {
+  background-color: #343a40; /* Dark muted background color */
+  padding: 5rem; /* Padding */
+  margin-left: -22px; /* Negative margin left */
+  margin-right: -22px; /* Negative margin right */
+}
+
+/* Class for toggle description button */
+.toggle-description-btn {
+  top: 0;
+  right: 0;
+  margin: 0.5rem;
+}
+
+/* Class for muted text with smaller font size */
+.text-muted-small {
+  font-size: 0.9em;
+}
+
+/* Class for company category badge */
+.company-category-badge {
+  font-size: 0.8em;
+}

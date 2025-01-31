@@ -1,70 +1,89 @@
+/* Sticky button customization */
 .custom-sticky-button {
     position: -webkit-sticky; /* For Safari */
     position: sticky;
-    top: 10px; /* Adjust the distance from the top */
+    top: 10px; /* Distance from the top */
     left: 0;
     z-index: 1030; /* Ensure the button is above other elements */
     margin-left: 0; /* Ensure the button is at the edge */
 }
+
+/* Bio card styling */
 .bio-card {
     height: calc(100vh - 200px); /* Adjust the height as needed */
-    overflow-y: auto;
+    overflow-y: auto; /* Enable vertical scrolling */
     margin-bottom: 20px; /* Add margin at the bottom */
 }
+
+/* Offcanvas tab styling */
 .offcanvas-tab {
     position: fixed;
     top: 50%;
     left: 0;
-    transform: translateY(-50%);
-    background-color: #007bff;
-    color: white;
-    padding: 10px;
-    border-radius: 0 5px 5px 0;
-    cursor: pointer;
-    z-index: 1041;
-    transition: left 0.35s ease;
+    transform: translateY(-50%); /* Center vertically */
+    background-color: #007bff; /* Blue background */
+    color: white; /* White text */
+    padding: 10px; /* Padding inside the tab */
+    border-radius: 0 5px 5px 0; /* Rounded corners on the right */
+    cursor: pointer; /* Pointer cursor on hover */
+    z-index: 1041; /* Ensure the tab is above other elements */
+    transition: left 0.35s ease; /* Smooth transition for left position */
 }
+
+/* Offcanvas tab open state */
 .offcanvas-tab-open {
     left: 399px; /* Adjust this value to match the width of your offcanvas */
 }
+
+/* Icon inside the offcanvas tab */
 .offcanvas-tab i {
-    font-size: 24px;
+    font-size: 24px; /* Icon size */
 }
+
+/* Custom toggle switch styling */
 .form-check-input.toggle-custom {
-    width: 60px!important;
-    height: 30px!important;
-    background: linear-gradient(to right, #007bff 50%, #dc3545 50%);
-    background-size: 200% 100%;
-    background-position: right bottom;
-    transition: background-position 0.3s ease-in-out;
+    width: 60px !important; /* Width of the toggle switch */
+    height: 30px !important; /* Height of the toggle switch */
+    background: linear-gradient(to right, #007bff 50%, #dc3545 50%); /* Gradient background */
+    background-size: 200% 100%; /* Background size */
+    background-position: right bottom; /* Initial background position */
+    transition: background-position 0.3s ease-in-out; /* Smooth transition for background position */
 }
+
+/* Checked state for the custom toggle switch */
 .form-check-input.toggle-custom:checked {
-    background-position: left bottom;
-    background-color: #dc3545; /* Red */
-    border-color: #dc3545; /* Red */
+    background-position: left bottom; /* Background position when checked */
+    background-color: #dc3545; /* Red background */
+    border-color: #dc3545; /* Red border */
 }
-/* not checked style */
+
+/* Not checked state for the custom toggle switch */
 .form-check-input.toggle-custom:not(:checked) {
-    background-color: #007bff; /* Blue */
-    border-color: #007bff; /* Blue */
-    color: #dc3545;
+    background-color: #007bff; /* Blue background */
+    border-color: #007bff; /* Blue border */
+    color: #dc3545; /* Red color */
 }
+
+/* Toggle language text positioning */
 .toggle-lang-text {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    transition: opacity 0.3s ease-in-out;
+    position: absolute; /* Absolute positioning */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Center horizontally */
+    transition: opacity 0.3s ease-in-out; /* Smooth transition for opacity */
 }
 
+/* Spanish language text styling */
 #toggle-lang-text-es {
-    color: #fb0;
+    color: #fb0; /* Yellow color */
 }
 
+/* English language text styling */
 #toggle-lang-text-en {
-    color: #fff;
+    color: #fff; /* White color */
 }
 
+/* Bio content paragraph styling */
 #bio-content p {
-    text-align: justify;
-    padding: 0 .75rem;
+    text-align: justify; /* Justify text */
+    padding: 0 .75rem; /* Padding inside the paragraph */
 }

@@ -25,7 +25,7 @@ $position_ids = isset($position_ids) ? $position_ids : array();
 <div class="container-fluid mt-5">
     <!-- Filter Form -->
     <h2 class="text-center mb-4"><?php _e('Work experience', PLUGIN_TEXT_DOMAIN); ?></h2>
-    <div class="p-5 bg-dark-muted" style="margin-left: -22px; margin-right: -22px;">
+    <div class="bg-dark-muted-padding">
         <form id="filter-form">
             <div class="row mb-4">
                 <h5><?php _e('Search Positions', PLUGIN_TEXT_DOMAIN); ?></h5>

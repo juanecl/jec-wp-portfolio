@@ -84,6 +84,17 @@ jQuery(document).ready(function ($) {
         target.addEventListener('hide.bs.collapse', () => {
             toggleDescriptionIcon.classList.replace('fa-minus-circle', 'fa-plus-circle');
         });
+
+        // Add click event listener to the card header
+        const cardHeader = toggleDescriptionButton.closest('.card-header');
+        if (cardHeader) {
+            cardHeader.addEventListener('click', function (event) {
+                // Prevent the click event from propagating to the toggle button itself
+                if (!event.target.closest('.toggle-description')) {
+                    toggleDescriptionButton.click();
+                }
+            });
+        }
     });
 
     // Update toggle button icons on collapse show/hide events

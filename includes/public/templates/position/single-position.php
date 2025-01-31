@@ -32,16 +32,19 @@ foreach ($args as $key => $value) {
 <div class="container-fluid"> 
     <div class="card mb-4 <?php echo esc_attr($container_class); ?>">
         <div class="card-header position-relative">
-            <a class="btn text-secondary position-absolute toggle-description" style="top: 0; right: 0; margin: 0.5rem;" data-bs-toggle="collapse" href="#position-content-<?php echo esc_attr($position_id); ?>" role="button" aria-expanded="<?php echo $toggle_open ? 'true' : 'false'; ?>" aria-controls="position-content-<?php echo esc_attr($position_id); ?>">
+            <a class="btn text-secondary position-absolute toggle-description toggle-description-btn" data-bs-toggle="collapse" href="#position-content-<?php echo esc_attr($position_id); ?>" role="button" aria-expanded="<?php echo $toggle_open ? 'true' : 'false'; ?>" aria-controls="position-content-<?php echo esc_attr($position_id); ?>">
                 <i class="fa <?php echo $toggle_open ? 'fa-minus' : 'fa-plus'; ?> toggle-icon"></i>
             </a>
             <div class="d-flex flex-column">
-                <div class=" p-2 mb-2">
+                <div class="p-2 mb-2">
                     <h4 class="position-title mb-2">
                         <?php echo esc_html($position_title); ?> 
-                        <span class="text-muted" style="font-size: 0.9em;">
+                        <span class="text-muted text-muted-small">
                             @ <a href="<?php echo esc_url($company_website); ?>" target="_blank" class="text-primary text-decoration-none fw-bolder"><?php echo esc_html($company_name); ?></a>
                         </span>
+                        <?php if ($freelance): ?>
+                            <span class="badge bg-warning text-dark ms-2"><?php _e('Freelance', PLUGIN_TEXT_DOMAIN); ?></span>
+                        <?php endif; ?>
                     </h4>
                     <div class="position-dates text-muted mb-2">
                         <i class="fa fa-calendar-day text-primary"></i> <?php echo esc_html($position_start_date_formatted); ?> - <i class="fa fa-calendar-day text-primary"></i>
@@ -52,7 +55,7 @@ foreach ($args as $key => $value) {
                         <?php endif; ?>
                     </div>
                     <div class="mt-2">
-                        <span class="bg-secondary text-white d-inline-block px-2 py-1 rounded fs-7" style="font-size: 0.8em;"><?php echo esc_html($company_category); ?></span>
+                        <span class="bg-secondary text-white d-inline-block px-2 py-1 rounded fs-7 company-category-badge"><?php echo esc_html($company_category); ?></span>
                     </div>
                 </div>
             </div>
