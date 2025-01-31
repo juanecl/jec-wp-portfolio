@@ -1,12 +1,14 @@
 /* Class for position loop container */
 .position-loop-container {
   border-color: rgba(255, 255, 255, 0.2) !important;
-  max-height: 485px;
+  max-height: 550px;
 }
-
+#position-loop {
+  border-top: 1px solid;
+  border-bottom: 1px solid;
+}
 /* Class for dark-muted background with padding */
 .bg-dark-muted-padding {
-  background-color: #343a40; /* Dark muted background color */
   padding: 5rem; /* Padding */
   margin-left: -22px; /* Negative margin left */
   margin-right: -22px; /* Negative margin right */

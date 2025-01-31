@@ -30,7 +30,7 @@ if (!isset($positions)) {
         </div>
     </div>
 </div>
-<div id="position-loop" class="overflow-auto border-top border-bottom mb-2 pt-2 pb-2 mt-1 mb-1 position-loop-container">
+<div id="position-loop" class="overflow-auto mb-2 pt-2 pb-2 mt-1 mb-1 position-loop-container">
     <?php
     // Check if there are any positions to display
     if ($positions->have_posts()) {
