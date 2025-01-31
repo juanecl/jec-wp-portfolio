@@ -16,13 +16,13 @@
 }
 
 if (!isset($profile_id)) {
-    echo esc_html__('Profile ID not provided.', PLUGIN_TEXT_DOMAIN);
+    echo esc_html__('Profile ID not provided.', 'jec-portfolio');
     return;
 }
 
 $post = get_post($profile_id);
 if (!$post) {
-    echo '<p class="text-center mt-3 alert alert-warning alert-dismissible fade show">' . esc_html__('Profile not found.', PLUGIN_TEXT_DOMAIN) . '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></p>';
+    echo '<p class="text-center mt-3 alert alert-warning alert-dismissible fade show">' . esc_html__('Profile not found.', 'jec-portfolio') . '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></p>';
     return;
 }
 ?>
@@ -35,7 +35,7 @@ if (!$post) {
 <div class="offcanvas offcanvas-start bg-secondary  text-white" tabindex="-1" id="offcanvasProfile" aria-labelledby="offcanvasProfileLabel">
     <div class="offcanvas-header mt-2">
         <h5 class="offcanvas-title" id="offcanvasProfileLabel"></h5>
-        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="<?php esc_attr_e('Close', PLUGIN_TEXT_DOMAIN); ?>"></button>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="<?php esc_attr_e('Close', 'jec-portfolio'); ?>"></button>
     </div>
     <div class="offcanvas-body">
         <?php

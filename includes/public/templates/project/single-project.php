@@ -19,7 +19,7 @@
                 <span class="project-dates text-muted mt-2 text-small">
                     <i class="fa fa-calendar text-primary"></i> <?php echo esc_html($project['start_date']); ?> -
                     <?php if ($project['active'] && empty($project['end_date'])): ?>
-                        <?php _e('active', PLUGIN_TEXT_DOMAIN); ?>
+                        <?php _e('active', 'jec-portfolio'); ?>
                     <?php else: ?>
                         <i class="fa fa-calendar text-primary"></i> <?php echo esc_html($project['end_date']); ?>
                     <?php endif; ?>

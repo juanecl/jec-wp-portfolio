@@ -1,8 +1,8 @@
-# Portfolio Plugin
+# jec-portfolio
 
 ## Description
 
-The Portfolio Plugin is a WordPress plugin designed to manage portfolios. It allows you to create and manage different types of content related to portfolios, such as positions, projects, profiles, and companies.
+The jec-portfolio is a WordPress plugin designed to manage portfolios. It allows you to create and manage different types of content related to portfolios, such as positions, projects, profiles, and companies.
 
 ## Installation
 

@@ -16,7 +16,7 @@ if (!defined('ABSPATH')) {
 
 // Check if the arguments have been passed
 if (!isset($positions)) {
-    echo '<div class="alert alert-danger" role="alert">' . __('Error: Positions query results not provided.', PLUGIN_TEXT_DOMAIN) . '</div>';
+    echo '<div class="alert alert-danger" role="alert">' . __('Error: Positions query results not provided.', 'jec-portfolio') . '</div>';
     return;
 }
 ?>
@@ -25,7 +25,7 @@ if (!isset($positions)) {
         <!-- Display the number of results found -->
         <div class="col-md-12">
             <p class="results-count d-block w-100 text-center mt-3">
-                <?php echo $positions->found_posts . ' ' . __('positions found.', PLUGIN_TEXT_DOMAIN); ?>
+                <?php echo $positions->found_posts . ' ' . __('positions found.', 'jec-portfolio'); ?>
             </p>
         </div>
     </div>
@@ -50,7 +50,7 @@ if (!isset($positions)) {
         wp_reset_postdata();
     } else {
         // Display a message if no positions are found
-        echo '<p class="text-center mt-3 alert alert-warning alert-dismissible fade show">' . __('No positions found.', PLUGIN_TEXT_DOMAIN) . '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></p>';
+        echo '<p class="text-center mt-3 alert alert-warning alert-dismissible fade show">' . __('No positions found.', 'jec-portfolio') . '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></p>';
     }
     ?>
 </div>

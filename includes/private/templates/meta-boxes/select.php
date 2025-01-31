@@ -36,5 +36,5 @@ $new_item_url = admin_url('post-new.php?post_type=' . $post_type);
     </select>
     
     <!-- Display a link to add a new item -->
-    <p><a href="<?php echo esc_url($new_item_url); ?>" target="_blank" class="button"><?php _e('Add New', PLUGIN_TEXT_DOMAIN); ?></a></p>
+    <p><a href="<?php echo esc_url($new_item_url); ?>" target="_blank" class="button"><?php _e('Add New', 'jec-portfolio'); ?></a></p>
 </div>

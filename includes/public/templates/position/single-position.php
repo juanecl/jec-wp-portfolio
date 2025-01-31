@@ -43,13 +43,13 @@ foreach ($args as $key => $value) {
                             @ <a href="<?php echo esc_url($company_website); ?>" target="_blank" class="text-primary text-decoration-none fw-bolder"><?php echo esc_html($company_name); ?></a>
                         </span>
                         <?php if ($freelance): ?>
-                            <span class="badge bg-warning text-dark ms-2"><?php _e('Freelance', PLUGIN_TEXT_DOMAIN); ?></span>
+                            <span class="badge bg-warning text-dark ms-2"><?php _e('Freelance', 'jec-portfolio'); ?></span>
                         <?php endif; ?>
                     </h4>
                     <div class="position-dates text-muted mb-2">
                         <i class="fa fa-calendar-day text-primary"></i> <?php echo esc_html($position_start_date_formatted); ?> - <i class="fa fa-calendar-day text-primary"></i>
                         <?php if ($position_active && empty($position_end_date)): ?>
-                            <?php _e('Current job', PLUGIN_TEXT_DOMAIN); ?>
+                            <?php _e('Current job', 'jec-portfolio'); ?>
                         <?php else: ?>
                             <?php echo esc_html($position_end_date_formatted); ?>
                         <?php endif; ?>
@@ -68,23 +68,23 @@ foreach ($args as $key => $value) {
                     </div>
                     <div class="row mb-4">
                         <div class="col-md-6">
-                            <h5><?php _e('Knowledge', PLUGIN_TEXT_DOMAIN); ?></h5>
+                            <h5><?php _e('Knowledge', 'jec-portfolio'); ?></h5>
                             <?php if (!empty($knowledge_terms)): ?>
                                 <?php foreach ($knowledge_terms as $term): ?>
                                     <span class="badge bg-primary knowledge-badge cursor-pointer text-decoration-underline-hover" data-term="<?php echo esc_attr($term['slug']); ?>"><?php echo esc_html($term['name']); ?></span>
                                 <?php endforeach; ?>
                             <?php else: ?>
-                                <p><?php _e('No knowledge terms assigned.', PLUGIN_TEXT_DOMAIN); ?></p>
+                                <p><?php _e('No knowledge terms assigned.', 'jec-portfolio'); ?></p>
                             <?php endif; ?>
                         </div>
                         <div class="col-md-6">
-                            <h5><?php _e('Skills', PLUGIN_TEXT_DOMAIN); ?></h5>
+                            <h5><?php _e('Skills', 'jec-portfolio'); ?></h5>
                             <?php if (!empty($skills_terms)): ?>
                                 <?php foreach ($skills_terms as $term): ?>
                                     <span class="badge bg-secondary skills-badge cursor-pointer text-decoration-underline-hover" data-term="<?php echo esc_attr($term['slug']); ?>"><?php echo esc_html($term['name']); ?></span>
                                 <?php endforeach; ?>
                             <?php else: ?>
-                                <p><?php _e('No skills terms assigned.', PLUGIN_TEXT_DOMAIN); ?></p>
+                                <p><?php _e('No skills terms assigned.', 'jec-portfolio'); ?></p>
                             <?php endif; ?>
                         </div>
                     </div>

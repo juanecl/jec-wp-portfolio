@@ -21,6 +21,6 @@
     
     <?php if ($value): ?>
         <!-- Display a link to view the uploaded file if it exists -->
-        <p><a href="<?php echo esc_url($value); ?>" target="_blank"><?php _e('View File', PLUGIN_TEXT_DOMAIN); ?></a></p>
+        <p><a href="<?php echo esc_url($value); ?>" target="_blank"><?php _e('View File', 'jec-portfolio'); ?></a></p>
     <?php endif; ?>
 </div>

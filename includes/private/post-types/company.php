@@ -60,38 +60,38 @@ class CompanyPostType extends AbstractMetaBoxRenderer {
      */
     public function register_post_type() {
         $labels = [
-            'name' => _x('Companies', 'Post Type General Name', PLUGIN_TEXT_DOMAIN),
-            'singular_name' => _x('Company', 'Post Type Singular Name', PLUGIN_TEXT_DOMAIN),
-            'menu_name' => __('Companies', PLUGIN_TEXT_DOMAIN),
-            'name_admin_bar' => __('Company', PLUGIN_TEXT_DOMAIN),
-            'archives' => __('Company Archives', PLUGIN_TEXT_DOMAIN),
-            'attributes' => __('Company Attributes', PLUGIN_TEXT_DOMAIN),
-            'parent_item_colon' => __('Parent Company:', PLUGIN_TEXT_DOMAIN),
-            'all_items' => __('All Companies', PLUGIN_TEXT_DOMAIN),
-            'add_new_item' => __('Add New Company', PLUGIN_TEXT_DOMAIN),
-            'add_new' => __('Add New', PLUGIN_TEXT_DOMAIN),
-            'new_item' => __('New Company', PLUGIN_TEXT_DOMAIN),
-            'edit_item' => __('Edit Company', PLUGIN_TEXT_DOMAIN),
-            'update_item' => __('Update Company', PLUGIN_TEXT_DOMAIN),
-            'view_item' => __('View Company', PLUGIN_TEXT_DOMAIN),
-            'view_items' => __('View Companies', PLUGIN_TEXT_DOMAIN),
-            'search_items' => __('Search Company', PLUGIN_TEXT_DOMAIN),
-            'not_found' => __('Not found', PLUGIN_TEXT_DOMAIN),
-            'not_found_in_trash' => __('Not found in Trash', PLUGIN_TEXT_DOMAIN),
-            'featured_image' => __('Featured Image', PLUGIN_TEXT_DOMAIN),
-            'set_featured_image' => __('Set featured image', PLUGIN_TEXT_DOMAIN),
-            'remove_featured_image' => __('Remove featured image', PLUGIN_TEXT_DOMAIN),
-            'use_featured_image' => __('Use as featured image', PLUGIN_TEXT_DOMAIN),
-            'insert_into_item' => __('Insert into company', PLUGIN_TEXT_DOMAIN),
-            'uploaded_to_this_item' => __('Uploaded to this company', PLUGIN_TEXT_DOMAIN),
-            'items_list' => __('Companies list', PLUGIN_TEXT_DOMAIN),
-            'items_list_navigation' => __('Companies list navigation', PLUGIN_TEXT_DOMAIN),
-            'filter_items_list' => __('Filter companies list', PLUGIN_TEXT_DOMAIN),
+            'name' => _x('Companies', 'Post Type General Name', 'jec-portfolio'),
+            'singular_name' => _x('Company', 'Post Type Singular Name', 'jec-portfolio'),
+            'menu_name' => __('Companies', 'jec-portfolio'),
+            'name_admin_bar' => __('Company', 'jec-portfolio'),
+            'archives' => __('Company Archives', 'jec-portfolio'),
+            'attributes' => __('Company Attributes', 'jec-portfolio'),
+            'parent_item_colon' => __('Parent Company:', 'jec-portfolio'),
+            'all_items' => __('All Companies', 'jec-portfolio'),
+            'add_new_item' => __('Add New Company', 'jec-portfolio'),
+            'add_new' => __('Add New', 'jec-portfolio'),
+            'new_item' => __('New Company', 'jec-portfolio'),
+            'edit_item' => __('Edit Company', 'jec-portfolio'),
+            'update_item' => __('Update Company', 'jec-portfolio'),
+            'view_item' => __('View Company', 'jec-portfolio'),
+            'view_items' => __('View Companies', 'jec-portfolio'),
+            'search_items' => __('Search Company', 'jec-portfolio'),
+            'not_found' => __('Not found', 'jec-portfolio'),
+            'not_found_in_trash' => __('Not found in Trash', 'jec-portfolio'),
+            'featured_image' => __('Featured Image', 'jec-portfolio'),
+            'set_featured_image' => __('Set featured image', 'jec-portfolio'),
+            'remove_featured_image' => __('Remove featured image', 'jec-portfolio'),
+            'use_featured_image' => __('Use as featured image', 'jec-portfolio'),
+            'insert_into_item' => __('Insert into company', 'jec-portfolio'),
+            'uploaded_to_this_item' => __('Uploaded to this company', 'jec-portfolio'),
+            'items_list' => __('Companies list', 'jec-portfolio'),
+            'items_list_navigation' => __('Companies list navigation', 'jec-portfolio'),
+            'filter_items_list' => __('Filter companies list', 'jec-portfolio'),
         ];
 
         $args = [
-            'label' => __('Company', PLUGIN_TEXT_DOMAIN),
-            'description' => __('Description of the Company post type', PLUGIN_TEXT_DOMAIN),
+            'label' => __('Company', 'jec-portfolio'),
+            'description' => __('Description of the Company post type', 'jec-portfolio'),
             'labels' => $labels,
             'supports' => ['title', 'thumbnail'],
             'hierarchical' => false,
@@ -118,8 +118,8 @@ class CompanyPostType extends AbstractMetaBoxRenderer {
      * Adds custom meta boxes to the 'company' post type.
      */
     public function add_meta_boxes() {
-        add_meta_box('company_url', __('Company URL', PLUGIN_TEXT_DOMAIN), [$this, 'render_company_url_meta_box'], 'company', 'normal', 'high');
-        add_meta_box('company_category', __('Category', PLUGIN_TEXT_DOMAIN), [$this, 'render_category_meta_box'], 'company', 'normal', 'high');
+        add_meta_box('company_url', __('Company URL', 'jec-portfolio'), [$this, 'render_company_url_meta_box'], 'company', 'normal', 'high');
+        add_meta_box('company_category', __('Category', 'jec-portfolio'), [$this, 'render_category_meta_box'], 'company', 'normal', 'high');
     }
 
     /**
@@ -131,7 +131,7 @@ class CompanyPostType extends AbstractMetaBoxRenderer {
      */
     public function render_company_url_meta_box($post) {
         wp_nonce_field('save_company_fields_nonce', 'company_fields_nonce');
-        $this->render_meta_box('url', $post, 'url', __('Company URL', PLUGIN_TEXT_DOMAIN), __('Enter the URL of the company.', PLUGIN_TEXT_DOMAIN));
+        $this->render_meta_box('url', $post, 'url', __('Company URL', 'jec-portfolio'), __('Enter the URL of the company.', 'jec-portfolio'));
     }
 
     /**
@@ -143,7 +143,7 @@ class CompanyPostType extends AbstractMetaBoxRenderer {
      */
     public function render_category_meta_box($post) {
         wp_nonce_field('save_company_fields_nonce', 'company_fields_nonce');
-        $this->render_meta_box('text', $post, 'category', __('Category', PLUGIN_TEXT_DOMAIN), __('Enter the category of the company.', PLUGIN_TEXT_DOMAIN));
+        $this->render_meta_box('text', $post, 'category', __('Category', 'jec-portfolio'), __('Enter the category of the company.', 'jec-portfolio'));
     }
 
     /**

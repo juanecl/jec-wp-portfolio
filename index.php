@@ -1,6 +1,6 @@
 <?php
 /*
-Plugin Name: Portfolio Plugin
+Plugin Name: jec-portfolio
 Plugin URI: https://www.juane.cl
 Description: A plugin to manage portfolios.
 Version: 1.0
@@ -27,9 +27,6 @@ if (!defined('PLUGIN_VERSION')) {
     define('PLUGIN_VERSION', '1.0');
 }
 
-if (!defined('PLUGIN_TEXT_DOMAIN')) {
-    define('PLUGIN_TEXT_DOMAIN', 'jec-portfolio');
-}
 
 /**
  * Main class for the JecPortfolio plugin.
@@ -70,7 +67,7 @@ class JecPortfolio {
      * Loads the plugin's text domain for localization.
      */
     public function load_textdomain() {
-        load_plugin_textdomain(PLUGIN_TEXT_DOMAIN, false, dirname(plugin_basename(__FILE__)) . '/languages');
+        load_plugin_textdomain('jec-portfolio', false, dirname(plugin_basename(__FILE__)) . '/languages');
     }
 
     /**
@@ -113,7 +110,7 @@ class JecPortfolio {
      * Registers shortcodes for the plugin.
      */
     public function register_shortcodes() {
-        add_shortcode(PLUGIN_TEXT_DOMAIN, [$this, 'render_shortcode']);
+        add_shortcode('jec-portfolio', [$this, 'render_shortcode']);
     }
 
     /**
@@ -129,7 +126,7 @@ class JecPortfolio {
                 'id' => '',
             ),
             $atts,
-            PLUGIN_TEXT_DOMAIN
+            'jec-portfolio'
         );
 
         ob_start();

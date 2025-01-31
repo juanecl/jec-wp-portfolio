@@ -54,38 +54,38 @@ class PositionPostType extends AbstractMetaBoxRenderer {
      */
     public function register_post_type() {
         $labels = [
-            'name' => _x('Positions', 'Post Type General Name', PLUGIN_TEXT_DOMAIN),
-            'singular_name' => _x('Position', 'Post Type Singular Name', PLUGIN_TEXT_DOMAIN),
-            'menu_name' => __('Positions', PLUGIN_TEXT_DOMAIN),
-            'name_admin_bar' => __('Position', PLUGIN_TEXT_DOMAIN),
-            'archives' => __('Position Archives', PLUGIN_TEXT_DOMAIN),
-            'attributes' => __('Position Attributes', PLUGIN_TEXT_DOMAIN),
-            'parent_item_colon' => __('Parent Position:', PLUGIN_TEXT_DOMAIN),
-            'all_items' => __('All Positions', PLUGIN_TEXT_DOMAIN),
-            'add_new_item' => __('Add New Position', PLUGIN_TEXT_DOMAIN),
-            'add_new' => __('Add New', PLUGIN_TEXT_DOMAIN),
-            'new_item' => __('New Position', PLUGIN_TEXT_DOMAIN),
-            'edit_item' => __('Edit Position', PLUGIN_TEXT_DOMAIN),
-            'update_item' => __('Update Position', PLUGIN_TEXT_DOMAIN),
-            'view_item' => __('View Position', PLUGIN_TEXT_DOMAIN),
-            'view_items' => __('View Positions', PLUGIN_TEXT_DOMAIN),
-            'search_items' => __('Search Position', PLUGIN_TEXT_DOMAIN),
-            'not_found' => __('Not found', PLUGIN_TEXT_DOMAIN),
-            'not_found_in_trash' => __('Not found in Trash', PLUGIN_TEXT_DOMAIN),
-            'featured_image' => __('Featured Image', PLUGIN_TEXT_DOMAIN),
-            'set_featured_image' => __('Set featured image', PLUGIN_TEXT_DOMAIN),
-            'remove_featured_image' => __('Remove featured image', PLUGIN_TEXT_DOMAIN),
-            'use_featured_image' => __('Use as featured image', PLUGIN_TEXT_DOMAIN),
-            'insert_into_item' => __('Insert into position', PLUGIN_TEXT_DOMAIN),
-            'uploaded_to_this_item' => __('Uploaded to this position', PLUGIN_TEXT_DOMAIN),
-            'items_list' => __('Positions list', PLUGIN_TEXT_DOMAIN),
-            'items_list_navigation' => __('Positions list navigation', PLUGIN_TEXT_DOMAIN),
-            'filter_items_list' => __('Filter positions list', PLUGIN_TEXT_DOMAIN),
+            'name' => _x('Positions', 'Post Type General Name', 'jec-portfolio'),
+            'singular_name' => _x('Position', 'Post Type Singular Name', 'jec-portfolio'),
+            'menu_name' => __('Positions', 'jec-portfolio'),
+            'name_admin_bar' => __('Position', 'jec-portfolio'),
+            'archives' => __('Position Archives', 'jec-portfolio'),
+            'attributes' => __('Position Attributes', 'jec-portfolio'),
+            'parent_item_colon' => __('Parent Position:', 'jec-portfolio'),
+            'all_items' => __('All Positions', 'jec-portfolio'),
+            'add_new_item' => __('Add New Position', 'jec-portfolio'),
+            'add_new' => __('Add New', 'jec-portfolio'),
+            'new_item' => __('New Position', 'jec-portfolio'),
+            'edit_item' => __('Edit Position', 'jec-portfolio'),
+            'update_item' => __('Update Position', 'jec-portfolio'),
+            'view_item' => __('View Position', 'jec-portfolio'),
+            'view_items' => __('View Positions', 'jec-portfolio'),
+            'search_items' => __('Search Position', 'jec-portfolio'),
+            'not_found' => __('Not found', 'jec-portfolio'),
+            'not_found_in_trash' => __('Not found in Trash', 'jec-portfolio'),
+            'featured_image' => __('Featured Image', 'jec-portfolio'),
+            'set_featured_image' => __('Set featured image', 'jec-portfolio'),
+            'remove_featured_image' => __('Remove featured image', 'jec-portfolio'),
+            'use_featured_image' => __('Use as featured image', 'jec-portfolio'),
+            'insert_into_item' => __('Insert into position', 'jec-portfolio'),
+            'uploaded_to_this_item' => __('Uploaded to this position', 'jec-portfolio'),
+            'items_list' => __('Positions list', 'jec-portfolio'),
+            'items_list_navigation' => __('Positions list navigation', 'jec-portfolio'),
+            'filter_items_list' => __('Filter positions list', 'jec-portfolio'),
         ];
 
         $args = [
-            'label' => __('Position', PLUGIN_TEXT_DOMAIN),
-            'description' => __('Description of the Position post type', PLUGIN_TEXT_DOMAIN),
+            'label' => __('Position', 'jec-portfolio'),
+            'description' => __('Description of the Position post type', 'jec-portfolio'),
             'labels' => $labels,
             'supports' => ['title', 'thumbnail'],
             'hierarchical' => false,
@@ -113,26 +113,26 @@ class PositionPostType extends AbstractMetaBoxRenderer {
     public function register_taxonomies() {
         // Register Knowledge Taxonomy
         $labels = [
-            'name' => _x('Knowledge', 'Taxonomy General Name', PLUGIN_TEXT_DOMAIN),
-            'singular_name' => _x('Knowledge', 'Taxonomy Singular Name', PLUGIN_TEXT_DOMAIN),
-            'menu_name' => __('Knowledge', PLUGIN_TEXT_DOMAIN),
-            'all_items' => __('All Knowledge', PLUGIN_TEXT_DOMAIN),
-            'parent_item' => __('Parent Knowledge', PLUGIN_TEXT_DOMAIN),
-            'parent_item_colon' => __('Parent Knowledge:', PLUGIN_TEXT_DOMAIN),
-            'new_item_name' => __('New Knowledge Name', PLUGIN_TEXT_DOMAIN),
-            'add_new_item' => __('Add New Knowledge', PLUGIN_TEXT_DOMAIN),
-            'edit_item' => __('Edit Knowledge', PLUGIN_TEXT_DOMAIN),
-            'update_item' => __('Update Knowledge', PLUGIN_TEXT_DOMAIN),
-            'view_item' => __('View Knowledge', PLUGIN_TEXT_DOMAIN),
-            'separate_items_with_commas' => __('Separate knowledge with commas', PLUGIN_TEXT_DOMAIN),
-            'add_or_remove_items' => __('Add or remove knowledge', PLUGIN_TEXT_DOMAIN),
-            'choose_from_most_used' => __('Choose from the most used', PLUGIN_TEXT_DOMAIN),
-            'popular_items' => __('Popular Knowledge', PLUGIN_TEXT_DOMAIN),
-            'search_items' => __('Search Knowledge', PLUGIN_TEXT_DOMAIN),
-            'not_found' => __('Not Found', PLUGIN_TEXT_DOMAIN),
-            'no_terms' => __('No knowledge', PLUGIN_TEXT_DOMAIN),
-            'items_list' => __('Knowledge list', PLUGIN_TEXT_DOMAIN),
-            'items_list_navigation' => __('Knowledge list navigation', PLUGIN_TEXT_DOMAIN),
+            'name' => _x('Knowledge', 'Taxonomy General Name', 'jec-portfolio'),
+            'singular_name' => _x('Knowledge', 'Taxonomy Singular Name', 'jec-portfolio'),
+            'menu_name' => __('Knowledge', 'jec-portfolio'),
+            'all_items' => __('All Knowledge', 'jec-portfolio'),
+            'parent_item' => __('Parent Knowledge', 'jec-portfolio'),
+            'parent_item_colon' => __('Parent Knowledge:', 'jec-portfolio'),
+            'new_item_name' => __('New Knowledge Name', 'jec-portfolio'),
+            'add_new_item' => __('Add New Knowledge', 'jec-portfolio'),
+            'edit_item' => __('Edit Knowledge', 'jec-portfolio'),
+            'update_item' => __('Update Knowledge', 'jec-portfolio'),
+            'view_item' => __('View Knowledge', 'jec-portfolio'),
+            'separate_items_with_commas' => __('Separate knowledge with commas', 'jec-portfolio'),
+            'add_or_remove_items' => __('Add or remove knowledge', 'jec-portfolio'),
+            'choose_from_most_used' => __('Choose from the most used', 'jec-portfolio'),
+            'popular_items' => __('Popular Knowledge', 'jec-portfolio'),
+            'search_items' => __('Search Knowledge', 'jec-portfolio'),
+            'not_found' => __('Not Found', 'jec-portfolio'),
+            'no_terms' => __('No knowledge', 'jec-portfolio'),
+            'items_list' => __('Knowledge list', 'jec-portfolio'),
+            'items_list_navigation' => __('Knowledge list navigation', 'jec-portfolio'),
         ];
 
         $args = [
@@ -150,26 +150,26 @@ class PositionPostType extends AbstractMetaBoxRenderer {
 
         // Register Skills Taxonomy
         $labels = [
-            'name' => _x('Skills', 'Taxonomy General Name', PLUGIN_TEXT_DOMAIN),
-            'singular_name' => _x('Skill', 'Taxonomy Singular Name', PLUGIN_TEXT_DOMAIN),
-            'menu_name' => __('Skills', PLUGIN_TEXT_DOMAIN),
-            'all_items' => __('All Skills', PLUGIN_TEXT_DOMAIN),
-            'parent_item' => __('Parent Skill', PLUGIN_TEXT_DOMAIN),
-            'parent_item_colon' => __('Parent Skill:', PLUGIN_TEXT_DOMAIN),
-            'new_item_name' => __('New Skill Name', PLUGIN_TEXT_DOMAIN),
-            'add_new_item' => __('Add New Skill', PLUGIN_TEXT_DOMAIN),
-            'edit_item' => __('Edit Skill', PLUGIN_TEXT_DOMAIN),
-            'update_item' => __('Update Skill', PLUGIN_TEXT_DOMAIN),
-            'view_item' => __('View Skill', PLUGIN_TEXT_DOMAIN),
-            'separate_items_with_commas' => __('Separate skills with commas', PLUGIN_TEXT_DOMAIN),
-            'add_or_remove_items' => __('Add or remove skills', PLUGIN_TEXT_DOMAIN),
-            'choose_from_most_used' => __('Choose from the most used', PLUGIN_TEXT_DOMAIN),
-            'popular_items' => __('Popular Skills', PLUGIN_TEXT_DOMAIN),
-            'search_items' => __('Search Skills', PLUGIN_TEXT_DOMAIN),
-            'not_found' => __('Not Found', PLUGIN_TEXT_DOMAIN),
-            'no_terms' => __('No skills', PLUGIN_TEXT_DOMAIN),
-            'items_list' => __('Skills list', PLUGIN_TEXT_DOMAIN),
-            'items_list_navigation' => __('Skills list navigation', PLUGIN_TEXT_DOMAIN),
+            'name' => _x('Skills', 'Taxonomy General Name', 'jec-portfolio'),
+            'singular_name' => _x('Skill', 'Taxonomy Singular Name', 'jec-portfolio'),
+            'menu_name' => __('Skills', 'jec-portfolio'),
+            'all_items' => __('All Skills', 'jec-portfolio'),
+            'parent_item' => __('Parent Skill', 'jec-portfolio'),
+            'parent_item_colon' => __('Parent Skill:', 'jec-portfolio'),
+            'new_item_name' => __('New Skill Name', 'jec-portfolio'),
+            'add_new_item' => __('Add New Skill', 'jec-portfolio'),
+            'edit_item' => __('Edit Skill', 'jec-portfolio'),
+            'update_item' => __('Update Skill', 'jec-portfolio'),
+            'view_item' => __('View Skill', 'jec-portfolio'),
+            'separate_items_with_commas' => __('Separate skills with commas', 'jec-portfolio'),
+            'add_or_remove_items' => __('Add or remove skills', 'jec-portfolio'),
+            'choose_from_most_used' => __('Choose from the most used', 'jec-portfolio'),
+            'popular_items' => __('Popular Skills', 'jec-portfolio'),
+            'search_items' => __('Search Skills', 'jec-portfolio'),
+            'not_found' => __('Not Found', 'jec-portfolio'),
+            'no_terms' => __('No skills', 'jec-portfolio'),
+            'items_list' => __('Skills list', 'jec-portfolio'),
+            'items_list_navigation' => __('Skills list navigation', 'jec-portfolio'),
         ];
 
         $args = [
@@ -190,12 +190,12 @@ class PositionPostType extends AbstractMetaBoxRenderer {
      * Add meta boxes for the "position" post type.
      */
     public function add_meta_boxes() {
-        add_meta_box('position_description', __('Description', PLUGIN_TEXT_DOMAIN), [$this, 'render_description_meta_box'], 'position', 'normal', 'high');
-        add_meta_box('position_company', __('Company', PLUGIN_TEXT_DOMAIN), [$this, 'render_company_meta_box'], 'position', 'normal', 'high');
-        add_meta_box('position_location', __('Location', PLUGIN_TEXT_DOMAIN), [$this, 'render_location_meta_box'], 'position', 'normal', 'high');
-        add_meta_box('position_projects', __('Projects', PLUGIN_TEXT_DOMAIN), [$this, 'render_projects_meta_box'], 'position', 'side', 'default');
-        add_meta_box('position_dates', __('Dates', PLUGIN_TEXT_DOMAIN), [$this, 'render_dates_meta_box'], 'position', 'side', 'default');
-        add_meta_box('position_freelance', __('Freelance', PLUGIN_TEXT_DOMAIN), [$this, 'render_freelance_meta_box'], 'position', 'side', 'default'); // Add freelance meta box
+        add_meta_box('position_description', __('Description', 'jec-portfolio'), [$this, 'render_description_meta_box'], 'position', 'normal', 'high');
+        add_meta_box('position_company', __('Company', 'jec-portfolio'), [$this, 'render_company_meta_box'], 'position', 'normal', 'high');
+        add_meta_box('position_location', __('Location', 'jec-portfolio'), [$this, 'render_location_meta_box'], 'position', 'normal', 'high');
+        add_meta_box('position_projects', __('Projects', 'jec-portfolio'), [$this, 'render_projects_meta_box'], 'position', 'side', 'default');
+        add_meta_box('position_dates', __('Dates', 'jec-portfolio'), [$this, 'render_dates_meta_box'], 'position', 'side', 'default');
+        add_meta_box('position_freelance', __('Freelance', 'jec-portfolio'), [$this, 'render_freelance_meta_box'], 'position', 'side', 'default'); // Add freelance meta box
     }
 
     /**
@@ -205,7 +205,7 @@ class PositionPostType extends AbstractMetaBoxRenderer {
      */
     public function render_projects_meta_box($post) {
         wp_nonce_field('save_position_fields_nonce', 'position_fields_nonce');
-        $this->render_meta_box('multiselect', $post, 'project_ids', __('Select Projects', PLUGIN_TEXT_DOMAIN), __('Select the projects associated with this position.', PLUGIN_TEXT_DOMAIN), ['post_type' => 'project']);
+        $this->render_meta_box('multiselect', $post, 'project_ids', __('Select Projects', 'jec-portfolio'), __('Select the projects associated with this position.', 'jec-portfolio'), ['post_type' => 'project']);
     }
 
     /**
@@ -215,7 +215,7 @@ class PositionPostType extends AbstractMetaBoxRenderer {
      */
     public function render_description_meta_box($post) {
         wp_nonce_field('save_position_fields_nonce', 'position_fields_nonce');
-        $this->render_meta_box('textarea', $post, 'description', __('Description', PLUGIN_TEXT_DOMAIN), __('Enter the description of the position.', PLUGIN_TEXT_DOMAIN));
+        $this->render_meta_box('textarea', $post, 'description', __('Description', 'jec-portfolio'), __('Enter the description of the position.', 'jec-portfolio'));
     }
 
     /**
@@ -225,7 +225,7 @@ class PositionPostType extends AbstractMetaBoxRenderer {
      */
     public function render_company_meta_box($post) {
         wp_nonce_field('save_position_fields_nonce', 'position_fields_nonce');
-        $this->render_meta_box('select', $post, 'company_id', __('Select Company', PLUGIN_TEXT_DOMAIN), __('Select the company associated with this position.', PLUGIN_TEXT_DOMAIN), ['post_type' => 'company']);
+        $this->render_meta_box('select', $post, 'company_id', __('Select Company', 'jec-portfolio'), __('Select the company associated with this position.', 'jec-portfolio'), ['post_type' => 'company']);
     }
 
     /**
@@ -235,7 +235,7 @@ class PositionPostType extends AbstractMetaBoxRenderer {
      */
     public function render_location_meta_box($post) {
         wp_nonce_field('save_position_fields_nonce', 'position_fields_nonce');
-        $this->render_meta_box('text', $post, 'location', __('Location', PLUGIN_TEXT_DOMAIN), __('Enter the location for this position.', PLUGIN_TEXT_DOMAIN));
+        $this->render_meta_box('text', $post, 'location', __('Location', 'jec-portfolio'), __('Enter the location for this position.', 'jec-portfolio'));
     }
 
     /**
@@ -245,9 +245,9 @@ class PositionPostType extends AbstractMetaBoxRenderer {
      */
     public function render_dates_meta_box($post) {
         wp_nonce_field('save_position_fields_nonce', 'position_fields_nonce');
-        $this->render_meta_box('checkbox', $post, 'active', __('Active', PLUGIN_TEXT_DOMAIN), __('Check if the position is currently active.', PLUGIN_TEXT_DOMAIN));
-        $this->render_meta_box('date', $post, 'start-date', __('Start Date', PLUGIN_TEXT_DOMAIN), __('Enter the start date for the position.', PLUGIN_TEXT_DOMAIN));
-        $this->render_meta_box('date', $post, 'end-date', __('End Date', PLUGIN_TEXT_DOMAIN), __('Enter the end date for the position.', PLUGIN_TEXT_DOMAIN));
+        $this->render_meta_box('checkbox', $post, 'active', __('Active', 'jec-portfolio'), __('Check if the position is currently active.', 'jec-portfolio'));
+        $this->render_meta_box('date', $post, 'start-date', __('Start Date', 'jec-portfolio'), __('Enter the start date for the position.', 'jec-portfolio'));
+        $this->render_meta_box('date', $post, 'end-date', __('End Date', 'jec-portfolio'), __('Enter the end date for the position.', 'jec-portfolio'));
     }
 
     /**
@@ -257,7 +257,7 @@ class PositionPostType extends AbstractMetaBoxRenderer {
      */
     public function render_freelance_meta_box($post) {
         wp_nonce_field('save_position_fields_nonce', 'position_fields_nonce');
-        $this->render_meta_box('checkbox', $post, 'freelance', __('Freelance', PLUGIN_TEXT_DOMAIN), __('Check if the position is freelance.', PLUGIN_TEXT_DOMAIN));
+        $this->render_meta_box('checkbox', $post, 'freelance', __('Freelance', 'jec-portfolio'), __('Check if the position is freelance.', 'jec-portfolio'));
     }
 
     /**

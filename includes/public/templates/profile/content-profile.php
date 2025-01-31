@@ -21,16 +21,16 @@
             
             <!-- Display the email and other links -->
             <div class="contact-links">
-                <a href="mailto:<?php echo esc_attr(get_post_meta($post->ID, 'wpcf-email', true)); ?>" class="btn btn-lg btn-email text-email" title="<?php esc_attr_e('Email', PLUGIN_TEXT_DOMAIN); ?>">
+                <a href="mailto:<?php echo esc_attr(get_post_meta($post->ID, 'wpcf-email', true)); ?>" class="btn btn-lg btn-email text-email" title="<?php esc_attr_e('Email', 'jec-portfolio'); ?>">
                     <i class="fas fa-envelope"></i>
                 </a>
                 <?php if ($cv_es = get_post_meta($post->ID, 'wpcf-cv_es', true)): ?>
-                    <a href="<?php echo esc_url($cv_es); ?>" target="_blank" class="btn btn-lg btn-cv text-cv lang-es d-none" title="<?php esc_attr_e('Download CV', PLUGIN_TEXT_DOMAIN); ?>">
+                    <a href="<?php echo esc_url($cv_es); ?>" target="_blank" class="btn btn-lg btn-cv text-cv lang-es d-none" title="<?php esc_attr_e('Download CV', 'jec-portfolio'); ?>">
                         <i class="fas fa-file-download"></i>
                     </a>
                 <?php endif; ?>
                 <?php if ($cv_en = get_post_meta($post->ID, 'wpcf-cv_en', true)): ?>
-                    <a href="<?php echo esc_url($cv_en); ?>" target="_blank" class="btn btn-lg btn-cv text-cv lang-en" title="<?php esc_attr_e('Download Resume', PLUGIN_TEXT_DOMAIN); ?>">
+                    <a href="<?php echo esc_url($cv_en); ?>" target="_blank" class="btn btn-lg btn-cv text-cv lang-en" title="<?php esc_attr_e('Download Resume', 'jec-portfolio'); ?>">
                         <i class="fas fa-file-download"></i>
                     </a>
                 <?php endif; ?>
@@ -46,7 +46,7 @@
             </div>
 
             <div class="container mb-4 mt-4">
-                <h4><?php _e('Summary', PLUGIN_TEXT_DOMAIN); ?></h4>
+                <h4><?php _e('Summary', 'jec-portfolio'); ?></h4>
                 <!-- Language toggle switch -->
                 <div class="text-center mb-2">
                     <div class="d-flex justify-content-center align-items-center position-relative">

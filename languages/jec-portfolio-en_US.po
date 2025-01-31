@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: 2025-01-26 02:54+0000\n"
-"PO-Revision-Date: 2025-01-27 22:10+0000\n"
+"PO-Revision-Date: 2025-01-31 14:36+0000\n"
 "Last-Translator: \n"
 "Language-Team: English (United States)\n"
 "Language: en_US\n"
@@ -13,374 +13,398 @@ msgstr ""
 "X-Generator: Loco https://localise.biz/\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "Report-Msgid-Bugs-To: \n"
-"X-Loco-Version: 2.7.0; wp-6.7.1"
+"X-Loco-Version: 2.7.1; wp-6.7.1"
 
 #. Description of the plugin
 msgid "A plugin to manage portfolios."
 msgstr "A plugin to manage portfolios."
 
-#: includes/widgets/position-widget.php:17
+#: includes/public/widgets/position/index.php:21
 msgid ""
 "A widget to display position information with associated company and projects"
 msgstr ""
 "A widget to display position information with associated company and projects"
 
-#: includes/widgets/profile-widget.php:17
+#: includes/public/widgets/profile/index.php:21
 msgid "A widget to display profile information"
 msgstr "A widget to display profile information"
 
-#: includes/post-types/position.php:248 includes/post-types/project.php:133
+#: includes/private/post-types/position.php:248
+#: includes/private/post-types/project.php:133
 msgid "Active"
 msgstr "Active"
 
-#: includes/templates/projects.php:42
+#: includes/public/templates/project/single-project.php:22
 msgid "active"
 msgstr "active"
 
-#: includes/post-types/position.php:67 includes/post-types/project.php:64
-#: includes/post-types/company.php:72 includes/post-types/profile.php:64
-#: includes/partials/meta-boxes/select.php:39
-#: includes/partials/meta-boxes/multiselect.php:51
+#: includes/private/post-types/position.php:66
+#: includes/private/post-types/project.php:64
+#: includes/private/post-types/company.php:72
+#: includes/private/post-types/profile.php:64
+#: includes/private/templates/meta-boxes/select.php:39
+#: includes/private/templates/meta-boxes/multiselect.php:51
 msgid "Add New"
 msgstr "Add New"
 
-#: includes/post-types/company.php:71
+#: includes/private/post-types/company.php:71
 msgid "Add New Company"
 msgstr "Add New Company"
 
-#: includes/post-types/position.php:124
+#: includes/private/post-types/position.php:123
 msgid "Add New Knowledge"
 msgstr "Add New Knowledge"
 
-#: includes/post-types/position.php:66
+#: includes/private/post-types/position.php:65
 msgid "Add New Position"
 msgstr "Add New Position"
 
-#: includes/post-types/profile.php:63
+#: includes/private/post-types/profile.php:63
 msgid "Add New Profile"
 msgstr "Add New Profile"
 
-#: includes/post-types/project.php:63
+#: includes/private/post-types/project.php:63
 msgid "Add New Project"
 msgstr "Add New Project"
 
-#: includes/post-types/position.php:161
+#: includes/private/post-types/position.php:160
 msgid "Add New Skill"
 msgstr "Add New Skill"
 
-#: includes/post-types/position.php:129
+#: includes/private/post-types/position.php:128
 msgid "Add or remove knowledge"
 msgstr "Add or remove knowledge"
 
-#: includes/post-types/position.php:166
+#: includes/private/post-types/position.php:165
 msgid "Add or remove skills"
 msgstr "Add or remove skills"
 
-#: includes/post-types/company.php:70
+#: includes/private/post-types/company.php:70
 msgid "All Companies"
 msgstr "All Companies"
 
-#: includes/post-types/position.php:120
+#: includes/private/post-types/position.php:119
 msgid "All Knowledge"
 msgstr "All Knowledge"
 
-#: includes/classes/meta-boxes/abstract.php:20
+#: includes/private/classes/meta-boxes/abstract.php:20
 msgid "All parameters are required."
 msgstr "All parameters are required."
 
-#: includes/post-types/position.php:65
+#: includes/private/post-types/position.php:64
 msgid "All Positions"
 msgstr "All Positions"
 
-#: includes/post-types/profile.php:62
+#: includes/private/post-types/profile.php:62
 msgid "All Profiles"
 msgstr "All Profiles"
 
-#: includes/post-types/project.php:62
+#: includes/private/post-types/project.php:62
 msgid "All Projects"
 msgstr "All Projects"
 
-#: includes/post-types/position.php:157
+#: includes/private/post-types/position.php:156
 msgid "All Skills"
 msgstr "All Skills"
 
-#: includes/post-types/profile.php:111
+#: includes/private/post-types/profile.php:111
 msgid "Basic Information"
 msgstr "Basic Information"
 
-#: includes/post-types/profile.php:113
+#: includes/private/post-types/profile.php:113
 msgid "Bio (EN)"
 msgstr "Summary"
 
-#: includes/post-types/profile.php:112
+#: includes/private/post-types/profile.php:112
 msgid "Bio (ES)"
 msgstr "Summary"
 
-#: includes/post-types/profile.php:151
+#: includes/private/post-types/profile.php:151
 msgid "Bio EN"
 msgstr "Summary"
 
-#: includes/post-types/profile.php:140
+#: includes/private/post-types/profile.php:140
 msgid "Bio ES"
 msgstr "Summary"
 
-#: includes/post-types/profile.php:125
+#: includes/private/post-types/profile.php:125
 msgid "Birthdate"
 msgstr "Birthdate"
 
-#: includes/templates/positions.php:32
+#: includes/public/templates/position/index.php:34
 msgid "By knowledge"
 msgstr "By knowledge"
 
-#: includes/templates/positions.php:40
+#: includes/public/templates/position/index.php:42
 msgid "By skills"
 msgstr "By skills"
 
-#: includes/post-types/profile.php:129
+#: includes/private/post-types/profile.php:129
 msgid "Career"
 msgstr "Career"
 
-#: includes/post-types/company.php:122 includes/post-types/company.php:146
+#: includes/private/post-types/company.php:122
+#: includes/private/post-types/company.php:146
 msgid "Category"
 msgstr "Category"
 
-#: includes/post-types/position.php:248
+#: includes/private/post-types/position.php:248
 msgid "Check if the position is currently active."
 msgstr "Check if the position is currently active."
 
-#: includes/post-types/project.php:133
+#: includes/private/post-types/position.php:260
+msgid "Check if the position is freelance."
+msgstr "Check if the position is freelance."
+
+#: includes/private/post-types/project.php:133
 msgid "Check if the project is currently active."
 msgstr "Check if the project is currently active."
 
-#: includes/post-types/position.php:130 includes/post-types/position.php:167
+#: includes/private/post-types/position.php:129
+#: includes/private/post-types/position.php:166
 msgid "Choose from the most used"
 msgstr "Choose from the most used"
 
-#: includes/templates/profile.php:34
+#: includes/public/templates/profile/single-profile.php:38
 msgid "Close"
 msgstr "Close"
 
-#: includes/post-types/company.php:65
+#: includes/private/post-types/company.php:65
 msgid "Companies"
 msgstr "Companies"
 
-#: includes/post-types/company.php:87
+#: includes/private/post-types/company.php:87
 msgid "Companies list"
 msgstr "Companies list"
 
-#: includes/post-types/company.php:88
+#: includes/private/post-types/company.php:88
 msgid "Companies list navigation"
 msgstr "Companies list navigation"
 
-#: includes/post-types/position.php:195 includes/post-types/company.php:66
-#: includes/post-types/company.php:93
+#: includes/private/post-types/position.php:194
+#: includes/private/post-types/company.php:66
+#: includes/private/post-types/company.php:93
 msgid "Company"
 msgstr "Company"
 
-#: includes/post-types/company.php:67
+#: includes/private/post-types/company.php:67
 msgid "Company Archives"
 msgstr "Company Archives"
 
-#: includes/post-types/company.php:68
+#: includes/private/post-types/company.php:68
 msgid "Company Attributes"
 msgstr "Company Attributes"
 
-#: includes/post-types/company.php:121 includes/post-types/company.php:134
+#: includes/private/post-types/company.php:121
+#: includes/private/post-types/company.php:134
 msgid "Company URL"
 msgstr "Company URL"
 
-#: includes/templates/position.php:49
+#: includes/public/templates/position/single-position.php:52
 msgid "Current job"
 msgstr "Current job"
 
-#: includes/post-types/profile.php:150
+#: includes/private/post-types/profile.php:150
 msgid "CV EN"
 msgstr "Resume"
 
-#: includes/post-types/profile.php:139
+#: includes/private/post-types/profile.php:139
 msgid "CV ES"
 msgstr "Resume"
 
-#: includes/post-types/position.php:198 includes/post-types/project.php:112
+#: includes/private/post-types/position.php:197
+#: includes/private/post-types/project.php:112
 msgid "Dates"
 msgstr "Dates"
 
-#: includes/post-types/position.php:194 includes/post-types/position.php:218
-#: includes/post-types/project.php:111 includes/post-types/project.php:123
+#: includes/private/post-types/position.php:193
+#: includes/private/post-types/position.php:218
+#: includes/private/post-types/project.php:111
+#: includes/private/post-types/project.php:123
 msgid "Description"
 msgstr "Description"
 
-#: includes/post-types/company.php:94
+#: includes/private/post-types/company.php:94
 msgid "Description of the Company post type"
 msgstr "Description of the Company post type"
 
-#: includes/post-types/position.php:89
+#: includes/private/post-types/position.php:88
 msgid "Description of the Position post type"
 msgstr "Description of the Position post type"
 
-#: includes/post-types/profile.php:86
+#: includes/private/post-types/profile.php:86
 msgid "Description of the Profile post type"
 msgstr "Description of the Profile post type"
 
-#: includes/post-types/project.php:86
+#: includes/private/post-types/project.php:86
 msgid "Description of the Project post type"
 msgstr "Description of the Project post type"
 
-#: includes/templates/profile.php:64
+#: includes/public/templates/profile/content-profile.php:28
 msgid "Download CV"
 msgstr "Download resume"
 
-#: includes/templates/profile.php:69
+#: includes/public/templates/profile/content-profile.php:33
 #| msgid "Download resume"
 msgid "Download Resume"
 msgstr "Download Resume"
 
-#: includes/post-types/company.php:74
+#: includes/private/post-types/company.php:74
 msgid "Edit Company"
 msgstr "Edit Company"
 
-#: includes/post-types/position.php:125
+#: includes/private/post-types/position.php:124
 msgid "Edit Knowledge"
 msgstr "Edit Knowledge"
 
-#: includes/post-types/position.php:69
+#: includes/private/post-types/position.php:68
 msgid "Edit Position"
 msgstr "Edit Position"
 
-#: includes/post-types/profile.php:66
+#: includes/private/post-types/profile.php:66
 msgid "Edit Profile"
 msgstr "Edit Profile"
 
-#: includes/post-types/project.php:66
+#: includes/private/post-types/project.php:66
 msgid "Edit Project"
 msgstr "Edit Project"
 
-#: includes/post-types/position.php:162
+#: includes/private/post-types/position.php:161
 msgid "Edit Skill"
 msgstr "Edit Skill"
 
-#: includes/templates/profile.php:60 includes/post-types/profile.php:128
+#: includes/private/post-types/profile.php:128
+#: includes/public/templates/profile/content-profile.php:24
 msgid "Email"
 msgstr "Email"
 
-#: includes/post-types/position.php:250 includes/post-types/project.php:135
+#: includes/private/post-types/position.php:250
+#: includes/private/post-types/project.php:135
 msgid "End Date"
 msgstr "End Date"
 
-#: includes/post-types/profile.php:151
+#: includes/private/post-types/profile.php:151
 msgid "Enter the bio in English."
 msgstr "Enter the bio in English."
 
-#: includes/post-types/profile.php:140
+#: includes/private/post-types/profile.php:140
 msgid "Enter the bio in Spanish."
 msgstr "Enter the bio in Spanish."
 
-#: includes/post-types/profile.php:125
+#: includes/private/post-types/profile.php:125
 msgid "Enter the birthdate."
 msgstr "Enter the birthdate."
 
-#: includes/post-types/profile.php:129
+#: includes/private/post-types/profile.php:129
 msgid "Enter the career."
 msgstr "Enter the career."
 
-#: includes/post-types/company.php:146
+#: includes/private/post-types/company.php:146
 msgid "Enter the category of the company."
 msgstr "Enter the category of the company."
 
-#: includes/post-types/position.php:218
+#: includes/private/post-types/position.php:218
 msgid "Enter the description of the position."
 msgstr "Enter the description of the position."
 
-#: includes/post-types/project.php:123
+#: includes/private/post-types/project.php:123
 msgid "Enter the description of the project."
 msgstr "Enter the description of the project."
 
-#: includes/post-types/profile.php:128
+#: includes/private/post-types/profile.php:128
 msgid "Enter the email address."
 msgstr "Enter the email address."
 
-#: includes/post-types/position.php:250
+#: includes/private/post-types/position.php:250
 msgid "Enter the end date for the position."
 msgstr "Enter the end date for the position."
 
-#: includes/post-types/project.php:135
+#: includes/private/post-types/project.php:135
 msgid "Enter the end date for the project."
 msgstr "Enter the end date for the project."
 
-#: includes/post-types/profile.php:161
+#: includes/private/post-types/profile.php:161
 msgid "Enter the Git URL."
 msgstr "Enter the Git URL."
 
-#: includes/post-types/profile.php:162
+#: includes/private/post-types/profile.php:162
 msgid "Enter the LinkedIn URL."
 msgstr "Enter the LinkedIn URL."
 
-#: includes/post-types/position.php:238
+#: includes/private/post-types/position.php:238
 msgid "Enter the location for this position."
 msgstr "Enter the location for this position."
 
-#: includes/post-types/profile.php:127
+#: includes/private/post-types/profile.php:127
 msgid "Enter the location."
 msgstr "Enter the location."
 
-#: includes/post-types/profile.php:124
+#: includes/private/post-types/profile.php:124
 msgid "Enter the name."
 msgstr "Enter the name."
 
-#: includes/post-types/profile.php:126
+#: includes/private/post-types/profile.php:126
 msgid "Enter the phone number."
 msgstr "Enter the phone number."
 
-#: includes/post-types/profile.php:163
+#: includes/private/post-types/profile.php:163
 msgid "Enter the StackOverflow URL."
 msgstr "Enter the StackOverflow URL."
 
-#: includes/post-types/position.php:249
+#: includes/private/post-types/position.php:249
 msgid "Enter the start date for the position."
 msgstr "Enter the start date for the position."
 
-#: includes/post-types/project.php:134
+#: includes/private/post-types/project.php:134
 msgid "Enter the start date for the project."
 msgstr "Enter the start date for the project."
 
-#: includes/post-types/project.php:145
+#: includes/private/post-types/project.php:145
 msgid "Enter the URL for the project."
 msgstr "Enter the URL for the project."
 
-#: includes/post-types/company.php:134
+#: includes/private/post-types/company.php:134
 msgid "Enter the URL of the company."
 msgstr "Enter the URL of the company."
 
-#: includes/templates/positions-loop.php:19
+#: includes/public/templates/position/content-position.php:19
 msgid "Error: Positions query results not provided."
 msgstr "Error: Positions query results not provided."
 
-#: includes/post-types/position.php:76 includes/post-types/project.php:73
-#: includes/post-types/company.php:81 includes/post-types/profile.php:73
+#: includes/private/post-types/position.php:75
+#: includes/private/post-types/project.php:73
+#: includes/private/post-types/company.php:81
+#: includes/private/post-types/profile.php:73
 msgid "Featured Image"
 msgstr "Featured Image"
 
-#: includes/templates/positions.php:30
+#: includes/public/templates/position/index.php:32
 msgid "Filter by knowledge and skill terms"
 msgstr "Filter by knowledge and skill terms"
 
-#: includes/post-types/company.php:89
+#: includes/private/post-types/company.php:89
 msgid "Filter companies list"
 msgstr "Filter companies list"
 
-#: includes/post-types/position.php:84
+#: includes/private/post-types/position.php:83
 msgid "Filter positions list"
 msgstr "Filter positions list"
 
-#: includes/post-types/profile.php:81
+#: includes/private/post-types/profile.php:81
 msgid "Filter profiles list"
 msgstr "Filter profiles list"
 
-#: includes/post-types/project.php:81
+#: includes/private/post-types/project.php:81
 msgid "Filter projects list"
 msgstr "Filter projects list"
 
-#: includes/post-types/profile.php:161
+#: includes/private/post-types/position.php:198
+#: includes/private/post-types/position.php:260
+#: includes/public/templates/position/single-position.php:46
+msgid "Freelance"
+msgstr "Freelance"
+
+#: includes/private/post-types/profile.php:161
 msgid "Git URL"
 msgstr "Git URL"
 
@@ -389,545 +413,565 @@ msgstr "Git URL"
 msgid "https://www.juane.cl"
 msgstr "https://www.juane.cl"
 
-#: includes/post-types/company.php:85
+#: includes/private/post-types/company.php:85
 msgid "Insert into company"
 msgstr "Insert into company"
 
-#: includes/post-types/position.php:80
+#: includes/private/post-types/position.php:79
 msgid "Insert into position"
 msgstr "Insert into position"
 
-#: includes/post-types/profile.php:77
+#: includes/private/post-types/profile.php:77
 msgid "Insert into profile"
 msgstr "Insert into profile"
 
-#: includes/post-types/project.php:77
+#: includes/private/post-types/project.php:77
 msgid "Insert into project"
 msgstr "Insert into project"
+
+#. Name of the plugin
+msgid "jec-portfolio"
+msgstr "jec-portfolio"
 
 #. Author of the plugin
 msgid "Juan Enrique Chomon Del Campo"
 msgstr "Juan Enrique Chomon Del Campo"
 
-#: includes/templates/position.php:68 includes/post-types/position.php:119
+#: includes/private/post-types/position.php:118
+#: includes/public/templates/position/single-position.php:71
 msgid "Knowledge"
 msgstr "Knowledge"
 
-#: includes/post-types/position.php:135
+#: includes/private/post-types/position.php:134
 msgid "Knowledge list"
 msgstr "Knowledge list"
 
-#: includes/post-types/position.php:136
+#: includes/private/post-types/position.php:135
 msgid "Knowledge list navigation"
 msgstr "Knowledge list navigation"
 
-#: includes/post-types/profile.php:162
+#: includes/private/post-types/profile.php:162
 msgid "LinkedIn URL"
 msgstr "LinkedIn URL"
 
-#: includes/post-types/position.php:196 includes/post-types/position.php:238
-#: includes/post-types/profile.php:127
+#: includes/private/post-types/position.php:195
+#: includes/private/post-types/position.php:238
+#: includes/private/post-types/profile.php:127
 msgid "Location"
 msgstr "Location"
 
-#: includes/classes/meta-box-renderer.php:49
+#: includes/private/classes/meta-box-renderer.php:49
 #, php-format
 msgid "Meta box type not found: %s"
 msgstr "Meta box type not found: %s"
 
-#: includes/post-types/profile.php:124
+#: includes/private/post-types/profile.php:124
 msgid "Name"
 msgstr "Name"
 
-#: includes/post-types/company.php:73
+#: includes/private/post-types/company.php:73
 msgid "New Company"
 msgstr "New Company"
 
-#: includes/post-types/position.php:123
+#: includes/private/post-types/position.php:122
 msgid "New Knowledge Name"
 msgstr "New Knowledge Name"
 
-#: includes/post-types/position.php:68
+#: includes/private/post-types/position.php:67
 msgid "New Position"
 msgstr "New Position"
 
-#: includes/post-types/profile.php:65
+#: includes/private/post-types/profile.php:65
 msgid "New Profile"
 msgstr "New Profile"
 
-#: includes/post-types/project.php:65
+#: includes/private/post-types/project.php:65
 msgid "New Project"
 msgstr "New Project"
 
-#: includes/post-types/position.php:160
+#: includes/private/post-types/position.php:159
 msgid "New Skill Name"
 msgstr "New Skill Name"
 
-#: includes/classes/position-renderer.php:33
+#: includes/public/classes/render/position/index.php:38
 msgid "No category"
 msgstr "No category"
 
-#: includes/classes/position-renderer.php:31
+#: includes/public/classes/render/position/index.php:36
 msgid "No company"
 msgstr "No company"
 
-#: includes/post-types/position.php:134
+#: includes/private/post-types/position.php:133
 msgid "No knowledge"
 msgstr "No knowledge"
 
-#: includes/templates/position.php:74
+#: includes/public/templates/position/single-position.php:77
 msgid "No knowledge terms assigned."
 msgstr "No knowledge terms assigned."
 
-#: includes/templates/positions-loop.php:50
+#: includes/public/templates/position/content-position.php:53
 msgid "No positions found."
 msgstr "No positions found."
 
-#: includes/post-types/position.php:171
+#: includes/private/post-types/position.php:170
 msgid "No skills"
 msgstr "No skills"
 
-#: includes/templates/position.php:84
+#: includes/public/templates/position/single-position.php:87
 msgid "No skills terms assigned."
 msgstr "No skills terms assigned."
 
-#: includes/post-types/position.php:133 includes/post-types/position.php:170
+#: includes/private/post-types/position.php:132
+#: includes/private/post-types/position.php:169
 msgid "Not Found"
 msgstr "Not Found"
 
-#: includes/post-types/position.php:74 includes/post-types/project.php:71
-#: includes/post-types/company.php:79 includes/post-types/profile.php:71
+#: includes/private/post-types/position.php:73
+#: includes/private/post-types/project.php:71
+#: includes/private/post-types/company.php:79
+#: includes/private/post-types/profile.php:71
 msgid "Not found"
 msgstr "Not found"
 
-#: includes/post-types/position.php:75 includes/post-types/project.php:72
-#: includes/post-types/company.php:80 includes/post-types/profile.php:72
+#: includes/private/post-types/position.php:74
+#: includes/private/post-types/project.php:72
+#: includes/private/post-types/company.php:80
+#: includes/private/post-types/profile.php:72
 msgid "Not found in Trash"
 msgstr "Not found in Trash"
 
-#: includes/post-types/company.php:69
+#: includes/private/post-types/company.php:69
 msgid "Parent Company:"
 msgstr "Parent Company:"
 
-#: includes/post-types/position.php:121
+#: includes/private/post-types/position.php:120
 msgid "Parent Knowledge"
 msgstr "Parent Knowledge"
 
-#: includes/post-types/position.php:122
+#: includes/private/post-types/position.php:121
 msgid "Parent Knowledge:"
 msgstr "Parent Knowledge:"
 
-#: includes/post-types/position.php:64
+#: includes/private/post-types/position.php:63
 msgid "Parent Position:"
 msgstr "Parent Position:"
 
-#: includes/post-types/profile.php:61
+#: includes/private/post-types/profile.php:61
 msgid "Parent Profile:"
 msgstr "Parent Profile:"
 
-#: includes/post-types/project.php:61
+#: includes/private/post-types/project.php:61
 msgid "Parent Project:"
 msgstr "Parent Project:"
 
-#: includes/post-types/position.php:158
+#: includes/private/post-types/position.php:157
 msgid "Parent Skill"
 msgstr "Parent Skill"
 
-#: includes/post-types/position.php:159
+#: includes/private/post-types/position.php:158
 msgid "Parent Skill:"
 msgstr "Parent Skill:"
 
-#: includes/post-types/profile.php:126
+#: includes/private/post-types/profile.php:126
 msgid "Phone"
 msgstr "Phone"
 
-#: includes/post-types/position.php:131
+#: includes/private/post-types/position.php:130
 msgid "Popular Knowledge"
 msgstr "Popular Knowledge"
 
-#: includes/post-types/position.php:168
+#: includes/private/post-types/position.php:167
 msgid "Popular Skills"
 msgstr "Popular Skills"
 
-#. Name of the plugin
-msgid "Portfolio Plugin"
-msgstr "Portfolio Plugin"
-
-#: includes/post-types/position.php:61 includes/post-types/position.php:88
+#: includes/private/post-types/position.php:60
+#: includes/private/post-types/position.php:87
 msgid "Position"
 msgstr "Position"
 
-#: includes/post-types/position.php:62
+#: includes/private/post-types/position.php:61
 msgid "Position Archives"
 msgstr "Position Archives"
 
-#: includes/post-types/position.php:63
+#: includes/private/post-types/position.php:62
 msgid "Position Attributes"
 msgstr "Position Attributes"
 
 #. Base ID
-#: includes/widgets/position-widget.php:16
+#: includes/public/widgets/position/index.php:20
 msgid "Position Widget"
 msgstr "Position Widget"
 
-#: includes/post-types/position.php:60
+#: includes/private/post-types/position.php:59
 msgid "Positions"
 msgstr "Positions"
 
-#: includes/templates/positions-loop.php:28
+#: includes/public/templates/position/content-position.php:28
 msgid "positions found."
 msgstr "positions found."
 
-#: includes/post-types/position.php:82
+#: includes/private/post-types/position.php:81
 msgid "Positions list"
 msgstr "Positions list"
 
-#: includes/post-types/position.php:83
+#: includes/private/post-types/position.php:82
 msgid "Positions list navigation"
 msgstr "Positions list navigation"
 
-#: includes/post-types/company.php:63
+#: includes/private/post-types/company.php:63
 msgctxt "Post Type General Name"
 msgid "Companies"
 msgstr "Companies"
 
-#: includes/post-types/position.php:58
+#: includes/private/post-types/position.php:57
 msgctxt "Post Type General Name"
 msgid "Positions"
 msgstr "Positions"
 
-#: includes/post-types/profile.php:55
+#: includes/private/post-types/profile.php:55
 msgctxt "Post Type General Name"
 msgid "Profiles"
 msgstr "Profiles"
 
-#: includes/post-types/project.php:55
+#: includes/private/post-types/project.php:55
 msgctxt "Post Type General Name"
 msgid "Projects"
 msgstr "Projects"
 
-#: includes/post-types/company.php:64
+#: includes/private/post-types/company.php:64
 msgctxt "Post Type Singular Name"
 msgid "Company"
 msgstr "Company"
 
-#: includes/post-types/position.php:59
+#: includes/private/post-types/position.php:58
 msgctxt "Post Type Singular Name"
 msgid "Position"
 msgstr "Position"
 
-#: includes/post-types/profile.php:56
+#: includes/private/post-types/profile.php:56
 msgctxt "Post Type Singular Name"
 msgid "Profile"
 msgstr "Profile"
 
-#: includes/post-types/project.php:56
+#: includes/private/post-types/project.php:56
 msgctxt "Post Type Singular Name"
 msgid "Project"
 msgstr "Project"
 
-#: includes/post-types/profile.php:58 includes/post-types/profile.php:85
+#: includes/private/post-types/profile.php:58
+#: includes/private/post-types/profile.php:85
 msgid "Profile"
 msgstr "Profile"
 
-#: includes/post-types/profile.php:59
+#: includes/private/post-types/profile.php:59
 msgid "Profile Archives"
 msgstr "Profile Archives"
 
-#: includes/post-types/profile.php:60
+#: includes/private/post-types/profile.php:60
 msgid "Profile Attributes"
 msgstr "Profile Attributes"
 
-#: includes/templates/profile.php:15
+#: includes/public/templates/profile/single-profile.php:19
 msgid "Profile ID not provided."
 msgstr "Profile ID not provided."
 
-#: includes/templates/profile.php:21
+#: includes/public/templates/profile/single-profile.php:25
 msgid "Profile not found."
 msgstr "Profile not found."
 
 #. Base ID
-#: includes/widgets/profile-widget.php:16
+#: includes/public/widgets/profile/index.php:20
 msgid "Profile Widget"
 msgstr "Profile Widget"
 
-#: includes/post-types/profile.php:57
+#: includes/private/post-types/profile.php:57
 msgid "Profiles"
 msgstr "Profiles"
 
-#: includes/post-types/profile.php:79
+#: includes/private/post-types/profile.php:79
 msgid "Profiles list"
 msgstr "Profiles list"
 
-#: includes/post-types/profile.php:80
+#: includes/private/post-types/profile.php:80
 msgid "Profiles list navigation"
 msgstr "Profiles list navigation"
 
-#: includes/post-types/project.php:58 includes/post-types/project.php:85
+#: includes/private/post-types/project.php:58
+#: includes/private/post-types/project.php:85
 msgid "Project"
 msgstr "Project"
 
-#: includes/post-types/project.php:59
+#: includes/private/post-types/project.php:59
 msgid "Project Archives"
 msgstr "Project Archives"
 
-#: includes/post-types/project.php:60
+#: includes/private/post-types/project.php:60
 msgid "Project Attributes"
 msgstr "Project Attributes"
 
-#: includes/post-types/project.php:113 includes/post-types/project.php:145
+#: includes/private/post-types/project.php:113
+#: includes/private/post-types/project.php:145
 msgid "Project URL"
 msgstr "Project URL"
 
-#: includes/post-types/position.php:197 includes/post-types/project.php:57
+#: includes/private/post-types/position.php:196
+#: includes/private/post-types/project.php:57
 msgid "Projects"
 msgstr "Projects"
 
-#: includes/post-types/project.php:79
+#: includes/private/post-types/project.php:79
 msgid "Projects list"
 msgstr "Projects list"
 
-#: includes/post-types/project.php:80
+#: includes/private/post-types/project.php:80
 msgid "Projects list navigation"
 msgstr "Projects list navigation"
 
-#: includes/templates/projects.php:12
+#: includes/public/templates/project/index.php:16
 msgid "Related projects"
 msgstr "Related projects"
 
-#: includes/post-types/position.php:78 includes/post-types/project.php:75
-#: includes/post-types/company.php:83 includes/post-types/profile.php:75
+#: includes/private/post-types/position.php:77
+#: includes/private/post-types/project.php:75
+#: includes/private/post-types/company.php:83
+#: includes/private/post-types/profile.php:75
 msgid "Remove featured image"
 msgstr "Remove featured image"
 
-#: includes/templates/positions.php:50
+#: includes/public/templates/position/index.php:52
 msgid "Reset Filters"
 msgstr "Reset Filters"
 
-#: includes/post-types/company.php:78
+#: includes/private/post-types/company.php:78
 msgid "Search Company"
 msgstr "Search Company"
 
-#: includes/post-types/position.php:132
+#: includes/private/post-types/position.php:131
 msgid "Search Knowledge"
 msgstr "Search Knowledge"
 
-#: includes/post-types/position.php:73
+#: includes/private/post-types/position.php:72
 msgid "Search Position"
 msgstr "Search Position"
 
-#: includes/templates/positions.php:29
+#: includes/public/templates/position/index.php:31
 msgid "Search Positions"
 msgstr "Search Positions"
 
-#: includes/post-types/profile.php:70
+#: includes/private/post-types/profile.php:70
 msgid "Search Profile"
 msgstr "Search Profile"
 
-#: includes/post-types/project.php:70
+#: includes/private/post-types/project.php:70
 msgid "Search Project"
 msgstr "Search Project"
 
-#: includes/post-types/position.php:169
+#: includes/private/post-types/position.php:168
 msgid "Search Skills"
 msgstr "Search Skills"
 
-#: includes/widgets/position-widget.php:53
+#: includes/public/widgets/position/index.php:57
 msgid "Select a position"
 msgstr "Select a position"
 
-#: includes/widgets/profile-widget.php:52
+#: includes/public/widgets/profile/index.php:56
 msgid "Select a profile"
 msgstr "Select a profile"
 
-#: includes/post-types/position.php:228
+#: includes/private/post-types/position.php:228
 msgid "Select Company"
 msgstr "Select Company"
 
-#: includes/widgets/position-widget.php:51
+#: includes/public/widgets/position/index.php:55
 msgid "Select Position:"
 msgstr "Select Position:"
 
-#: includes/widgets/profile-widget.php:50
+#: includes/public/widgets/profile/index.php:54
 msgid "Select Profile:"
 msgstr "Select Profile:"
 
-#: includes/post-types/position.php:208
+#: includes/private/post-types/position.php:208
 msgid "Select Projects"
 msgstr "Select Projects"
 
-#: includes/post-types/position.php:228
+#: includes/private/post-types/position.php:228
 msgid "Select the company associated with this position."
 msgstr "Select the company associated with this position."
 
-#: includes/post-types/position.php:208
+#: includes/private/post-types/position.php:208
 msgid "Select the projects associated with this position."
 msgstr "Select the projects associated with this position."
 
-#: includes/post-types/position.php:128
+#: includes/private/post-types/position.php:127
 msgid "Separate knowledge with commas"
 msgstr "Separate knowledge with commas"
 
-#: includes/post-types/position.php:165
+#: includes/private/post-types/position.php:164
 msgid "Separate skills with commas"
 msgstr "Separate skills with commas"
 
-#: includes/post-types/position.php:77 includes/post-types/project.php:74
-#: includes/post-types/company.php:82 includes/post-types/profile.php:74
+#: includes/private/post-types/position.php:76
+#: includes/private/post-types/project.php:74
+#: includes/private/post-types/company.php:82
+#: includes/private/post-types/profile.php:74
 msgid "Set featured image"
 msgstr "Set featured image"
 
-#: includes/templates/position.php:78 includes/post-types/position.php:156
+#: includes/private/post-types/position.php:155
+#: includes/public/templates/position/single-position.php:81
 msgid "Skills"
 msgstr "Skills"
 
-#: includes/post-types/position.php:172
+#: includes/private/post-types/position.php:171
 msgid "Skills list"
 msgstr "Skills list"
 
-#: includes/post-types/position.php:173
+#: includes/private/post-types/position.php:172
 msgid "Skills list navigation"
 msgstr "Skills list navigation"
 
-#: includes/post-types/profile.php:114
+#: includes/private/post-types/profile.php:114
 msgid "Social URLs"
 msgstr "Social URLs"
 
-#: includes/post-types/profile.php:163
+#: includes/private/post-types/profile.php:163
 msgid "StackOverflow URL"
 msgstr "StackOverflow URL"
 
-#: includes/post-types/position.php:249 includes/post-types/project.php:134
+#: includes/private/post-types/position.php:249
+#: includes/private/post-types/project.php:134
 msgid "Start Date"
 msgstr ""
 "Start Date\n"
 
-#: includes/templates/profile.php:85
+#: includes/public/templates/profile/content-profile.php:49
 msgid "Summary"
 msgstr "Summary"
 
-#: includes/post-types/position.php:117
+#: includes/private/post-types/position.php:116
 msgctxt "Taxonomy General Name"
 msgid "Knowledge"
 msgstr "Knowledge"
 
-#: includes/post-types/position.php:154
+#: includes/private/post-types/position.php:153
 msgctxt "Taxonomy General Name"
 msgid "Skills"
 msgstr "Skills"
 
-#: includes/post-types/position.php:118
+#: includes/private/post-types/position.php:117
 msgctxt "Taxonomy Singular Name"
 msgid "Knowledge"
 msgstr "Knowledge"
 
-#: includes/post-types/position.php:155
+#: includes/private/post-types/position.php:154
 msgctxt "Taxonomy Singular Name"
 msgid "Skill"
 msgstr "Skill"
 
-#: includes/classes/meta-boxes/select.php:24
-#: includes/classes/meta-boxes/multiselect.php:24
+#: includes/private/classes/meta-boxes/select.php:24
+#: includes/private/classes/meta-boxes/multiselect.php:24
 msgid "The post_type parameter is required."
 msgstr "The post_type parameter is required."
 
-#: includes/post-types/company.php:75
+#: includes/private/post-types/company.php:75
 msgid "Update Company"
 msgstr "Update Company"
 
-#: includes/post-types/position.php:126
+#: includes/private/post-types/position.php:125
 msgid "Update Knowledge"
 msgstr "Update Knowledge"
 
-#: includes/post-types/position.php:70
+#: includes/private/post-types/position.php:69
 msgid "Update Position"
 msgstr "Update Position"
 
-#: includes/post-types/profile.php:67
+#: includes/private/post-types/profile.php:67
 msgid "Update Profile"
 msgstr "Update Profile"
 
-#: includes/post-types/project.php:67
+#: includes/private/post-types/project.php:67
 msgid "Update Project"
 msgstr "Update Project"
 
-#: includes/post-types/position.php:163
+#: includes/private/post-types/position.php:162
 msgid "Update Skill"
 msgstr "Update Skill"
 
-#: includes/post-types/profile.php:150
+#: includes/private/post-types/profile.php:150
 msgid "Upload the CV in English."
 msgstr "Upload the CV in English."
 
-#: includes/post-types/profile.php:139
+#: includes/private/post-types/profile.php:139
 msgid "Upload the CV in Spanish."
 msgstr "Upload the CV in Spanish."
 
-#: includes/post-types/company.php:86
+#: includes/private/post-types/company.php:86
 msgid "Uploaded to this company"
 msgstr "Uploaded to this company"
 
-#: includes/post-types/position.php:81
+#: includes/private/post-types/position.php:80
 msgid "Uploaded to this position"
 msgstr "Uploaded to this position"
 
-#: includes/post-types/profile.php:78
+#: includes/private/post-types/profile.php:78
 msgid "Uploaded to this profile"
 msgstr "Uploaded to this profile"
 
-#: includes/post-types/project.php:78
+#: includes/private/post-types/project.php:78
 msgid "Uploaded to this project"
 msgstr "Uploaded to this project"
 
-#: includes/post-types/position.php:79 includes/post-types/project.php:76
-#: includes/post-types/company.php:84 includes/post-types/profile.php:76
+#: includes/private/post-types/position.php:78
+#: includes/private/post-types/project.php:76
+#: includes/private/post-types/company.php:84
+#: includes/private/post-types/profile.php:76
 msgid "Use as featured image"
 msgstr "Use as featured image"
 
-#: includes/post-types/company.php:77
+#: includes/private/post-types/company.php:77
 msgid "View Companies"
 msgstr "View Companies"
 
-#: includes/post-types/company.php:76
+#: includes/private/post-types/company.php:76
 msgid "View Company"
 msgstr "View Company"
 
-#: includes/partials/meta-boxes/file.php:24
+#: includes/private/templates/meta-boxes/file.php:24
 msgid "View File"
 msgstr "View File"
 
-#: includes/post-types/position.php:127
+#: includes/private/post-types/position.php:126
 msgid "View Knowledge"
 msgstr "View Knowledge"
 
-#: includes/post-types/position.php:71
+#: includes/private/post-types/position.php:70
 msgid "View Position"
 msgstr "View Position"
 
-#: includes/post-types/position.php:72
+#: includes/private/post-types/position.php:71
 msgid "View Positions"
 msgstr "View Positions"
 
-#: includes/post-types/profile.php:68
+#: includes/private/post-types/profile.php:68
 msgid "View Profile"
 msgstr "View Profile"
 
-#: includes/post-types/profile.php:69
+#: includes/private/post-types/profile.php:69
 msgid "View Profiles"
 msgstr "View Profiles"
 
-#: includes/post-types/project.php:68
+#: includes/private/post-types/project.php:68
 msgid "View Project"
 msgstr "View Project"
 
-#: includes/post-types/project.php:69
+#: includes/private/post-types/project.php:69
 msgid "View Projects"
 msgstr "View Projects"
 
-#: includes/post-types/position.php:164
+#: includes/private/post-types/position.php:163
 msgid "View Skill"
 msgstr "View Skill"
 
-#: includes/templates/positions.php:25
+#: includes/public/templates/position/index.php:27
 msgid "Work experience"
 msgstr "Work experience"

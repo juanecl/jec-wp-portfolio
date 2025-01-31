@@ -17,8 +17,8 @@ class Position_Widget extends WP_Widget {
     public function __construct() {
         parent::__construct(
             'position_widget', // Base ID
-            __('Position Widget', PLUGIN_TEXT_DOMAIN), // Name
-            ['description' => __('A widget to display position information with associated company and projects', PLUGIN_TEXT_DOMAIN),] // Args
+            __('Position Widget', 'jec-portfolio'), // Name
+            ['description' => __('A widget to display position information with associated company and projects', 'jec-portfolio'),] // Args
         );
     }
 
@@ -52,9 +52,9 @@ class Position_Widget extends WP_Widget {
 
         ?>
         <p>
-            <label for="<?php echo esc_attr($this->get_field_id('position_id')); ?>"><?php _e('Select Position:', PLUGIN_TEXT_DOMAIN); ?></label>
+            <label for="<?php echo esc_attr($this->get_field_id('position_id')); ?>"><?php _e('Select Position:', 'jec-portfolio'); ?></label>
             <select class="widefat" id="<?php echo esc_attr($this->get_field_id('position_id')); ?>" name="<?php echo esc_attr($this->get_field_name('position_id')); ?>">
-                <option value=""><?php _e('Select a position', PLUGIN_TEXT_DOMAIN); ?></option>
+                <option value=""><?php _e('Select a position', 'jec-portfolio'); ?></option>
                 <?php foreach ($positions as $position): ?>
                     <option value="<?php echo esc_attr($position->ID); ?>" <?php selected($position_id, $position->ID); ?>><?php echo esc_html($position->post_title); ?></option>
                 <?php endforeach; ?>

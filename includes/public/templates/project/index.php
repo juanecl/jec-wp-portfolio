@@ -13,7 +13,7 @@ $projects = $args['projects'];
 if (!empty($projects)) {
     ?>
     <div class="row mt-5 d-block mb-3">
-        <h5><?php _e('Related projects', PLUGIN_TEXT_DOMAIN); ?></h5>
+        <h5><?php _e('Related projects', 'jec-portfolio'); ?></h5>
     </div>
     <?php
 }

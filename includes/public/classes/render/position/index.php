@@ -33,9 +33,9 @@ class PositionRenderer {
     public static function prepare_position_args($position_id) {
         // Get company details
         $company_id = get_post_meta($position_id, 'wpcf-company_id', true);
-        $company_name = __('No company', PLUGIN_TEXT_DOMAIN);
+        $company_name = __('No company', 'jec-portfolio');
         $company_website = '';
-        $company_category = __('No category', PLUGIN_TEXT_DOMAIN);
+        $company_category = __('No category', 'jec-portfolio');
     
         if ($company_id) {
             $company_post = get_post($company_id);

@@ -46,7 +46,7 @@ abstract class AbstractMetaBoxRenderer {
         if (isset($this->meta_boxes[$type])) {
             $this->meta_boxes[$type]->render($post, $field, $title, $description, $additional_params);
         } else {
-            throw new Exception(sprintf(__('Meta box type not found: %s', PLUGIN_TEXT_DOMAIN), $type));
+            throw new Exception(sprintf(__('Meta box type not found: %s', 'jec-portfolio'), $type));
         }
     }
 
