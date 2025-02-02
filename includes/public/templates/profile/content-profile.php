@@ -12,7 +12,7 @@
             <h2 class="text-white"><?php echo esc_html(get_post_meta($post->ID, 'wpcf-name', true)); ?></h2>
             
             <!-- Display the career information -->
-            <p class="lead text-primary"><?php echo esc_html(get_post_meta($post->ID, 'wpcf-career', true)); ?></p>
+            <h4 class="lead text-primary fw-bolder"><?php echo esc_html(get_post_meta($post->ID, 'wpcf-career', true)); ?></h4>
             
             <hr class="my-4">
             
