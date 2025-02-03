@@ -50,18 +50,18 @@
                 <!-- Language toggle switch -->
                 <div class="text-center mb-2">
                     <div class="d-flex justify-content-center align-items-center position-relative">
-                        <span class="toggle-lang-text" id="toggle-lang-text-en">EN</span>
+                        <span class="toggle-lang-text d-none" id="toggle-lang-text-en">EN</span>
                         <div class="form-check form-switch mx-2">
                             <input class="form-check-input toggle-custom" type="checkbox" id="toggle-lang">
                         </div>
-                        <span class="toggle-lang-text d-none" id="toggle-lang-text-es">ES</span>
+                        <span class="toggle-lang-text" id="toggle-lang-text-es">ES</span>
                     </div>
                 </div>
                 
                 <!-- Bio Content -->
                 <div id="bio-content">
-                    <p class="lang-es d-none text-white"><?php echo wp_kses_post(get_post_meta($post->ID, 'wpcf-bio_es', true)); ?></p>
-                    <p class="lang-en text-white"><?php echo wp_kses_post(get_post_meta($post->ID, 'wpcf-bio_en', true)); ?></p>
+                    <p class="lang-es text-white"><?php echo wp_kses_post(get_post_meta($post->ID, 'wpcf-bio_es', true)); ?></p>
+                    <p class="lang-en d-none text-white"><?php echo wp_kses_post(get_post_meta($post->ID, 'wpcf-bio_en', true)); ?></p>
                 </div>
             </div>
         </div>

@@ -14,7 +14,7 @@
 
 <div class="inside">
     <!-- Display the description -->
-    <p><?php echo esc_html($description); ?></p>
+    <h4><?php echo esc_html($description); ?></h4>
     
     <!-- Render the file input field -->
     <input type="file" id="wpcf-<?php echo esc_attr($field); ?>" name="wpcf-<?php echo esc_attr($field); ?>" value="<?php echo esc_attr($value); ?>" class="large-text">

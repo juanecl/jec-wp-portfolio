@@ -1,48 +1,55 @@
-/**
- * Document ready event listener.
- */
 document.addEventListener('DOMContentLoaded', function() {
-    /**
-     * Toggle the end date field based on the active checkbox state.
-     */
-    function toggleEndDate() {
-        const activeCheckbox = document.getElementById('wpcf-active');
-        const endDateField = document.getElementById('wpcf-end-date');
-
-        if (activeCheckbox && endDateField) {
-            if (activeCheckbox.checked) {
-                endDateField.disabled = true;
-                endDateField.value = '';
-            } else {
-                endDateField.disabled = false;
-            }
-        }
-    }
-
-    // Initialize the toggle state and add event listener for the active checkbox.
-    const activeCheckbox = document.getElementById('wpcf-active');
-    if (activeCheckbox) {
-        toggleEndDate(); // Initial check
-        activeCheckbox.addEventListener('change', toggleEndDate);
-    }
-
-    /**
-     * Hide native WordPress categories and tags for the 'position' post type.
-     */
-    function hideNativeTaxonomies() {
-        const postType = document.querySelector('input[name="post_type"]');
-        if (postType && postType.value === 'position') {
-            const categoriesBox = document.getElementById('categorydiv');
-            const tagsBox = document.getElementById('tagsdiv-post_tag');
-            if (categoriesBox) {
-                categoriesBox.style.display = 'none';
-            }
-            if (tagsBox) {
-                tagsBox.style.display = 'none';
-            }
-        }
-    }
-
-    // Hide native taxonomies on page load.
-    hideNativeTaxonomies();
+    initToggleEndDate();
+    initHideNativeTaxonomies();
 });
+
+/**
+ * Initializes the toggle end date functionality.
+ */
+function initToggleEndDate() {
+    const activeCheckbox = document.getElementById('wpcf-active');
+    const endDateField = document.getElementById('wpcf-end-date');
+
+    if (activeCheckbox && endDateField) {
+        toggleEndDate(activeCheckbox, endDateField); // Initial check
+        activeCheckbox.addEventListener('change', function() {
+            toggleEndDate(activeCheckbox, endDateField);
+        });
+    }
+}
+
+/**
+ * Toggles the end date field based on the active checkbox state.
+ * @param {HTMLElement} activeCheckbox - The active checkbox element.
+ * @param {HTMLElement} endDateField - The end date field element.
+ */
+function toggleEndDate(activeCheckbox, endDateField) {
+    if (activeCheckbox.checked) {
+        endDateField.disabled = true;
+        endDateField.value = '';
+    } else {
+        endDateField.disabled = false;
+    }
+}
+
+/**
+ * Initializes the hide native taxonomies functionality.
+ */
+function initHideNativeTaxonomies() {
+    const postType = document.querySelector('input[name="post_type"]');
+    if (postType && postType.value === 'position') {
+        hideElementById('categorydiv');
+        hideElementById('tagsdiv-post_tag');
+    }
+}
+
+/**
+ * Hides an element by its ID.
+ * @param {string} elementId - The ID of the element to hide.
+ */
+function hideElementById(elementId) {
+    const element = document.getElementById(elementId);
+    if (element) {
+        element.style.display = 'none';
+    }
+}

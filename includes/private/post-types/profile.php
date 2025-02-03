@@ -135,8 +135,7 @@ class ProfilePostType extends AbstractMetaBoxRenderer {
      * @param WP_Post $post The current post object.
      */
     public function render_cv_bio_es_meta_box($post) {
-        wp_nonce_field('save_profile_fields_nonce', 'profile_fields_nonce');
-        $this->render_meta_box('file', $post, 'cv_es', __('CV ES', 'jec-portfolio'), __('Upload the CV in Spanish.', 'jec-portfolio'));
+        $this->render_meta_box('text', $post, 'cv_es', __('CV ES', 'jec-portfolio'), __('Enter the URL of the CV in Spanish.', 'jec-portfolio'));
         $this->render_meta_box('textarea', $post, 'bio_es', __('Bio ES', 'jec-portfolio'), __('Enter the bio in Spanish.', 'jec-portfolio'));
     }
 
@@ -146,8 +145,7 @@ class ProfilePostType extends AbstractMetaBoxRenderer {
      * @param WP_Post $post The current post object.
      */
     public function render_cv_bio_en_meta_box($post) {
-        wp_nonce_field('save_profile_fields_nonce', 'profile_fields_nonce');
-        $this->render_meta_box('file', $post, 'cv_en', __('CV EN', 'jec-portfolio'), __('Upload the CV in English.', 'jec-portfolio'));
+        $this->render_meta_box('text', $post, 'cv_en', __('CV EN', 'jec-portfolio'), __('Enter the URL of the CV in English.', 'jec-portfolio'));
         $this->render_meta_box('textarea', $post, 'bio_en', __('Bio EN', 'jec-portfolio'), __('Enter the bio in English.', 'jec-portfolio'));
     }
 
@@ -157,7 +155,6 @@ class ProfilePostType extends AbstractMetaBoxRenderer {
      * @param WP_Post $post The current post object.
      */
     public function render_social_urls_meta_box($post) {
-        wp_nonce_field('save_profile_fields_nonce', 'profile_fields_nonce');
         $this->render_meta_box('url', $post, 'git_url', __('Git URL', 'jec-portfolio'), __('Enter the Git URL.', 'jec-portfolio'));
         $this->render_meta_box('url', $post, 'linkedin_url', __('LinkedIn URL', 'jec-portfolio'), __('Enter the LinkedIn URL.', 'jec-portfolio'));
         $this->render_meta_box('url', $post, 'stackoverflow_url', __('StackOverflow URL', 'jec-portfolio'), __('Enter the StackOverflow URL.', 'jec-portfolio'));
@@ -169,6 +166,13 @@ class ProfilePostType extends AbstractMetaBoxRenderer {
      * @param int $post_id The ID of the current post.
      */
     public function save_custom_fields($post_id) {
+        // Verificar nonce.
+        if (!isset($_POST['profile_fields_nonce']) || !wp_verify_nonce($_POST['profile_fields_nonce'], 'save_profile_fields_nonce')) {
+            error_log('Nonce verification failed.');
+            return;
+        }
+
+        // Save each field
         $fields = [
             'name', 
             'birthdate', 
@@ -186,6 +190,7 @@ class ProfilePostType extends AbstractMetaBoxRenderer {
         ];
         save_custom_meta_fields($post_id, $fields, 'profile_fields_nonce', 'save_profile_fields_nonce');
     }
+    
 }
 
 // Initialize the class as a singleton

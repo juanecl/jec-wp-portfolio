@@ -23,6 +23,7 @@ The plugin registers several custom post types and taxonomies to manage the port
 ├── README.md
 ├── assets
 │   ├── css
+│   │   ├── position.css
 │   │   └── profile.css
 │   └── js
 │       ├── portfolio.js
@@ -92,7 +93,8 @@ The plugin registers several custom post types and taxonomies to manage the port
     ├── jec-portfolio-en_US.mo
     ├── jec-portfolio-en_US.po
     ├── jec-portfolio-es_ES.mo
-    └── jec-portfolio-es_ES.po
+    ├── jec-portfolio-es_ES.po
+    └── jec-portfolio.pot
 ```
 
 ## Author
