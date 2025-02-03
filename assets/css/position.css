@@ -9,9 +9,9 @@
 }
 /* Class for dark-muted background with padding */
 .bg-dark-muted-padding {
-  padding: 5rem; /* Padding */
-  margin-left: -22px; /* Negative margin left */
-  margin-right: -22px; /* Negative margin right */
+  margin-left: 3rem; /* Negative margin left */
+  margin-right: 3rem; /* Negative margin right */
+  margin-top: 3rem;;
 }
 
 /* Class for toggle description button */

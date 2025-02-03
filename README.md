@@ -25,7 +25,7 @@ The plugin registers several custom post types and taxonomies to manage the port
 │   ├── css
 │   │   └── profile.css
 │   └── js
-│       ├── admin.js
+│       ├── portfolio.js
 │       ├── position.js
 │       └── profile.js
 ├── includes
