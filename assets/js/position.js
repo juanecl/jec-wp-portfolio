@@ -104,10 +104,10 @@ function initToggleDescriptionButtons() {
         }
 
         target.addEventListener('show.bs.collapse', () => {
-            toggleDescriptionIcon.classList.replace('fa-plus-circle', 'fa-minus-circle');
+            toggleDescriptionIcon.classList.replace('fa-plus', 'fa-minus');
         });
         target.addEventListener('hide.bs.collapse', () => {
-            toggleDescriptionIcon.classList.replace('fa-minus-circle', 'fa-plus-circle');
+            toggleDescriptionIcon.classList.replace('fa-minus', 'fa-plus');
         });
 
         const cardHeader = toggleDescriptionButton.closest('.card-header');
@@ -130,13 +130,13 @@ function initCollapseElements() {
         collapseElement.addEventListener('show.bs.collapse', () => {
             const button = document.querySelector(`[data-bs-target="#${collapseElement.id}"]`);
             if (button) {
-                button.classList.replace('fa-plus-circle', 'fa-minus-circle');
+                button.classList.replace('fa-plus', 'fa-minus');
             }
         });
         collapseElement.addEventListener('hidden.bs.collapse', () => {
             const button = document.querySelector(`[data-bs-target="#${collapseElement.id}"]`);
             if (button) {
-                button.classList.replace('fa-minus-circle', 'fa-plus-circle');
+                button.classList.replace('fa-minus', 'fa-plus');
             }
         });
     });

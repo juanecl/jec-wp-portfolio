@@ -14,10 +14,21 @@
 }
 
 /* Class for toggle description button */
-.toggle-description-btn {
+.toggle-description-btn,
+.toggle-description-btn.btn {
   top: 0;
   right: 0;
   margin: 0.5rem;
+  border: none!important;
+}
+.toggle-description-btn:hover,
+.toggle-description-btn:focus,
+.toggle-description-btn:active,
+.toggle-description-btn.btn:first-child:active {
+  background-color: transparent!important;
+  box-shadow: none!important;
+  border: none!important;
+  color: #fff!important;
 }
 
 /* Class for muted text with smaller font size */

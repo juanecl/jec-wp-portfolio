@@ -14,7 +14,7 @@
                             <?php endif; ?>
                         </h6>
                     </span>
-                    <i class="toggle_project fa fa-plus-circle ms-2 cursor-pointer" data-bs-toggle="collapse" data-bs-target="#project-<?php echo esc_attr($project['id']); ?>"></i>
+                    <i class="toggle_project text-secondary fa fa-plus ms-2 cursor-pointer" data-bs-toggle="collapse" data-bs-target="#project-<?php echo esc_attr($project['id']); ?>"></i>
                 </div>
                 <span class="project-dates text-muted mt-2 text-small">
                     <i class="fa fa-calendar text-primary"></i> <?php echo esc_html($project['start_date']); ?> -
