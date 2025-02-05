@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: jec-portfolio
-Plugin URI: https://www.juane.cl
+Plugin URI: https://github.com/juanecl/jec-wp-portfolio
 Description: A plugin to manage portfolios.
 Version: 1.0
 Author: Juan Enrique Chomon Del Campo
