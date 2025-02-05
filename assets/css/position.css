@@ -1,3 +1,7 @@
+.positions-container-fluid {
+  width: 100%;
+}
+
 /* Class for position loop container */
 .position-loop-container {
   border-color: rgba(255, 255, 255, 0.2) !important;
