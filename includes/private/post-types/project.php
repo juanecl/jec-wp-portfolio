@@ -152,7 +152,7 @@ class ProjectPostType extends AbstractMetaBoxRenderer {
      */
     public function save_custom_fields($post_id) {
         // Define the fields to be saved
-        $fields = ['description', 'active', 'start-date', 'end-date', 'url'];
+        $fields = [['description', true], 'active', 'start-date', 'end-date', 'url'];
     
         // Call the external function to save custom meta fields
         save_custom_meta_fields($post_id, $fields, 'project_fields_nonce', 'save_project_fields_nonce');
