@@ -28,7 +28,7 @@
         </div>
         <div class="card-body text-justify">
             <div id="project-<?php echo esc_attr($project['id']); ?>" class="collapse project-description">
-                <?php echo wp_kses_post($project['description']); ?>
+                <?php echo wp_kses_post((string) ($project['description'] ?? '')); ?>
             </div>
         </div>
     </div>

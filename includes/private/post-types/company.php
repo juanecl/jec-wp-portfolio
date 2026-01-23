@@ -7,7 +7,8 @@ require_once plugin_dir_path(__FILE__) . '../classes/meta-box-renderer.php';
  * 
  * This class handles the registration and management of the 'company' custom post type.
  */
-class CompanyPostType extends AbstractMetaBoxRenderer {
+class CompanyPostType extends AbstractMetaBoxRenderer
+{
     private static $instance = null;
 
     /**
@@ -15,7 +16,8 @@ class CompanyPostType extends AbstractMetaBoxRenderer {
      * 
      * Initializes the custom post type by setting up actions and filters.
      */
-    private function __construct() {
+    private function __construct()
+    {
         parent::__construct();
         add_action('init', [$this, 'register_post_type']);
         add_action('add_meta_boxes', [$this, 'add_meta_boxes']);
@@ -30,7 +32,8 @@ class CompanyPostType extends AbstractMetaBoxRenderer {
      * 
      * @return CompanyPostType|null
      */
-    public static function get_instance() {
+    public static function get_instance()
+    {
         if (self::$instance == null) {
             self::$instance = new CompanyPostType();
         }
@@ -46,7 +49,8 @@ class CompanyPostType extends AbstractMetaBoxRenderer {
      * @param string $post_type
      * @return bool
      */
-    public function disable_block_editor($use_block_editor, $post_type) {
+    public function disable_block_editor($use_block_editor, $post_type)
+    {
         if ($post_type === 'company') {
             return false;
         }
@@ -58,7 +62,8 @@ class CompanyPostType extends AbstractMetaBoxRenderer {
      * 
      * Registers the 'company' custom post type with various settings and labels.
      */
-    public function register_post_type() {
+    public function register_post_type()
+    {
         $labels = [
             'name' => _x('Companies', 'Post Type General Name', 'jec-portfolio'),
             'singular_name' => _x('Company', 'Post Type Singular Name', 'jec-portfolio'),
@@ -118,7 +123,8 @@ class CompanyPostType extends AbstractMetaBoxRenderer {
      * 
      * Adds custom meta boxes to the 'company' post type.
      */
-    public function add_meta_boxes() {
+    public function add_meta_boxes()
+    {
         add_meta_box('company_url', __('Company URL', 'jec-portfolio'), [$this, 'render_company_url_meta_box'], 'company', 'normal', 'high');
         add_meta_box('company_category', __('Category', 'jec-portfolio'), [$this, 'render_category_meta_box'], 'company', 'normal', 'high');
     }
@@ -130,7 +136,8 @@ class CompanyPostType extends AbstractMetaBoxRenderer {
      * 
      * @param WP_Post $post The post object.
      */
-    public function render_company_url_meta_box($post) {
+    public function render_company_url_meta_box($post)
+    {
         wp_nonce_field('save_company_fields_nonce', 'company_fields_nonce');
         $this->render_meta_box('url', $post, 'url', __('Company URL', 'jec-portfolio'), __('Enter the URL of the company.', 'jec-portfolio'));
     }
@@ -142,7 +149,8 @@ class CompanyPostType extends AbstractMetaBoxRenderer {
      * 
      * @param WP_Post $post The post object.
      */
-    public function render_category_meta_box($post) {
+    public function render_category_meta_box($post)
+    {
         wp_nonce_field('save_company_fields_nonce', 'company_fields_nonce');
         $this->render_meta_box('text', $post, 'category', __('Category', 'jec-portfolio'), __('Enter the category of the company.', 'jec-portfolio'));
     }
@@ -154,7 +162,8 @@ class CompanyPostType extends AbstractMetaBoxRenderer {
      * 
      * @param int $post_id The ID of the post being saved.
      */
-    public function save_custom_fields($post_id) {
+    public function save_custom_fields($post_id)
+    {
         $fields = ['url', 'category'];
         save_custom_meta_fields($post_id, $fields, 'company_fields_nonce', 'save_company_fields_nonce');
     }

@@ -743,6 +743,14 @@ msgstr "Eliminar imagen destacada"
 msgid "Reset Filters"
 msgstr "Borrar filtros"
 
+#: includes/public/templates/position/index.php:53
+msgid "Download PDF"
+msgstr "Descargar PDF"
+
+#: includes/public/classes/render/position/index.php:142
+msgid "PDF library not available."
+msgstr "La librería de PDF no está disponible."
+
 #: includes/private/post-types/company.php:78
 msgid "Search Company"
 msgstr "Buscar compañía"

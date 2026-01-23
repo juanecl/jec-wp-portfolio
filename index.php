@@ -3,7 +3,7 @@
 Plugin Name: jec-portfolio
 Plugin URI: https://github.com/juanecl/jec-wp-portfolio
 Description: A plugin to manage portfolios.
-Version: 1.0
+Version:1.0.12
 Author: Juan Enrique Chomon Del Campo
 Author URI: https://www.juane.cl
 License: GPL2
@@ -31,6 +31,7 @@ if (!defined('PLUGIN_VERSION')) {
 /**
  * Main class for the JecPortfolio plugin.
  */
+if (!class_exists('JecPortfolio')) {
 class JecPortfolio {
     /**
      * Singleton instance of the class.
@@ -135,6 +136,13 @@ class JecPortfolio {
             $profile_id = intval($atts['id']);
             include plugin_dir_path(__FILE__) . 'includes/public/templates/profile/single-profile.php';
         } elseif ($atts['type'] == 'position') {
+            wp_enqueue_style('position', PLUGIN_ROOT_URL . 'assets/css/position.css', array(), '1.0.0');
+            wp_enqueue_script('position', PLUGIN_ROOT_URL . 'assets/js/position.js', ['jquery'], '1.0.0', true);
+            $ajax_url = admin_url('admin-ajax.php');
+            $download_pdf_label = esc_js(__('Download PDF', 'jec-portfolio'));
+            $inline_script = "window.JEC_PORTFOLIO = window.JEC_PORTFOLIO || {}; window.JEC_PORTFOLIO.ajaxurl = '{$ajax_url}'; window.JEC_PORTFOLIO.i18n = window.JEC_PORTFOLIO.i18n || {}; window.JEC_PORTFOLIO.i18n.downloadPdf = '{$download_pdf_label}'; window.ajaxurl = window.ajaxurl || '{$ajax_url}';";
+            wp_add_inline_script('position', $inline_script);
+
             $position_ids = array();
 
             if (!empty($atts['id'])) {
@@ -148,6 +156,8 @@ class JecPortfolio {
 
         return ob_get_clean();
     }
+}
+
 }
 
 // Initialize the plugin

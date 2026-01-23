@@ -7,13 +7,15 @@ require_once plugin_dir_path(__FILE__) . '../classes/meta-box-renderer.php';
  *
  * This class defines the custom post type "Project" and handles its meta boxes and custom fields.
  */
-class ProjectPostType extends AbstractMetaBoxRenderer {
+class ProjectPostType extends AbstractMetaBoxRenderer
+{
     private static $instance = null;
 
     /**
      * Private constructor to ensure singleton pattern.
      */
-    private function __construct() {
+    private function __construct()
+    {
         parent::__construct();
         add_action('init', [$this, 'register_post_type']);
         add_action('add_meta_boxes', [$this, 'add_meta_boxes']);
@@ -26,7 +28,8 @@ class ProjectPostType extends AbstractMetaBoxRenderer {
      *
      * @return ProjectPostType The singleton instance.
      */
-    public static function get_instance() {
+    public static function get_instance()
+    {
         if (self::$instance == null) {
             self::$instance = new ProjectPostType();
         }
@@ -40,7 +43,8 @@ class ProjectPostType extends AbstractMetaBoxRenderer {
      * @param string $post_type The post type.
      * @return bool Whether to use the block editor.
      */
-    public function disable_block_editor($use_block_editor, $post_type) {
+    public function disable_block_editor($use_block_editor, $post_type)
+    {
         if ($post_type === 'project') {
             return false;
         }
@@ -50,7 +54,8 @@ class ProjectPostType extends AbstractMetaBoxRenderer {
     /**
      * Register the custom post type "Project".
      */
-    public function register_post_type() {
+    public function register_post_type()
+    {
         $labels = [
             'name' => _x('Projects', 'Post Type General Name', 'jec-portfolio'),
             'singular_name' => _x('Project', 'Post Type Singular Name', 'jec-portfolio'),
@@ -108,7 +113,8 @@ class ProjectPostType extends AbstractMetaBoxRenderer {
     /**
      * Add meta boxes for the "project" post type.
      */
-    public function add_meta_boxes() {
+    public function add_meta_boxes()
+    {
         add_meta_box('project_description', __('Description', 'jec-portfolio'), [$this, 'render_description_meta_box'], 'project', 'normal', 'high');
         add_meta_box('project_dates', __('Dates', 'jec-portfolio'), [$this, 'render_dates_meta_box'], 'project', 'side', 'default');
         add_meta_box('project_url', __('Project URL', 'jec-portfolio'), [$this, 'render_url_meta_box'], 'project', 'normal', 'high');
@@ -119,7 +125,8 @@ class ProjectPostType extends AbstractMetaBoxRenderer {
      *
      * @param WP_Post $post The current post object.
      */
-    public function render_description_meta_box($post) {
+    public function render_description_meta_box($post)
+    {
         wp_nonce_field('save_project_fields_nonce', 'project_fields_nonce');
         $this->render_meta_box('textarea', $post, 'description', __('Description', 'jec-portfolio'), __('Enter the description of the project.', 'jec-portfolio'));
     }
@@ -129,7 +136,8 @@ class ProjectPostType extends AbstractMetaBoxRenderer {
      *
      * @param WP_Post $post The current post object.
      */
-    public function render_dates_meta_box($post) {
+    public function render_dates_meta_box($post)
+    {
         wp_nonce_field('save_project_fields_nonce', 'project_fields_nonce');
         $this->render_meta_box('checkbox', $post, 'active', __('Active', 'jec-portfolio'), __('Check if the project is currently active.', 'jec-portfolio'));
         $this->render_meta_box('date', $post, 'start-date', __('Start Date', 'jec-portfolio'), __('Enter the start date for the project.', 'jec-portfolio'));
@@ -141,7 +149,8 @@ class ProjectPostType extends AbstractMetaBoxRenderer {
      *
      * @param WP_Post $post The current post object.
      */
-    public function render_url_meta_box($post) {
+    public function render_url_meta_box($post)
+    {
         wp_nonce_field('save_project_fields_nonce', 'project_fields_nonce');
         $this->render_meta_box('text', $post, 'url', __('Project URL', 'jec-portfolio'), __('Enter the URL for the project.', 'jec-portfolio'));
     }
@@ -151,10 +160,11 @@ class ProjectPostType extends AbstractMetaBoxRenderer {
      *
      * @param int $post_id The ID of the current post.
      */
-    public function save_custom_fields($post_id) {
+    public function save_custom_fields($post_id)
+    {
         // Define the fields to be saved
         $fields = [['description', true], 'active', 'start-date', 'end-date', 'url'];
-    
+
         // Call the external function to save custom meta fields
         save_custom_meta_fields($post_id, $fields, 'project_fields_nonce', 'save_project_fields_nonce');
     }

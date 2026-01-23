@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', function () {
     initSelect2Fields();
     initFilterForm();
     initResetFiltersButton();
+    initPrintPositionsButton();
     initToggleDescriptionButtons();
     initCollapseElements();
     initBadgeClickListeners();
@@ -54,7 +55,12 @@ function initFilterForm() {
  * @param {HTMLElement} positionsContainer - The container to update with the fetched positions.
  */
 function fetchPositions(params, positionsContainer) {
-    const url = `${ajaxurl}?action=filter_positions${params ? '&' + params : ''}`;
+    const ajaxUrl = (window.JEC_PORTFOLIO && window.JEC_PORTFOLIO.ajaxurl) || window.ajaxurl;
+    if (!ajaxUrl) {
+        console.error('ajaxurl is not defined.');
+        return;
+    }
+    const url = `${ajaxUrl}?action=filter_positions${params ? '&' + params : ''}`;
     fetch(url)
         .then(response => response.text())
         .then(data => {
@@ -83,6 +89,79 @@ function initResetFiltersButton() {
             fetchPositions('', document.getElementById('positions-container-fluid'));
         });
     }
+}
+
+/**
+ * Initializes the print/download PDF button functionality.
+ */
+function initPrintPositionsButton() {
+    let printButtons = document.querySelectorAll('.js-print-positions');
+    if (!printButtons.length) {
+        const targetContainer = document.querySelector('#filter-form .col-md-12')
+            || document.querySelector('#positions-container-fluid')
+            || document.querySelector('#position-loop');
+
+        if (targetContainer) {
+            const button = document.createElement('button');
+            button.type = 'button';
+            button.className = 'btn btn-outline-light mx-2 btn-download-pdf js-print-positions';
+            button.style.cssText = 'display:inline-flex;align-items:center;gap:.35rem;border:1px solid #fff;color:#fff;background:transparent;';
+            button.textContent = (window.JEC_PORTFOLIO && window.JEC_PORTFOLIO.i18n && window.JEC_PORTFOLIO.i18n.downloadPdf) || 'Download PDF';
+            targetContainer.appendChild(button);
+            printButtons = document.querySelectorAll('.js-print-positions');
+        }
+    }
+
+    if (!printButtons.length) {
+        return;
+    }
+
+    const getCollapseState = () => Array.from(document.querySelectorAll('.collapse')).map((element) => {
+        return {
+            element,
+            wasShown: element.classList.contains('show'),
+        };
+    });
+
+    const showAllCollapse = (state) => {
+        state.forEach(({ element }) => {
+            element.classList.add('show');
+        });
+    };
+
+    const restoreCollapse = (state) => {
+        state.forEach(({ element, wasShown }) => {
+            if (!wasShown) {
+                element.classList.remove('show');
+            }
+        });
+    };
+
+    printButtons.forEach((printButton) => printButton.addEventListener('click', function (event) {
+        const filterForm = document.getElementById('filter-form');
+        const ajaxUrl = (window.JEC_PORTFOLIO && window.JEC_PORTFOLIO.ajaxurl) || window.ajaxurl;
+        if (!ajaxUrl) {
+            console.error('ajaxurl is not defined.');
+            return;
+        }
+
+        let params = '';
+        if (filterForm) {
+            params = new URLSearchParams(new FormData(filterForm)).toString();
+        }
+
+        const url = `${ajaxUrl}?action=download_positions_pdf${params ? '&' + params : ''}`;
+        if (printButton.tagName && printButton.tagName.toLowerCase() === 'a') {
+            printButton.setAttribute('href', url);
+            return;
+        }
+
+        event.preventDefault();
+        const pdfWindow = window.open(url, '_blank');
+        if (!pdfWindow) {
+            window.location.href = url;
+        }
+    }));
 }
 
 /**

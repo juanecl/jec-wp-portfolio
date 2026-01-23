@@ -64,7 +64,7 @@ foreach ($args as $key => $value) {
             <div class="position-wrapper">
                 <div class="collapse <?php echo $toggle_open; ?> p-4" id="position-content-<?php echo esc_attr($position_id); ?>">
                     <div class="position-description mb-2 py-2 px-3">
-                        <p><?php echo wp_kses_post($position_description); ?></p>
+                        <p><?php echo wp_kses_post((string) ($position_description ?? '')); ?></p>
                     </div>
                     <div class="row mb-4">
                         <div class="col-md-6">

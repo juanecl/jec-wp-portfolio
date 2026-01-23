@@ -102,6 +102,9 @@ function save_custom_meta_fields($post_id, $fields, $nonce_name, $nonce_action) 
             if (isset($_POST[$field_id]) && !empty($_POST[$field_id])) {
                 $value = $_POST[$field_id];
                 if ($is_enriched_text) {
+                    if (!is_string($value)) {
+                        $value = '';
+                    }
                     $value = wp_kses_post($value); // Allow enriched text for this field
                 } else {
                     if (is_array($value)) {

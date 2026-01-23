@@ -741,6 +741,14 @@ msgstr ""
 msgid "Reset Filters"
 msgstr ""
 
+#: includes/public/templates/position/index.php:53
+msgid "Download PDF"
+msgstr ""
+
+#: includes/public/classes/render/position/index.php:142
+msgid "PDF library not available."
+msgstr ""
+
 #: includes/private/post-types/company.php:78
 msgid "Search Company"
 msgstr ""

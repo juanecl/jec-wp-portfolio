@@ -44,3 +44,73 @@
 .company-category-badge {
   font-size: 0.8em;
 }
+
+.btn-download-pdf,
+#print-positions.btn,
+#print-positions {
+  display: inline-flex !important;
+  align-items: center;
+  gap: 0.35rem;
+  border-color: #ffffff;
+  color: #ffffff;
+}
+
+.btn-download-pdf:hover,
+.btn-download-pdf:focus,
+#print-positions.btn:hover,
+#print-positions:hover,
+#print-positions.btn:focus,
+#print-positions:focus {
+  background-color: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+}
+
+@media print {
+  .bg-dark-muted-padding,
+  #filter-form,
+  #reset-filters,
+  #print-positions,
+  .toggle-description-btn {
+    display: none !important;
+  }
+
+  .position-loop-container {
+    max-height: none !important;
+    overflow: visible !important;
+  }
+
+  .collapse {
+    display: block !important;
+    height: auto !important;
+  }
+
+  .card,
+  .card-body {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  #position-loop,
+  #position-loop * {
+    background: #ffffff !important;
+    color: #000000 !important;
+    border-color: #000000 !important;
+    box-shadow: none !important;
+  }
+
+  #position-loop a {
+    color: #000000 !important;
+    text-decoration: underline !important;
+  }
+
+  #position-loop .badge,
+  #position-loop .btn {
+    background: #ffffff !important;
+    color: #000000 !important;
+    border: 1px solid #000000 !important;
+  }
+
+  #position-loop img {
+    filter: grayscale(100%) !important;
+  }
+}

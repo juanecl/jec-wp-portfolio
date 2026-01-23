@@ -7,13 +7,15 @@ require_once plugin_dir_path(__FILE__) . '../classes/meta-box-renderer.php';
  *
  * This class defines the custom post type "Position" and handles its meta boxes and custom fields.
  */
-class PositionPostType extends AbstractMetaBoxRenderer {
+class PositionPostType extends AbstractMetaBoxRenderer
+{
     private static $instance = null;
 
     /**
      * Private constructor to ensure singleton pattern.
      */
-    private function __construct() {
+    private function __construct()
+    {
         parent::__construct();
         add_action('init', [$this, 'register_post_type']);
         add_action('init', [$this, 'register_taxonomies']);
@@ -28,7 +30,8 @@ class PositionPostType extends AbstractMetaBoxRenderer {
      *
      * @return PositionPostType The singleton instance.
      */
-    public static function get_instance() {
+    public static function get_instance()
+    {
         if (self::$instance == null) {
             self::$instance = new PositionPostType();
         }
@@ -42,7 +45,8 @@ class PositionPostType extends AbstractMetaBoxRenderer {
      * @param string $post_type The post type.
      * @return bool Whether to use the block editor.
      */
-    public function disable_block_editor($use_block_editor, $post_type) {
+    public function disable_block_editor($use_block_editor, $post_type)
+    {
         if ($post_type === 'position') {
             return false;
         }
@@ -52,7 +56,8 @@ class PositionPostType extends AbstractMetaBoxRenderer {
     /**
      * Register the custom post type "Position".
      */
-    public function register_post_type() {
+    public function register_post_type()
+    {
         $labels = [
             'name' => _x('Positions', 'Post Type General Name', 'jec-portfolio'),
             'singular_name' => _x('Position', 'Post Type Singular Name', 'jec-portfolio'),
@@ -111,7 +116,8 @@ class PositionPostType extends AbstractMetaBoxRenderer {
     /**
      * Register custom taxonomies for the "position" post type.
      */
-    public function register_taxonomies() {
+    public function register_taxonomies()
+    {
         // Register Knowledge Taxonomy
         $labels = [
             'name' => _x('Knowledge', 'Taxonomy General Name', 'jec-portfolio'),
@@ -190,7 +196,8 @@ class PositionPostType extends AbstractMetaBoxRenderer {
     /**
      * Add meta boxes for the "position" post type.
      */
-    public function add_meta_boxes() {
+    public function add_meta_boxes()
+    {
         add_meta_box('position_description', __('Description', 'jec-portfolio'), [$this, 'render_description_meta_box'], 'position', 'normal', 'high');
         add_meta_box('position_company', __('Company', 'jec-portfolio'), [$this, 'render_company_meta_box'], 'position', 'normal', 'high');
         add_meta_box('position_location', __('Location', 'jec-portfolio'), [$this, 'render_location_meta_box'], 'position', 'normal', 'high');
@@ -204,7 +211,8 @@ class PositionPostType extends AbstractMetaBoxRenderer {
      *
      * @param WP_Post $post The current post object.
      */
-    public function render_projects_meta_box($post) {
+    public function render_projects_meta_box($post)
+    {
         wp_nonce_field('save_position_fields_nonce', 'position_fields_nonce');
         $this->render_meta_box('multiselect', $post, 'project_ids', __('Select Projects', 'jec-portfolio'), __('Select the projects associated with this position.', 'jec-portfolio'), ['post_type' => 'project']);
     }
@@ -214,7 +222,8 @@ class PositionPostType extends AbstractMetaBoxRenderer {
      *
      * @param WP_Post $post The current post object.
      */
-    public function render_description_meta_box($post) {
+    public function render_description_meta_box($post)
+    {
         wp_nonce_field('save_position_fields_nonce', 'position_fields_nonce');
         $this->render_meta_box('textarea', $post, 'description', __('Description', 'jec-portfolio'), __('Enter the description of the position.', 'jec-portfolio'));
     }
@@ -224,7 +233,8 @@ class PositionPostType extends AbstractMetaBoxRenderer {
      *
      * @param WP_Post $post The current post object.
      */
-    public function render_company_meta_box($post) {
+    public function render_company_meta_box($post)
+    {
         wp_nonce_field('save_position_fields_nonce', 'position_fields_nonce');
         $this->render_meta_box('select', $post, 'company_id', __('Select Company', 'jec-portfolio'), __('Select the company associated with this position.', 'jec-portfolio'), ['post_type' => 'company']);
     }
@@ -234,7 +244,8 @@ class PositionPostType extends AbstractMetaBoxRenderer {
      *
      * @param WP_Post $post The current post object.
      */
-    public function render_location_meta_box($post) {
+    public function render_location_meta_box($post)
+    {
         wp_nonce_field('save_position_fields_nonce', 'position_fields_nonce');
         $this->render_meta_box('text', $post, 'location', __('Location', 'jec-portfolio'), __('Enter the location for this position.', 'jec-portfolio'));
     }
@@ -244,7 +255,8 @@ class PositionPostType extends AbstractMetaBoxRenderer {
      *
      * @param WP_Post $post The current post object.
      */
-    public function render_dates_meta_box($post) {
+    public function render_dates_meta_box($post)
+    {
         wp_nonce_field('save_position_fields_nonce', 'position_fields_nonce');
         $this->render_meta_box('checkbox', $post, 'active', __('Active', 'jec-portfolio'), __('Check if the position is currently active.', 'jec-portfolio'));
         $this->render_meta_box('date', $post, 'start-date', __('Start Date', 'jec-portfolio'), __('Enter the start date for the position.', 'jec-portfolio'));
@@ -256,7 +268,8 @@ class PositionPostType extends AbstractMetaBoxRenderer {
      *
      * @param WP_Post $post The current post object.
      */
-    public function render_freelance_meta_box($post) {
+    public function render_freelance_meta_box($post)
+    {
         wp_nonce_field('save_position_fields_nonce', 'position_fields_nonce');
         $this->render_meta_box('checkbox', $post, 'freelance', __('Freelance', 'jec-portfolio'), __('Check if the position is freelance.', 'jec-portfolio'));
     }
@@ -266,7 +279,8 @@ class PositionPostType extends AbstractMetaBoxRenderer {
      *
      * @param int $post_id The ID of the current post.
      */
-    public function save_custom_fields($post_id) {
+    public function save_custom_fields($post_id)
+    {
         // Define the fields to be saved
         $fields = [
             ['description', true], // Enriched text area
@@ -278,7 +292,7 @@ class PositionPostType extends AbstractMetaBoxRenderer {
             'end-date',
             'freelance' // Add freelance field
         ];
-    
+
         // Call the external function to save custom meta fields
         save_custom_meta_fields($post_id, $fields, 'position_fields_nonce', 'save_position_fields_nonce');
     }

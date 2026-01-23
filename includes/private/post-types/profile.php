@@ -7,13 +7,15 @@ require_once plugin_dir_path(__FILE__) . '../classes/meta-box-renderer.php';
  *
  * This class defines the custom post type "Profile" and handles its meta boxes and custom fields.
  */
-class ProfilePostType extends AbstractMetaBoxRenderer {
+class ProfilePostType extends AbstractMetaBoxRenderer
+{
     private static $instance = null;
 
     /**
      * Private constructor to ensure singleton pattern.
      */
-    private function __construct() {
+    private function __construct()
+    {
         parent::__construct();
         add_action('init', [$this, 'register_post_type']);
         add_action('add_meta_boxes', [$this, 'add_meta_boxes']);
@@ -26,7 +28,8 @@ class ProfilePostType extends AbstractMetaBoxRenderer {
      *
      * @return ProfilePostType The singleton instance.
      */
-    public static function get_instance() {
+    public static function get_instance()
+    {
         if (self::$instance == null) {
             self::$instance = new ProfilePostType();
         }
@@ -40,7 +43,8 @@ class ProfilePostType extends AbstractMetaBoxRenderer {
      * @param string $post_type The post type.
      * @return bool Whether to use the block editor.
      */
-    public function disable_block_editor($use_block_editor, $post_type) {
+    public function disable_block_editor($use_block_editor, $post_type)
+    {
         if ($post_type === 'profile') {
             return false;
         }
@@ -50,7 +54,8 @@ class ProfilePostType extends AbstractMetaBoxRenderer {
     /**
      * Register the custom post type "Profile".
      */
-    public function register_post_type() {
+    public function register_post_type()
+    {
         $labels = [
             'name' => _x('Profiles', 'Post Type General Name', 'jec-portfolio'),
             'singular_name' => _x('Profile', 'Post Type Singular Name', 'jec-portfolio'),
@@ -108,7 +113,8 @@ class ProfilePostType extends AbstractMetaBoxRenderer {
     /**
      * Add meta boxes for the "profile" post type.
      */
-    public function add_meta_boxes() {
+    public function add_meta_boxes()
+    {
         add_meta_box('profile_basic_info', __('Basic Information', 'jec-portfolio'), [$this, 'render_basic_info_meta_box'], 'profile', 'normal', 'high');
         add_meta_box('profile_cv_bio_es', __('Bio (ES)', 'jec-portfolio'), [$this, 'render_cv_bio_es_meta_box'], 'profile', 'normal', 'high');
         add_meta_box('profile_cv_bio_en', __('Bio (EN)', 'jec-portfolio'), [$this, 'render_cv_bio_en_meta_box'], 'profile', 'normal', 'high');
@@ -120,7 +126,8 @@ class ProfilePostType extends AbstractMetaBoxRenderer {
      *
      * @param WP_Post $post The current post object.
      */
-    public function render_basic_info_meta_box($post) {
+    public function render_basic_info_meta_box($post)
+    {
         wp_nonce_field('save_profile_fields_nonce', 'profile_fields_nonce');
         $this->render_meta_box('text', $post, 'name', __('Name', 'jec-portfolio'), __('Enter the name.', 'jec-portfolio'));
         $this->render_meta_box('date', $post, 'birthdate', __('Birthdate', 'jec-portfolio'), __('Enter the birthdate.', 'jec-portfolio'));
@@ -135,7 +142,8 @@ class ProfilePostType extends AbstractMetaBoxRenderer {
      *
      * @param WP_Post $post The current post object.
      */
-    public function render_cv_bio_es_meta_box($post) {
+    public function render_cv_bio_es_meta_box($post)
+    {
         $this->render_meta_box('text', $post, 'cv_es', __('CV ES', 'jec-portfolio'), __('Enter the URL of the CV in Spanish.', 'jec-portfolio'));
         $this->render_meta_box('textarea', $post, 'bio_es', __('Bio ES', 'jec-portfolio'), __('Enter the bio in Spanish.', 'jec-portfolio'));
     }
@@ -145,7 +153,8 @@ class ProfilePostType extends AbstractMetaBoxRenderer {
      *
      * @param WP_Post $post The current post object.
      */
-    public function render_cv_bio_en_meta_box($post) {
+    public function render_cv_bio_en_meta_box($post)
+    {
         $this->render_meta_box('text', $post, 'cv_en', __('CV EN', 'jec-portfolio'), __('Enter the URL of the CV in English.', 'jec-portfolio'));
         $this->render_meta_box('textarea', $post, 'bio_en', __('Bio EN', 'jec-portfolio'), __('Enter the bio in English.', 'jec-portfolio'));
     }
@@ -155,7 +164,8 @@ class ProfilePostType extends AbstractMetaBoxRenderer {
      *
      * @param WP_Post $post The current post object.
      */
-    public function render_social_urls_meta_box($post) {
+    public function render_social_urls_meta_box($post)
+    {
         $this->render_meta_box('url', $post, 'git_url', __('Git URL', 'jec-portfolio'), __('Enter the Git URL.', 'jec-portfolio'));
         $this->render_meta_box('url', $post, 'linkedin_url', __('LinkedIn URL', 'jec-portfolio'), __('Enter the LinkedIn URL.', 'jec-portfolio'));
         $this->render_meta_box('url', $post, 'stackoverflow_url', __('StackOverflow URL', 'jec-portfolio'), __('Enter the StackOverflow URL.', 'jec-portfolio'));
@@ -166,32 +176,27 @@ class ProfilePostType extends AbstractMetaBoxRenderer {
      *
      * @param int $post_id The ID of the current post.
      */
-    public function save_custom_fields($post_id) {
-        // Verificar nonce.
-        if (!isset($_POST['profile_fields_nonce']) || !wp_verify_nonce($_POST['profile_fields_nonce'], 'save_profile_fields_nonce')) {
-            error_log('Nonce verification failed.');
-            return;
-        }
-
+    public function save_custom_fields($post_id)
+    {
         // Save each field
         $fields = [
-            'name', 
-            'birthdate', 
-            'phone', 
-            'location', 
-            'email', 
-            'career', 
-            'cv_es', 
+            'name',
+            'birthdate',
+            'phone',
+            'location',
+            'email',
+            'career',
+            'cv_es',
             ['bio_es', true], // enriched text
-            'cv_en', 
+            'cv_en',
             ['bio_en', true], // enriched text
-            'git_url', 
-            'linkedin_url', 
+            'git_url',
+            'linkedin_url',
             'stackoverflow_url'
         ];
         save_custom_meta_fields($post_id, $fields, 'profile_fields_nonce', 'save_profile_fields_nonce');
     }
-    
+
 }
 
 // Initialize the class as a singleton

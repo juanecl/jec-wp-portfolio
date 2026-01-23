@@ -11,6 +11,8 @@ class PositionRenderer {
     private function __construct() {
         add_action('wp_ajax_filter_positions', [ $this, 'filter_positions' ]);
         add_action('wp_ajax_nopriv_filter_positions', [ $this, 'filter_positions' ]);
+        add_action('wp_ajax_download_positions_pdf', [ $this, 'download_positions_pdf' ]);
+        add_action('wp_ajax_nopriv_download_positions_pdf', [ $this, 'download_positions_pdf' ]);
         add_action('wp_enqueue_scripts', [ $this, 'enqueue_position_scripts' ]);
     }
 
@@ -149,6 +151,51 @@ class PositionRenderer {
 
         wp_die();
     }
+
+    /**
+     * Generate and download a PDF for positions based on selected filters.
+     */
+    public function download_positions_pdf() {
+        $autoload = PLUGIN_ROOT_PATH . 'vendor/autoload.php';
+        if (file_exists($autoload)) {
+            require_once $autoload;
+        }
+
+        if (!class_exists('\Dompdf\\Dompdf')) {
+            wp_die(__('PDF library not available.', 'jec-portfolio'));
+        }
+
+        $position_query = new PositionQuery();
+
+        if (isset($_GET['knowledge']) && !empty($_GET['knowledge'])) {
+            $position_query->add_tax_query('knowledge', $_GET['knowledge']);
+        }
+
+        if (isset($_GET['skills']) && !empty($_GET['skills'])) {
+            $position_query->add_tax_query('skills', $_GET['skills']);
+        }
+
+        $positions = $position_query->get_positions();
+
+        ob_start();
+        include PLUGIN_ROOT_PATH . 'includes/public/templates/position/pdf.php';
+        $html = ob_get_clean();
+
+        $options = new \Dompdf\Options();
+        $options->set('isRemoteEnabled', true);
+        $options->set('defaultFont', 'DejaVu Sans');
+
+        $dompdf = new \Dompdf\Dompdf($options);
+        $dompdf->loadHtml($html, 'UTF-8');
+        $dompdf->setPaper('A4', 'portrait');
+        $dompdf->render();
+
+        nocache_headers();
+        header('Content-Type: application/pdf');
+        header('Content-Disposition: inline; filename="positions-' . date('Ymd-His') . '.pdf"');
+        echo $dompdf->output();
+        exit;
+    }
     
     /**
      * Enqueue position scripts.
@@ -157,7 +204,8 @@ class PositionRenderer {
         wp_enqueue_style('position', PLUGIN_ROOT_URL . 'assets/css/position.css', array(), '1.0.0');
         wp_enqueue_script('position', PLUGIN_ROOT_URL . 'assets/js/position.js', ['jquery'], '1.0.0', true);
         $ajax_url = admin_url('admin-ajax.php');
-        $inline_script = "const ajaxurl = '{$ajax_url}';";
+        $download_pdf_label = esc_js(__('Download PDF', 'jec-portfolio'));
+        $inline_script = "window.JEC_PORTFOLIO = window.JEC_PORTFOLIO || {}; window.JEC_PORTFOLIO.ajaxurl = '{$ajax_url}'; window.JEC_PORTFOLIO.i18n = window.JEC_PORTFOLIO.i18n || {}; window.JEC_PORTFOLIO.i18n.downloadPdf = '{$download_pdf_label}'; window.ajaxurl = window.ajaxurl || '{$ajax_url}';";
         wp_add_inline_script('position', $inline_script);
     }
 

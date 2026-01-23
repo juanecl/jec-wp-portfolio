@@ -50,6 +50,14 @@ $position_ids = isset($position_ids) ? $position_ids : array();
             <div class="row mb-1">
                 <div class="col-md-12">
                     <button type="button" id="reset-filters" class="btn btn-secondary mx-2"><?php _e('Reset Filters', 'jec-portfolio'); ?></button>
+                    <a id="print-positions"
+                        class="btn btn-outline-light mx-2 btn-download-pdf js-print-positions"
+                        href="<?php echo esc_url(admin_url('admin-ajax.php?action=download_positions_pdf')); ?>"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        style="display:inline-flex;align-items:center;gap:.35rem;border:1px solid #fff;color:#fff;background:transparent;">
+                        <?php _e('Download PDF', 'jec-portfolio'); ?>
+                    </a>
                 </div>
             </div>
         </form>

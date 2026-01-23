@@ -60,8 +60,8 @@
                 
                 <!-- Bio Content -->
                 <div id="bio-content">
-                    <p class="lang-es text-white"><?php echo wp_kses_post(get_post_meta($post->ID, 'wpcf-bio_es', true)); ?></p>
-                    <p class="lang-en d-none text-white"><?php echo wp_kses_post(get_post_meta($post->ID, 'wpcf-bio_en', true)); ?></p>
+                    <p class="lang-es text-white"><?php echo wp_kses_post((string) (get_post_meta($post->ID, 'wpcf-bio_es', true) ?? '')); ?></p>
+                    <p class="lang-en d-none text-white"><?php echo wp_kses_post((string) (get_post_meta($post->ID, 'wpcf-bio_en', true) ?? '')); ?></p>
                 </div>
             </div>
         </div>

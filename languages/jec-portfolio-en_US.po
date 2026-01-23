@@ -742,6 +742,14 @@ msgstr "Remove featured image"
 msgid "Reset Filters"
 msgstr "Reset Filters"
 
+#: includes/public/templates/position/index.php:53
+msgid "Download PDF"
+msgstr "Download PDF"
+
+#: includes/public/classes/render/position/index.php:142
+msgid "PDF library not available."
+msgstr "PDF library not available."
+
 #: includes/private/post-types/company.php:78
 msgid "Search Company"
 msgstr "Search Company"
@@ -841,8 +849,7 @@ msgstr "StackOverflow URL"
 #: includes/private/post-types/position.php:249
 #: includes/private/post-types/project.php:134
 msgid "Start Date"
-msgstr ""
-"Start Date\n"
+msgstr "Start Date"
 
 #: includes/public/templates/profile/content-profile.php:49
 msgid "Summary"
