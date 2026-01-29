@@ -82,20 +82,20 @@ if [ -z "${VERSION:-}" ]; then
         fi
         VERSION="${MAJOR}.${MINOR}.${PATCH}"
     else
-        VERSION="1.0.0"
+        VERSION="1.0.1"
     fi
 fi
 
 if [ -f "$SOURCE_PLUGIN_MAIN_FILE" ]; then
     sed -i.bak -E "s/^(\s*Version:\s*).*/\1${VERSION}/" "$SOURCE_PLUGIN_MAIN_FILE"
-    sed -i.bak -E "s/^(\s*define\('PLUGIN_VERSION',\s*')[^']*('\);)/\1${VERSION}\2/" "$SOURCE_PLUGIN_MAIN_FILE"
+    sed -i.bak -E "s/^(\s*define\('_S_VERSION',\s*')[^']*('\);)/\1${VERSION}\2/" "$SOURCE_PLUGIN_MAIN_FILE"
     rm -f "${SOURCE_PLUGIN_MAIN_FILE}.bak"
 fi
 
 PLUGIN_MAIN_FILE="${STAGE_DIR}/index.php"
 if [ -f "$PLUGIN_MAIN_FILE" ]; then
     sed -i.bak -E "s/^(\s*Version:\s*).*/\1${VERSION}/" "$PLUGIN_MAIN_FILE"
-    sed -i.bak -E "s/^(\s*define\('PLUGIN_VERSION',\s*')[^']*('\);)/\1${VERSION}\2/" "$PLUGIN_MAIN_FILE"
+    sed -i.bak -E "s/^(\s*define\('_S_VERSION',\s*')[^']*('\);)/\1${VERSION}\2/" "$PLUGIN_MAIN_FILE"
     rm -f "${PLUGIN_MAIN_FILE}.bak"
 fi
 

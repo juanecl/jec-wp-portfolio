@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', function () {
     initPrintPositionsButton();
     initToggleDescriptionButtons();
     initCollapseElements();
+    initHeaderCollapseTriggers();
     initBadgeClickListeners();
 });
 
@@ -65,6 +66,8 @@ function fetchPositions(params, positionsContainer) {
         .then(response => response.text())
         .then(data => {
             positionsContainer.innerHTML = data;
+            initToggleDescriptionButtons();
+            initCollapseElements();
         });
 }
 
@@ -104,9 +107,10 @@ function initPrintPositionsButton() {
         if (targetContainer) {
             const button = document.createElement('button');
             button.type = 'button';
-            button.className = 'btn btn-outline-light mx-2 btn-download-pdf js-print-positions';
+            button.className = 'btn btn-secondary mx-2 btn-download-pdf js-print-positions';
             button.style.cssText = 'display:inline-flex;align-items:center;gap:.35rem;border:1px solid #fff;color:#fff;background:transparent;';
-            button.textContent = (window.JEC_PORTFOLIO && window.JEC_PORTFOLIO.i18n && window.JEC_PORTFOLIO.i18n.downloadPdf) || 'Download PDF';
+            const downloadLabel = (window.JEC_PORTFOLIO && window.JEC_PORTFOLIO.i18n && window.JEC_PORTFOLIO.i18n.downloadPdf) || 'Download';
+            button.innerHTML = `<i class="fa fa-file-pdf btn-icon" aria-hidden="true"></i><span class="btn-text">${downloadLabel}</span>`;
             targetContainer.appendChild(button);
             printButtons = document.querySelectorAll('.js-print-positions');
         }
@@ -170,33 +174,24 @@ function initPrintPositionsButton() {
 function initToggleDescriptionButtons() {
     const toggleDescriptionButtons = document.querySelectorAll('.toggle-description[data-bs-toggle="collapse"]');
     toggleDescriptionButtons.forEach(toggleDescriptionButton => {
-        const toggleDescriptionIcon = toggleDescriptionButton.querySelector('.toggle-icon');
-        const targetSelector = toggleDescriptionButton.getAttribute('href');
+        if (toggleDescriptionButton.dataset.jecInitialized === 'true') {
+            return;
+        }
+        toggleDescriptionButton.dataset.jecInitialized = 'true';
+        const targetSelector = toggleDescriptionButton.getAttribute('data-bs-target')
+            || toggleDescriptionButton.getAttribute('href')
+            || (toggleDescriptionButton.getAttribute('aria-controls')
+                ? `#${toggleDescriptionButton.getAttribute('aria-controls')}`
+                : null);
         if (!targetSelector) {
-            console.error('No target specified for toggle description button:', toggleDescriptionButton);
             return;
         }
         const target = document.querySelector(targetSelector);
         if (!target) {
-            console.error('Target element not found for selector:', targetSelector);
             return;
         }
+        syncCollapseToggleState(target, target.classList.contains('show'));
 
-        target.addEventListener('show.bs.collapse', () => {
-            toggleDescriptionIcon.classList.replace('fa-plus', 'fa-minus');
-        });
-        target.addEventListener('hide.bs.collapse', () => {
-            toggleDescriptionIcon.classList.replace('fa-minus', 'fa-plus');
-        });
-
-        const cardHeader = toggleDescriptionButton.closest('.card-header');
-        if (cardHeader) {
-            cardHeader.addEventListener('click', function (event) {
-                if (!event.target.closest('.toggle-description')) {
-                    toggleDescriptionButton.click();
-                }
-            });
-        }
     });
 }
 
@@ -206,16 +201,72 @@ function initToggleDescriptionButtons() {
 function initCollapseElements() {
     const collapseElements = document.querySelectorAll('.collapse');
     collapseElements.forEach(collapseElement => {
+        if (collapseElement.dataset.jecInitialized === 'true') {
+            return;
+        }
+        collapseElement.dataset.jecInitialized = 'true';
+        syncCollapseToggleState(collapseElement, collapseElement.classList.contains('show'));
         collapseElement.addEventListener('show.bs.collapse', () => {
-            const button = document.querySelector(`[data-bs-target="#${collapseElement.id}"]`);
-            if (button) {
-                button.classList.replace('fa-plus', 'fa-minus');
-            }
+            syncCollapseToggleState(collapseElement, true);
         });
         collapseElement.addEventListener('hidden.bs.collapse', () => {
-            const button = document.querySelector(`[data-bs-target="#${collapseElement.id}"]`);
-            if (button) {
-                button.classList.replace('fa-minus', 'fa-plus');
+            syncCollapseToggleState(collapseElement, false);
+        });
+    });
+}
+
+/**
+ * Syncs toggle elements with a collapse element state.
+ * @param {HTMLElement} collapseElement
+ * @param {boolean} isOpen
+ */
+function syncCollapseToggleState(collapseElement, isOpen) {
+    if (!collapseElement || !collapseElement.id) {
+        return;
+    }
+    const selector = `[data-bs-target="#${collapseElement.id}"], [data-jec-collapse-target="#${collapseElement.id}"]`;
+    const toggles = document.querySelectorAll(selector);
+    toggles.forEach((toggle) => {
+        toggle.classList.toggle('is-open', isOpen);
+        toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+}
+
+/**
+ * Enables collapsing when clicking on position/project headers.
+ */
+function initHeaderCollapseTriggers() {
+    const headers = document.querySelectorAll('[data-jec-collapse-target]');
+    headers.forEach((header) => {
+        if (header.dataset.jecInitialized === 'true') {
+            return;
+        }
+        header.dataset.jecInitialized = 'true';
+
+        const toggleCollapse = () => {
+            const targetSelector = header.getAttribute('data-jec-collapse-target');
+            if (!targetSelector) {
+                return;
+            }
+            const target = document.querySelector(targetSelector);
+            if (!target || typeof bootstrap === 'undefined') {
+                return;
+            }
+            const instance = bootstrap.Collapse.getOrCreateInstance(target, { toggle: false });
+            instance.toggle();
+        };
+
+        header.addEventListener('click', (event) => {
+            if (event.target.closest('a, button, input, textarea, select, [data-bs-toggle="collapse"]')) {
+                return;
+            }
+            toggleCollapse();
+        });
+
+        header.addEventListener('keydown', (event) => {
+            if (event.key === 'Enter' || event.key === ' ') {
+                event.preventDefault();
+                toggleCollapse();
             }
         });
     });

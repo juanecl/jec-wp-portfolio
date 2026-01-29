@@ -1,4 +1,4 @@
-<div class="container-fluid mt-0 p-0">
+<div class="container-fluid mt-0 p-0 jec-profile-shortcode">
     <div class="card bg-secondary ">
         <div class="card-body text-center">
             <!-- Display the profile image if it exists -->

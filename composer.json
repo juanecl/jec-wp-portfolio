@@ -1,0 +1,14 @@
+{
+    "name": "juanecl/jec-wp-portfolio",
+    "description": "WordPress Portfolio Plugin",
+    "type": "wordpress-plugin",
+    "require": {
+        "php": ">=7.4",
+        "dompdf/dompdf": "^2.0"
+    },
+    "autoload": {
+        "classmap": [
+            "includes/"
+        ]
+    }
+}

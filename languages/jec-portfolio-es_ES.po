@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: jec-portfolio 1.0.0\n"
+"Project-Id-Version: jec-portfolio 1.0.1\n"
 "POT-Creation-Date: 2025-01-24 15:11+0000\n"
 "PO-Revision-Date: 2025-01-31 20:01+0000\n"
 "Last-Translator: \n"
@@ -744,8 +744,8 @@ msgid "Reset Filters"
 msgstr "Borrar filtros"
 
 #: includes/public/templates/position/index.php:53
-msgid "Download PDF"
-msgstr "Descargar PDF"
+msgid "Download"
+msgstr "Descargar"
 
 #: includes/public/classes/render/position/index.php:142
 msgid "PDF library not available."

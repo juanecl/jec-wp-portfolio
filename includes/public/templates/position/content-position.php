@@ -30,11 +30,12 @@ if (!isset($positions)) {
         </div>
     </div>
 </div>
-<div id="position-loop" class="overflow-auto mb-2 pt-2 pb-2 mt-1 mb-1 position-loop-container">
+<div id="position-loop" class="mb-2 pt-2 pb-2 mt-1 mb-1 position-loop-container">
     <?php
     // Check if there are any positions to display
     if ($positions->have_posts()) {
         $is_first_iteration = true; // Variable de control para la primera iteración
+        $is_mobile = function_exists('wp_is_mobile') ? wp_is_mobile() : false;
         // Loop through the positions and display each one
         while ($positions->have_posts()) {
             $positions->the_post();
@@ -42,7 +43,7 @@ if (!isset($positions)) {
             // Include the single position template for each position
           
             $container_class = ($positions->current_post % 2 == 0 ? 'even' : 'odd');
-            $toggle_open = $is_first_iteration ? 'show' : ''; // Determinar si el toggle debe estar abierto o cerrado
+            $toggle_open = (!$is_mobile && $is_first_iteration) ? 'show' : ''; // En mobile quedan cerrados
             include plugin_dir_path(__FILE__) . 'single-position.php';
             $is_first_iteration = false; // Marcar que la primera iteración ya ha pasado
         }

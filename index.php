@@ -3,7 +3,7 @@
 Plugin Name: jec-portfolio
 Plugin URI: https://github.com/juanecl/jec-wp-portfolio
 Description: A plugin to manage portfolios.
-Version:1.0.12
+Version:1.0.53
 Author: Juan Enrique Chomon Del Campo
 Author URI: https://www.juane.cl
 License: GPL2
@@ -23,8 +23,12 @@ if (!defined('PLUGIN_ROOT_URL')) {
     define('PLUGIN_ROOT_URL', plugin_dir_url(__FILE__));
 }
 
+if (!defined('_S_VERSION')) {
+    define('_S_VERSION', '1.0.25');
+}
+
 if (!defined('PLUGIN_VERSION')) {
-    define('PLUGIN_VERSION', '1.0');
+    define('PLUGIN_VERSION', _S_VERSION);
 }
 
 
@@ -53,8 +57,6 @@ class JecPortfolio {
     }
 
     /**
-     * Gets the singleton instance of the class.
-     *
      * @return JecPortfolio The singleton instance of the class.
      */
     public static function get_instance() {
@@ -136,10 +138,10 @@ class JecPortfolio {
             $profile_id = intval($atts['id']);
             include plugin_dir_path(__FILE__) . 'includes/public/templates/profile/single-profile.php';
         } elseif ($atts['type'] == 'position') {
-            wp_enqueue_style('position', PLUGIN_ROOT_URL . 'assets/css/position.css', array(), '1.0.0');
-            wp_enqueue_script('position', PLUGIN_ROOT_URL . 'assets/js/position.js', ['jquery'], '1.0.0', true);
+            wp_enqueue_style('position', PLUGIN_ROOT_URL . 'assets/css/position.css', array(), _S_VERSION);
+            wp_enqueue_script('position', PLUGIN_ROOT_URL . 'assets/js/position.js', ['jquery'], _S_VERSION, true);
             $ajax_url = admin_url('admin-ajax.php');
-            $download_pdf_label = esc_js(__('Download PDF', 'jec-portfolio'));
+            $download_pdf_label = esc_js(__('Download', 'jec-portfolio'));
             $inline_script = "window.JEC_PORTFOLIO = window.JEC_PORTFOLIO || {}; window.JEC_PORTFOLIO.ajaxurl = '{$ajax_url}'; window.JEC_PORTFOLIO.i18n = window.JEC_PORTFOLIO.i18n || {}; window.JEC_PORTFOLIO.i18n.downloadPdf = '{$download_pdf_label}'; window.ajaxurl = window.ajaxurl || '{$ajax_url}';";
             wp_add_inline_script('position', $inline_script);
 

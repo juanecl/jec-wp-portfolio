@@ -50,7 +50,13 @@ class PositionRenderer {
     
         // Get position details
         $position_title = get_the_title($position_id);
-        $position_description = get_post_meta($position_id, 'wpcf-description', true);
+        $position_description = get_post_field('post_content', $position_id);
+        if (!is_string($position_description)) {
+            $position_description = '';
+        }
+        if (trim($position_description) === '') {
+            $position_description = get_post_meta($position_id, 'wpcf-description', true);
+        }
         $position_start_date = get_post_meta($position_id, 'wpcf-start-date', true);
         $position_end_date = get_post_meta($position_id, 'wpcf-end-date', true);
         $position_active = get_post_meta($position_id, 'wpcf-active', true);
@@ -201,10 +207,10 @@ class PositionRenderer {
      * Enqueue position scripts.
      */
     public function enqueue_position_scripts() {
-        wp_enqueue_style('position', PLUGIN_ROOT_URL . 'assets/css/position.css', array(), '1.0.0');
-        wp_enqueue_script('position', PLUGIN_ROOT_URL . 'assets/js/position.js', ['jquery'], '1.0.0', true);
+        wp_enqueue_style('position', PLUGIN_ROOT_URL . 'assets/css/position.css', array(), _S_VERSION);
+        wp_enqueue_script('position', PLUGIN_ROOT_URL . 'assets/js/position.js', ['jquery'], _S_VERSION, true);
         $ajax_url = admin_url('admin-ajax.php');
-        $download_pdf_label = esc_js(__('Download PDF', 'jec-portfolio'));
+        $download_pdf_label = esc_js(__('Download', 'jec-portfolio'));
         $inline_script = "window.JEC_PORTFOLIO = window.JEC_PORTFOLIO || {}; window.JEC_PORTFOLIO.ajaxurl = '{$ajax_url}'; window.JEC_PORTFOLIO.i18n = window.JEC_PORTFOLIO.i18n || {}; window.JEC_PORTFOLIO.i18n.downloadPdf = '{$download_pdf_label}'; window.ajaxurl = window.ajaxurl || '{$ajax_url}';";
         wp_add_inline_script('position', $inline_script);
     }

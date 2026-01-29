@@ -15,6 +15,12 @@
     margin-bottom: 20px; /* Add margin at the bottom */
 }
 
+/* Shortcode profile card: remove border and shadow */
+.jec-profile-shortcode .card {
+    border: 0 !important;
+    box-shadow: none !important;
+}
+
 /* Offcanvas tab styling */
 .offcanvas-tab {
     position: fixed; /* Fixed positioning */

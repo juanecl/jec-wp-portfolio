@@ -31,10 +31,13 @@ foreach ($args as $key => $value) {
 
 <div class="container-fluid"> 
     <div class="card mb-4 <?php echo esc_attr($container_class); ?>">
-        <div class="card-header position-relative">
-            <a class="btn text-secondary position-absolute toggle-description toggle-description-btn" data-bs-toggle="collapse" href="#position-content-<?php echo esc_attr($position_id); ?>" role="button" aria-expanded="<?php echo $toggle_open ? 'true' : 'false'; ?>" aria-controls="position-content-<?php echo esc_attr($position_id); ?>">
-                <i class="fa <?php echo $toggle_open ? 'fa-minus' : 'fa-plus'; ?> toggle-icon"></i>
-            </a>
+        <div class="card-header position-relative position-header-toggle jec-collapse-toggle <?php echo $toggle_open ? 'is-open' : ''; ?>" role="button" tabindex="0" data-jec-collapse-target="#position-content-<?php echo esc_attr($position_id); ?>" aria-controls="position-content-<?php echo esc_attr($position_id); ?>" aria-expanded="<?php echo $toggle_open ? 'true' : 'false'; ?>">
+            <button class="btn text-secondary position-absolute toggle-description toggle-description-btn jec-collapse-toggle <?php echo $toggle_open ? 'is-open' : ''; ?>" type="button" data-bs-toggle="collapse" data-bs-target="#position-content-<?php echo esc_attr($position_id); ?>" data-jec-collapse-target="#position-content-<?php echo esc_attr($position_id); ?>" aria-expanded="<?php echo $toggle_open ? 'true' : 'false'; ?>" aria-controls="position-content-<?php echo esc_attr($position_id); ?>">
+                <span class="toggle-icon-wrapper" aria-hidden="true">
+                    <i class="fa fa-plus toggle-icon toggle-icon-plus"></i>
+                    <i class="fa fa-minus toggle-icon toggle-icon-minus"></i>
+                </span>
+            </button>
             <div class="d-flex flex-column">
                 <div class="p-2 mb-2">
                     <h4 class="position-title mb-2">
@@ -63,9 +66,11 @@ foreach ($args as $key => $value) {
         <div class="card-body p-0">
             <div class="position-wrapper">
                 <div class="collapse <?php echo $toggle_open; ?> p-4" id="position-content-<?php echo esc_attr($position_id); ?>">
-                    <div class="position-description mb-2 py-2 px-3">
-                        <p><?php echo wp_kses_post((string) ($position_description ?? '')); ?></p>
-                    </div>
+                    <?php if (!empty($position_description)): ?>
+                        <div class="position-description mb-2 py-2 px-3">
+                            <?php echo apply_filters('the_content', $position_description); ?>
+                        </div>
+                    <?php endif; ?>
                     <div class="row mb-4">
                         <div class="col-md-6">
                             <h5><?php _e('Knowledge', 'jec-portfolio'); ?></h5>

@@ -21,8 +21,8 @@ class PositionPostType extends AbstractMetaBoxRenderer
         add_action('init', [$this, 'register_taxonomies']);
         add_action('add_meta_boxes', [$this, 'add_meta_boxes']);
         add_action('save_post', [$this, 'save_custom_fields']);
-        add_filter('use_block_editor_for_post_type', [$this, 'disable_block_editor'], 10, 2);
         add_action('admin_enqueue_scripts', [$this, 'enqueue_admin_scripts']);
+        add_action('admin_init', [$this, 'maybe_migrate_legacy_description']);
     }
 
     /**
@@ -36,21 +36,6 @@ class PositionPostType extends AbstractMetaBoxRenderer
             self::$instance = new PositionPostType();
         }
         return self::$instance;
-    }
-
-    /**
-     * Disable the block editor for the "position" post type.
-     *
-     * @param bool $use_block_editor Whether to use the block editor.
-     * @param string $post_type The post type.
-     * @return bool Whether to use the block editor.
-     */
-    public function disable_block_editor($use_block_editor, $post_type)
-    {
-        if ($post_type === 'position') {
-            return false;
-        }
-        return $use_block_editor;
     }
 
     /**
@@ -92,7 +77,7 @@ class PositionPostType extends AbstractMetaBoxRenderer
             'label' => __('Position', 'jec-portfolio'),
             'description' => __('Description of the Position post type', 'jec-portfolio'),
             'labels' => $labels,
-            'supports' => ['title', 'thumbnail'],
+            'supports' => ['title', 'editor', 'thumbnail'],
             'hierarchical' => false,
             'public' => true,
             'show_ui' => true,
@@ -198,7 +183,6 @@ class PositionPostType extends AbstractMetaBoxRenderer
      */
     public function add_meta_boxes()
     {
-        add_meta_box('position_description', __('Description', 'jec-portfolio'), [$this, 'render_description_meta_box'], 'position', 'normal', 'high');
         add_meta_box('position_company', __('Company', 'jec-portfolio'), [$this, 'render_company_meta_box'], 'position', 'normal', 'high');
         add_meta_box('position_location', __('Location', 'jec-portfolio'), [$this, 'render_location_meta_box'], 'position', 'normal', 'high');
         add_meta_box('position_projects', __('Projects', 'jec-portfolio'), [$this, 'render_projects_meta_box'], 'position', 'side', 'default');
@@ -215,17 +199,6 @@ class PositionPostType extends AbstractMetaBoxRenderer
     {
         wp_nonce_field('save_position_fields_nonce', 'position_fields_nonce');
         $this->render_meta_box('multiselect', $post, 'project_ids', __('Select Projects', 'jec-portfolio'), __('Select the projects associated with this position.', 'jec-portfolio'), ['post_type' => 'project']);
-    }
-
-    /**
-     * Render the description meta box.
-     *
-     * @param WP_Post $post The current post object.
-     */
-    public function render_description_meta_box($post)
-    {
-        wp_nonce_field('save_position_fields_nonce', 'position_fields_nonce');
-        $this->render_meta_box('textarea', $post, 'description', __('Description', 'jec-portfolio'), __('Enter the description of the position.', 'jec-portfolio'));
     }
 
     /**
@@ -281,9 +254,16 @@ class PositionPostType extends AbstractMetaBoxRenderer
      */
     public function save_custom_fields($post_id)
     {
+        if (get_post_type($post_id) !== 'position') {
+            return;
+        }
+
+        if (wp_is_post_autosave($post_id) || wp_is_post_revision($post_id)) {
+            return;
+        }
+
         // Define the fields to be saved
         $fields = [
-            ['description', true], // Enriched text area
             'company_id',
             'location',
             'project_ids',
@@ -295,6 +275,64 @@ class PositionPostType extends AbstractMetaBoxRenderer
 
         // Call the external function to save custom meta fields
         save_custom_meta_fields($post_id, $fields, 'position_fields_nonce', 'save_position_fields_nonce');
+
+        $content = get_post_field('post_content', $post_id);
+        $legacy_description = get_post_meta($post_id, 'wpcf-description', true);
+
+        if (is_string($content) && trim($content) !== '') {
+            update_post_meta($post_id, 'wpcf-description', wp_kses_post($content));
+            return;
+        }
+
+        if (is_string($legacy_description) && trim($legacy_description) !== '') {
+            remove_action('save_post', [$this, 'save_custom_fields']);
+            wp_update_post([
+                'ID' => $post_id,
+                'post_content' => $legacy_description,
+            ]);
+            add_action('save_post', [$this, 'save_custom_fields']);
+        }
+    }
+
+    /**
+     * Migrate legacy description meta into the editor content for positions.
+     */
+    public function maybe_migrate_legacy_description()
+    {
+        if (!current_user_can('edit_posts')) {
+            return;
+        }
+
+        if (get_option('jec_position_description_migrated', false)) {
+            return;
+        }
+
+        $positions = get_posts([
+            'post_type' => 'position',
+            'post_status' => 'any',
+            'posts_per_page' => -1,
+            'fields' => 'ids',
+            'no_found_rows' => true,
+        ]);
+
+        foreach ($positions as $position_id) {
+            $content = get_post_field('post_content', $position_id);
+            if (is_string($content) && trim($content) !== '') {
+                continue;
+            }
+
+            $legacy_description = get_post_meta($position_id, 'wpcf-description', true);
+            if (!is_string($legacy_description) || trim($legacy_description) === '') {
+                continue;
+            }
+
+            wp_update_post([
+                'ID' => $position_id,
+                'post_content' => $legacy_description,
+            ]);
+        }
+
+        update_option('jec_position_description_migrated', 1);
     }
 }
 

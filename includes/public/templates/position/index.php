@@ -48,15 +48,19 @@ $position_ids = isset($position_ids) ? $position_ids : array();
                 </div>
             </div>
             <div class="row mb-1">
-                <div class="col-md-12">
-                    <button type="button" id="reset-filters" class="btn btn-secondary mx-2"><?php _e('Reset Filters', 'jec-portfolio'); ?></button>
+                <div class="col-md-12 filter-actions">
+                    <button type="button" id="reset-filters" class="btn btn-secondary mx-2">
+                        <i class="fa fa-undo btn-icon" aria-hidden="true"></i>
+                        <span class="btn-text"><?php _e('Reset Filters', 'jec-portfolio'); ?></span>
+                    </button>
                     <a id="print-positions"
-                        class="btn btn-outline-light mx-2 btn-download-pdf js-print-positions"
+                        class="btn btn-secondary mx-2 btn-download-pdf js-print-positions"
                         href="<?php echo esc_url(admin_url('admin-ajax.php?action=download_positions_pdf')); ?>"
                         target="_blank"
                         rel="noopener noreferrer"
-                        style="display:inline-flex;align-items:center;gap:.35rem;border:1px solid #fff;color:#fff;background:transparent;">
-                        <?php _e('Download PDF', 'jec-portfolio'); ?>
+                        >
+                        <i class="fa fa-file-pdf btn-icon" aria-hidden="true"></i>
+                        <span class="btn-text"><?php _e('Download', 'jec-portfolio'); ?></span>
                     </a>
                 </div>
             </div>

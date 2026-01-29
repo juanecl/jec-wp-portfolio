@@ -14,7 +14,7 @@ if (!defined('ABSPATH')) {
 }
 
 function disable_gutenberg_for_custom_post_types($is_enabled, $post_type) {
-    $custom_post_types = ['article', 'profile', 'company', 'project', 'position'];
+    $custom_post_types = ['article', 'profile', 'company', 'project'];
     if (in_array($post_type, $custom_post_types)) {
         return false;
     }

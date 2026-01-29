@@ -12,12 +12,21 @@ if (!defined('ABSPATH')) {
 if (!isset($positions)) {
     return;
 }
+
+$blog_title = get_bloginfo('name');
+$blog_description = get_bloginfo('description');
+$pdf_title_parts = array_filter([
+    $blog_title,
+    $blog_description,
+    __('Trayectoria', 'jec-portfolio'),
+]);
+$pdf_title = implode(' - ', $pdf_title_parts);
 ?>
 <!doctype html>
 <html lang="<?php echo esc_attr(get_locale()); ?>">
 <head>
     <meta charset="utf-8" />
-    <title><?php echo esc_html(__('Work experience', 'jec-portfolio')); ?></title>
+    <title><?php echo esc_html($pdf_title); ?></title>
     <style>
         * { box-sizing: border-box; }
         body {
@@ -51,7 +60,7 @@ if (!isset($positions)) {
     </style>
 </head>
 <body>
-    <h1><?php echo esc_html(__('Work experience', 'jec-portfolio')); ?></h1>
+    <h1><?php echo esc_html($pdf_title); ?></h1>
 
     <?php if ($positions->have_posts()): ?>
         <?php while ($positions->have_posts()): $positions->the_post(); ?>
@@ -66,6 +75,9 @@ if (!isset($positions)) {
                 $active = $args['position_active'];
                 $freelance = $args['freelance'];
                 $description = $args['position_description'];
+                if (is_string($description) && trim($description) !== '') {
+                    $description = apply_filters('the_content', $description);
+                }
                 $knowledge_terms = $args['knowledge_terms'];
                 $skills_terms = $args['skills_terms'];
             ?>
@@ -94,7 +106,7 @@ if (!isset($positions)) {
                 </div>
                 <?php if (!empty($description)): ?>
                     <div class="section">
-                        <?php echo wp_kses_post((string) ($description ?? '')); ?>
+                        <?php echo $description; ?>
                     </div>
                 <?php endif; ?>
                 <div class="section">
